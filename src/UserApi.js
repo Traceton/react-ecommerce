@@ -1,5 +1,14 @@
 import Axios from "axios";
 
+//
+//TODO:
+// MAKE ROUTES MORE SECURE AND CHECK FOR NULL,UNDEFINED,
+// NaN, CORRECT USERNAMES TO LOWERCASE, PASSWORDS,
+// EMAIL, AND PHONE NUMBERS ARE CORRECT.
+//
+//
+//
+
 export let message = "Hello this is the message";
 
 // these functions should contact the react-store-node-api and verify user credentials.

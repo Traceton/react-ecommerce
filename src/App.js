@@ -8,6 +8,8 @@ import { UserContext } from "../src/UserContext";
 import CreateAccount from "./routes/account/components/CreateAccount";
 import UpdateAccount from "./routes/account/components/UpdateAccount";
 
+// TODO: ADD SESSION STORAGE FOR THE USERS, MAKE APP LOOK MORE PROFESSIONAL.
+
 function App() {
   const [authorizedUser, setAuthorizedUser] = useState(null);
 

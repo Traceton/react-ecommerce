@@ -64,7 +64,7 @@ export default function Account({ view }) {
         </h2>
       </div>
     );
-  } else if (isUpdating && view === "authorized") {
+  } else if (authorizedUser && view === "authorized" && isUpdating) {
     displayedUser = <UpdateAccount setisUpdating={setisUpdating} />;
   } else {
     displayedUser = (
