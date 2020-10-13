@@ -9,7 +9,7 @@ export default function Account({ view }) {
   const [isUpdating, setisUpdating] = useState(false);
   // UpdateAccount should be a child of Account
   // <UpdateAccount />;
-  console.log(`view from Account.js-> ${view}`);
+
   // Account should show certain info depending on a "view variable passed to it".
   // if the user looks at their own account, all should be visable.
   // if a user is looking at somebody elses account,
