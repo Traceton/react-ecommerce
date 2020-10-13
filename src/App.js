@@ -6,6 +6,7 @@ import AccountManager from "./routes/account/components/AccountManager";
 import HomeManager from "./routes/home/components/HomeManager";
 import { UserContext } from "../src/UserContext";
 import CreateAccount from "./routes/account/components/CreateAccount";
+import UpdateAccount from "./routes/account/components/UpdateAccount";
 
 function App() {
   const [authorizedUser, setAuthorizedUser] = useState(null);
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/" render={() => <HomeManager />} />
           <Route exact path="/account" render={() => <AccountManager />} />
           <Route exact path="/createAccount" render={() => <CreateAccount />} />
+          <Route exact path="/updateAccount" render={() => <UpdateAccount />} />
         </UserContext.Provider>
       </Router>
     </div>

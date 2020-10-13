@@ -1,9 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+
 // import { UpdateAccount } from "../components/UpdateAccount";
 import "../styles/account.css";
 import { UserContext } from "../../../UserContext";
+import UpdateAccount from "./UpdateAccount";
 export default function Account({ view }) {
   const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
+  const [isUpdating, setisUpdating] = useState(false);
   // UpdateAccount should be a child of Account
   // <UpdateAccount />;
   console.log(`view from Account.js-> ${view}`);
@@ -12,7 +15,7 @@ export default function Account({ view }) {
   // if a user is looking at somebody elses account,
   // (from a item/blog/picture etc posting.) only some info should be visable
   let displayedUser;
-  if (authorizedUser && view === "authorized") {
+  if (authorizedUser && view === "authorized" && !isUpdating) {
     displayedUser = (
       <div className="user">
         <h1>My Account</h1>
@@ -29,6 +32,15 @@ export default function Account({ view }) {
         <h2> {authorizedUser.email} </h2>
         <br />
         <h2> {authorizedUser.phone} </h2>
+        <br />
+        <input
+          value="Update Account"
+          type="button"
+          onClick={() => {
+            setisUpdating(true);
+          }}
+        ></input>
+        <br />
         <input
           value="Logout"
           type="button"
@@ -52,6 +64,8 @@ export default function Account({ view }) {
         </h2>
       </div>
     );
+  } else if (isUpdating && view === "authorized") {
+    displayedUser = <UpdateAccount setisUpdating={setisUpdating} />;
   } else {
     displayedUser = (
       <div className="account">
@@ -59,5 +73,6 @@ export default function Account({ view }) {
       </div>
     );
   }
+
   return <div>{displayedUser}</div>;
 }

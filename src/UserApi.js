@@ -48,7 +48,37 @@ export const loginUser = async (usernameInput, passwordInput) => {
 };
 
 // update user
+export const updateUser = async (
+  usernameInput,
+  passwordInput,
+  firstNameInput,
+  lastNameInput,
+  emailInput,
+  phoneInput
+) => {
+  const updatedUser = await new FormData();
+  updatedUser.append("username", usernameInput);
+  updatedUser.append("password", passwordInput);
+  updatedUser.append("firstName", firstNameInput);
+  updatedUser.append("lastName", lastNameInput);
+  updatedUser.append("email", emailInput);
+  updatedUser.append("phone", phoneInput);
+  try {
+    Axios.patch(
+      `http://localhost:3001/users/updateUser/${usernameInput}`,
+      await updatedUser
+    )
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  } catch (error) {
+    return console.log("UpdateUserApi error");
+  }
 
+  try {
+  } catch (error) {
+    console.log("loginUserApi error");
+  }
+};
 // delete user
 
 // user model below
