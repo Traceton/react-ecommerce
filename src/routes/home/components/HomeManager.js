@@ -1,9 +1,12 @@
 import React from "react";
 
+import Home from "./Home";
+import HomeMain from "./HomeMain";
 export default function HomeManager() {
   return (
     <div>
-      <h1>HomeManager</h1>
+      <Home />
+      <HomeMain />
     </div>
   );
 }
