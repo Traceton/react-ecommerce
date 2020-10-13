@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../../UserContext";
+import "../styles/homeWelcome.css";
 export default function HomeWelcome() {
   const { authorizedUser } = useContext(UserContext);
 
@@ -20,5 +21,5 @@ export default function HomeWelcome() {
     );
   }
 
-  return <div>{displayedWelcome}</div>;
+  return <div className="homeWelcome">{displayedWelcome}</div>;
 }

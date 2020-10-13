@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createUser } from "../../../UserApi";
+import "../styles/createAccount.css";
 
 export default function CreateAccount() {
   const [usernameInput, setUsernameInput] = useState();
@@ -23,7 +24,7 @@ export default function CreateAccount() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="createAccount" onSubmit={handleSubmit}>
         <h1>Create Account</h1>
         <br />
         <label htmlFor="username">Username</label>
