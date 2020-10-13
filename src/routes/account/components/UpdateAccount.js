@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { UserContext } from "../../../UserContext";
 import { updateUser } from "../../../UserApi";
 export default function UpdateAccount({ setisUpdating }) {
-  const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
+  const { authorizedUser } = useContext(UserContext);
 
   const [usernameInput, setUsernameInput] = useState(authorizedUser.username);
   const [passwordInput, setPasswordInput] = useState(authorizedUser.password);
