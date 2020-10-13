@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
+import "./navbar.css";
 import AccountManager from "./routes/account/components/AccountManager";
 import HomeManager from "./routes/home/components/HomeManager";
 import { UserContext } from "../src/UserContext";

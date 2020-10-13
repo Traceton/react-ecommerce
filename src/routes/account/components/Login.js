@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import "../styles/login.css";
 import { loginUser } from "../../../UserApi";
 import { UserContext } from "../../../UserContext";
 
@@ -22,7 +23,7 @@ export default function Login() {
 
   // User login form. Sets username and password states when changed.
   return (
-    <div>
+    <div className="login">
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
@@ -44,7 +45,7 @@ export default function Login() {
         <br />
         <input type="submit" value="Login"></input>
         <br />
-        <a href="/createAccount">Create Account</a>
+        <a href="/createAccount">Create A New Account</a>
       </form>
     </div>
   );

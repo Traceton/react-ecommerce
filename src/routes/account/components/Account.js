@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 // import { UpdateAccount } from "../components/UpdateAccount";
+import "../styles/account.css";
 import { UserContext } from "../../../UserContext";
 export default function Account({ view }) {
   const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
@@ -14,17 +15,20 @@ export default function Account({ view }) {
   if (authorizedUser && view === "authorized") {
     displayedUser = (
       <div className="user">
-        <h1>{authorizedUser.username}</h1>
+        <h1>My Account</h1>
+
+        <hr />
+        <h2>{authorizedUser.username}</h2>
         <br />
-        <h1> {authorizedUser.password} </h1>
+        <h2> {authorizedUser.password} </h2>
         <br />
-        <h1> {authorizedUser.firstName} </h1>
+        <h2> {authorizedUser.firstName} </h2>
         <br />
-        <h1> {authorizedUser.lastName} </h1>
+        <h2> {authorizedUser.lastName} </h2>
         <br />
-        <h1> {authorizedUser.email} </h1>
+        <h2> {authorizedUser.email} </h2>
         <br />
-        <h1> {authorizedUser.phone} </h1>
+        <h2> {authorizedUser.phone} </h2>
         <input
           value="Logout"
           type="button"
@@ -42,16 +46,16 @@ export default function Account({ view }) {
     };
     displayedUser = (
       <div className="user">
-        <h1>
+        <h2>
           {publicInfo.username} <br /> {publicInfo.email} <br />{" "}
           {publicInfo.phone}{" "}
-        </h1>
+        </h2>
       </div>
     );
   } else {
     displayedUser = (
-      <div className="user">
-        <h1>No User was found in Account.js</h1>
+      <div className="account">
+        <h2>No User was found in Account.js</h2>
       </div>
     );
   }
