@@ -84,6 +84,18 @@ export const updateUser = async (
   }
 };
 // delete user
+const deleteUser = async (usernameInput, passwordInput) => {
+  try {
+    Axios.delete(
+      `http://localhost:3001/delete/${usernameInput}/${passwordInput}`
+    ).then((response) => {
+      console.log(response);
+      return response;
+    });
+  } catch (error) {
+    console.log("DeleteUserApi error");
+  }
+};
 
 // user model below
 // username: {
