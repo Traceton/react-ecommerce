@@ -3,16 +3,28 @@ import React, { useContext, useState } from "react";
 // import { UpdateAccount } from "../components/UpdateAccount";
 import "../styles/account.css";
 import { UserContext } from "../../../UserContext";
+import { deleteUser } from "../../../UserApi";
 import UpdateAccount from "./UpdateAccount";
 export default function Account({ view }) {
   const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
   const [isUpdating, setisUpdating] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(0);
   // UpdateAccount should be a child of Account
   // <UpdateAccount />;
 
   // the view cant decide how the user is seen,
   //  because it will be based on the
   // one computer users account, and not the accounts from the api.
+
+  const checkDeleteConfirm = () => {
+    // check and delete if confirmed
+    if (isDeleted > 0) {
+      deleteUser(authorizedUser.username, authorizedUser.password);
+      return setAuthorizedUser(null);
+    } else {
+      return setIsDeleted(isDeleted + 1);
+    }
+  };
 
   // Account should show certain info depending on a "view variable passed to it".
   // if the user looks at their own account, all should be visable.
@@ -23,25 +35,44 @@ export default function Account({ view }) {
     displayedUser = (
       <div className="user">
         <h1>My Account</h1>
-
         <hr />
-        <h2>{authorizedUser.username}</h2>
+        <h2>Username</h2>
         <br />
-        <h2> {authorizedUser.password} </h2>
+        <h3>{authorizedUser.username}</h3>
         <br />
-        <h2> {authorizedUser.firstName} </h2>
+        <h2>Password</h2>
         <br />
-        <h2> {authorizedUser.lastName} </h2>
+        <h3> {authorizedUser.password} </h3>
         <br />
-        <h2> {authorizedUser.email} </h2>
+        <h2>First Name</h2>
         <br />
-        <h2> {authorizedUser.phone} </h2>
+        <h3>{authorizedUser.firstName} </h3>
+        <br />
+        <h2>Last Name</h2>
+        <br />
+        <h3> {authorizedUser.lastName} </h3>
+        <br />
+        <h2>Email</h2>
+        <br />
+        <h3> {authorizedUser.email} </h3>
+        <br />
+        <h2>Phone</h2>
+        <br />
+        <h3> {authorizedUser.phone} </h3>
         <br />
         <input
           value="Update Account"
           type="button"
           onClick={() => {
             setisUpdating(true);
+          }}
+        ></input>
+        <br />
+        <input
+          value="Click twice to delete account"
+          type="button"
+          onClick={() => {
+            checkDeleteConfirm();
           }}
         ></input>
         <br />
@@ -72,11 +103,11 @@ export default function Account({ view }) {
     displayedUser = <UpdateAccount setisUpdating={setisUpdating} />;
   } else {
     displayedUser = (
-      <div className="account">
+      <div className="user">
         <h2>No User was found in Account.js</h2>
       </div>
     );
   }
 
-  return <div>{displayedUser}</div>;
+  return <div className="account">{displayedUser}</div>;
 }
