@@ -38,12 +38,12 @@ export const createUser = async (
 // login user
 export const loginUser = async (usernameInput, passwordInput) => {
   let final;
-  await Axios.get(`http://localhost:3001/users/login/${usernameInput}`).then(
-    async (response) => {
-      //   console.log(response);
-      final = await response.data;
-    }
-  );
+  await Axios.get(
+    `http://localhost:3001/users/login/${usernameInput}/${passwordInput}`
+  ).then(async (response) => {
+    //   console.log(response);
+    final = await response.data;
+  });
   try {
     return final;
   } catch (error) {

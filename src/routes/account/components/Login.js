@@ -16,7 +16,10 @@ export default function Login() {
     // prevents page from refreshing
     e.preventDefault();
     // sets loginStatus as a promise from the UserApis' loginUser function.
-    let loginStatus = await loginUser(usernameInput, passwordInput);
+    let loginStatus = await loginUser(
+      usernameInput.toLowerCase().trim(),
+      passwordInput.toLowerCase().trim()
+    );
     // sets the authorized user for the entire app.
     await setAuthorizedUser(loginStatus);
   };
@@ -27,7 +30,7 @@ export default function Login() {
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
-          type="text"
+          type="username"
           name="username"
           onChange={(e) => {
             setUsernameInput(e.target.value);
@@ -36,7 +39,7 @@ export default function Login() {
         <br />
         <label htmlFor="password">Password</label>
         <input
-          type="text"
+          type="password"
           name="password"
           onChange={(e) => {
             setpasswordInput(e.target.value);
