@@ -1,6 +1,18 @@
 import Axios from "axios";
 
-export let message = "Hello this is the message";
+const ENVIROMENT_OPTIONS = {
+  HEROKU: "heroku",
+  LOCAL: "local",
+};
+
+const ENVIROMENT = ENVIROMENT_OPTIONS.HEROKU;
+
+let API;
+if (ENVIROMENT === "local") {
+  API = "http://localhost:3001";
+} else if (ENVIROMENT === "heroku") {
+  API = "https://react-store-node-api.herokuapp.com";
+}
 
 // these functions should contact the react-store-node-api and verify user credentials.
 
@@ -23,12 +35,10 @@ export const createUser = async (
   newUser.append("userId", Date.now());
   let final;
   try {
-    await Axios.post("http://localhost:3001/users", await newUser).then(
-      async (response) => {
-        console.log(response);
-        final = await response.data;
-      }
-    );
+    await Axios.post(`${API}/users`, await newUser).then(async (response) => {
+      console.log(response);
+      final = await response.data;
+    });
     return final;
   } catch (error) {
     return console.log("UserApi error");
@@ -38,12 +48,12 @@ export const createUser = async (
 // login user
 export const loginUser = async (usernameInput, passwordInput) => {
   let final;
-  await Axios.get(
-    `http://localhost:3001/users/login/${usernameInput}/${passwordInput}`
-  ).then(async (response) => {
-    //   console.log(response);
-    final = await response.data;
-  });
+  await Axios.get(`${API}/users/login/${usernameInput}/${passwordInput}`).then(
+    async (response) => {
+      //   console.log(response);
+      final = await response.data;
+    }
+  );
   try {
     return final;
   } catch (error) {
@@ -68,10 +78,7 @@ export const updateUser = async (
   updatedUser.append("email", emailInput);
   updatedUser.append("phone", phoneInput);
   try {
-    Axios.patch(
-      `http://localhost:3001/users/updateUser/${usernameInput}`,
-      await updatedUser
-    )
+    Axios.patch(`${API}/users/updateUser/${usernameInput}`, await updatedUser)
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
   } catch (error) {
@@ -86,12 +93,12 @@ export const updateUser = async (
 // delete user
 export const deleteUser = async (usernameInput, passwordInput) => {
   try {
-    Axios.delete(
-      `http://localhost:3001/users/delete/${usernameInput}/${passwordInput}`
-    ).then((response) => {
-      console.log(response);
-      return response;
-    });
+    Axios.delete(`${API}/users/delete/${usernameInput}/${passwordInput}`).then(
+      (response) => {
+        console.log(response);
+        return response;
+      }
+    );
   } catch (error) {
     console.log("DeleteUserApi error");
   }
