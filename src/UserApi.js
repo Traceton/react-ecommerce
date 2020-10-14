@@ -1,14 +1,5 @@
 import Axios from "axios";
 
-//
-//TODO:
-// MAKE ROUTES MORE SECURE AND CHECK FOR NULL,UNDEFINED,
-// NaN, CORRECT USERNAMES TO LOWERCASE, PASSWORDS,
-// EMAIL, AND PHONE NUMBERS ARE CORRECT.
-//
-//
-//
-
 export let message = "Hello this is the message";
 
 // these functions should contact the react-store-node-api and verify user credentials.
@@ -30,11 +21,15 @@ export const createUser = async (
   newUser.append("email", emailInput);
   newUser.append("phone", phoneInput);
   newUser.append("userId", Date.now());
-
+  let final;
   try {
-    Axios.post("http://localhost:3001/users", await newUser)
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
+    await Axios.post("http://localhost:3001/users", await newUser).then(
+      async (response) => {
+        console.log(response);
+        final = await response.data;
+      }
+    );
+    return final;
   } catch (error) {
     return console.log("UserApi error");
   }

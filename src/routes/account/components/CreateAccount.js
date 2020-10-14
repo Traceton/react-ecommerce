@@ -1,35 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../../../UserContext";
 import { createUser } from "../../../UserApi";
 import "../styles/createAccount.css";
+import Account from "./Account";
 
 export default function CreateAccount() {
-  const [usernameInput, setUsernameInput] = useState();
-  const [passwordInput, setPasswordInput] = useState();
-  const [firstNameInput, setFirstNameInput] = useState();
-  const [lastNameInput, setLastNameInput] = useState();
-  const [emailInput, setEmailInput] = useState();
-  const [phoneInput, setPhoneInput] = useState();
+  const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
+
+  const [usernameInput, setUsernameInput] = useState(null);
+  const [passwordInput, setPasswordInput] = useState(null);
+  const [firstNameInput, setFirstNameInput] = useState(null);
+  const [lastNameInput, setLastNameInput] = useState(null);
+  const [emailInput, setEmailInput] = useState(null);
+  const [phoneInput, setPhoneInput] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    createUser(
-      usernameInput,
-      passwordInput,
-      firstNameInput,
-      lastNameInput,
-      emailInput,
-      phoneInput
+    const newUser = {
+      username: usernameInput.toLowerCase().trim(),
+      password: passwordInput.trim(),
+      firstName: firstNameInput.toLowerCase().trim(),
+      lastName: lastNameInput.toLowerCase().trim(),
+      email: emailInput.toLowerCase().trim(),
+      phone: phoneInput.trim(),
+    };
+    let createStatus = await createUser(
+      newUser.username,
+      newUser.password,
+      newUser.firstName,
+      newUser.lastName,
+      newUser.email,
+      newUser.phone
     );
+    setAuthorizedUser(createStatus);
   };
 
-  return (
+  let createAccountForm = (
     <div>
       <form className="createAccount" onSubmit={handleSubmit}>
         <h1>Create Account</h1>
         <br />
         <label htmlFor="username">Username</label>
         <input
-          type="text"
+          required
+          type="username"
           name="username"
           onChange={(e) => {
             setUsernameInput(e.target.value);
@@ -38,7 +52,8 @@ export default function CreateAccount() {
         <br />
         <label htmlFor="password">Password</label>
         <input
-          type="text"
+          required
+          type="password"
           name="password"
           onChange={(e) => {
             setPasswordInput(e.target.value);
@@ -47,6 +62,7 @@ export default function CreateAccount() {
         <br />
         <label htmlFor="firstName">FirstName</label>
         <input
+          required
           type="text"
           name="firstName"
           onChange={(e) => {
@@ -56,6 +72,7 @@ export default function CreateAccount() {
         <br />
         <label htmlFor="lastName">LastName</label>
         <input
+          required
           type="text"
           name="lastName"
           onChange={(e) => {
@@ -65,7 +82,8 @@ export default function CreateAccount() {
         <br />
         <label htmlFor="email">Email</label>
         <input
-          type="text"
+          required
+          type="email"
           name="email"
           onChange={(e) => {
             setEmailInput(e.target.value);
@@ -74,7 +92,8 @@ export default function CreateAccount() {
         <br />
         <label htmlFor="phone">Phone</label>
         <input
-          type="text"
+          required
+          type="phone"
           name="phone"
           onChange={(e) => {
             setPhoneInput(e.target.value);
@@ -87,4 +106,14 @@ export default function CreateAccount() {
       </form>
     </div>
   );
+
+  let displayedComponent;
+
+  if (!authorizedUser) {
+    displayedComponent = createAccountForm;
+  } else {
+    displayedComponent = <Account view={"authorized"} />;
+  }
+
+  return <div>{displayedComponent}</div>;
 }

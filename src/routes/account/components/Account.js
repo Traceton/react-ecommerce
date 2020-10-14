@@ -10,6 +10,10 @@ export default function Account({ view }) {
   // UpdateAccount should be a child of Account
   // <UpdateAccount />;
 
+  // the view cant decide how the user is seen,
+  //  because it will be based on the
+  // one computer users account, and not the accounts from the api.
+
   // Account should show certain info depending on a "view variable passed to it".
   // if the user looks at their own account, all should be visable.
   // if a user is looking at somebody elses account,

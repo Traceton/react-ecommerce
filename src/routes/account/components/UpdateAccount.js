@@ -16,12 +16,12 @@ export default function UpdateAccount({ setisUpdating }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     updateUser(
-      usernameInput,
-      passwordInput,
-      firstNameInput,
-      lastNameInput,
-      emailInput,
-      phoneInput
+      usernameInput.toLowerCase().trim(),
+      passwordInput.trim(),
+      firstNameInput.toLowerCase().trim(),
+      lastNameInput.toLowerCase().trim(),
+      emailInput.toLowerCase().trim(),
+      phoneInput.trim()
     );
   };
 
