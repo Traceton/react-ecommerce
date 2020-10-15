@@ -3,9 +3,10 @@
 // save a user to session storage
 export const saveUserToSessionStorage = async (authorizedUser) => {
   const user = await authorizedUser;
+  //   console.log(authorizedUser);
   try {
     if (user) {
-      console.log("User saved to session storage");
+      // console.log("User saved to session storage");
       return sessionStorage.setItem("user", JSON.stringify(user));
     } else {
       return console.error("No user to save in session storage");
@@ -20,7 +21,7 @@ export const removeUserFromSessionStorage = async (authorizedUser) => {
   const user = await authorizedUser;
   try {
     if (user) {
-      console.log("User cleared from session storage");
+      // console.log("User cleared from session storage");
       return sessionStorage.clear("user");
     } else {
       return console.error("Could not find user to remove in session storage");
@@ -37,7 +38,7 @@ export const getUserFromSessionStorage = async () => {
   try {
     if (userFromSessionStorage) {
       //   console.log(userFromSessionStorage);
-      console.log("User Was Found in Session storage");
+      // console.log("User Was Found in Session storage");
       return JSON.parse(userFromSessionStorage);
     } else {
       console.error("No user found in session storage");

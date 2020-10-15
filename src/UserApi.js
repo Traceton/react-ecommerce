@@ -85,17 +85,19 @@ export const updateUser = async (
   updatedUser.append("lastName", lastNameInput);
   updatedUser.append("email", emailInput);
   updatedUser.append("phone", phoneInput);
+
+  let updateUserPromise;
+
   try {
     Axios.patch(`${API}/users/updateUser/${usernameInput}`, await updatedUser)
-      .then((data) => console.log(data))
+      .then(async (data) => {
+        console.log(data);
+        updateUserPromise = await data;
+        return updateUserPromise;
+      })
       .catch((err) => console.log(err));
   } catch (error) {
     return console.log("UpdateUserApi error");
-  }
-
-  try {
-  } catch (error) {
-    console.log("loginUserApi error");
   }
 };
 // delete user
