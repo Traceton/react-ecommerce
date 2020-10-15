@@ -115,6 +115,13 @@ export const deleteUser = async (usernameInput, passwordInput) => {
   }
 };
 
+// check if the users account already exists,
+// check by email is already accosicated with a account,
+// than check if the username is already taken.
+export const checkIfAccountAlreadyExists = async () => {
+  console.log("checking if count already exists.");
+};
+
 // user model below
 // username: {
 //     type: String,
