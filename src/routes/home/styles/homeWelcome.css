@@ -8,7 +8,7 @@
 
 .homeWelcome::before {
   content: "";
-  background-image: url("https://images.unsplash.com/photo-1497492426157-4cacba5991d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+  background-image: url("https://images.unsplash.com/photo-1594299957187-344c1f2b8f6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -17,11 +17,12 @@
   right: 0px;
   bottom: 0px;
   left: 0px;
-  opacity: 0.75;
+  /* opacity: 0.75; */
 }
 
 .homeWelcomeDiv {
   position: relative;
+  color: white;
 }
 
 @media only screen and (max-width: 600px) {
