@@ -24,7 +24,7 @@ export default function UpdateAccount({ setisUpdating }) {
       firstNameInput.toLowerCase().trim(),
       lastNameInput.toLowerCase().trim(),
       emailInput.toLowerCase().trim(),
-      phoneInput.trim()
+      phoneInput
     );
     // trying to get authenticated user to update correctly.
     await setUpdatedUser(updatedUserPromise);
@@ -40,7 +40,7 @@ export default function UpdateAccount({ setisUpdating }) {
           <br />
           <label htmlFor="username">Username</label>
           <input
-            type="text"
+            type="username"
             name="username"
             placeholder={authorizedUser.username}
             onChange={(e) => {
@@ -50,7 +50,7 @@ export default function UpdateAccount({ setisUpdating }) {
           <br />
           <label htmlFor="password">Password</label>
           <input
-            type="text"
+            type="password"
             name="password"
             placeholder={authorizedUser.password}
             onChange={(e) => {
@@ -60,7 +60,7 @@ export default function UpdateAccount({ setisUpdating }) {
           <br />
           <label htmlFor="firstName">FirstName</label>
           <input
-            type="text"
+            type="firstName"
             name="firstName"
             placeholder={authorizedUser.firstName}
             onChange={(e) => {
@@ -70,7 +70,7 @@ export default function UpdateAccount({ setisUpdating }) {
           <br />
           <label htmlFor="lastName">LastName</label>
           <input
-            type="text"
+            type="lastName"
             name="lastName"
             placeholder={authorizedUser.lastName}
             onChange={(e) => {
@@ -80,7 +80,7 @@ export default function UpdateAccount({ setisUpdating }) {
           <br />
           <label htmlFor="email">Email</label>
           <input
-            type="text"
+            type="email"
             name="email"
             placeholder={authorizedUser.email}
             onChange={(e) => {
@@ -90,7 +90,7 @@ export default function UpdateAccount({ setisUpdating }) {
           <br />
           <label htmlFor="phone">Phone</label>
           <input
-            type="text"
+            type="phone"
             name="phone"
             placeholder={authorizedUser.phone}
             onChange={(e) => {
