@@ -21,7 +21,7 @@ export const removeUserFromSessionStorage = async (authorizedUser) => {
   try {
     if (user) {
       console.log("User cleared from session storage");
-      return sessionStorage.clear(user);
+      return sessionStorage.clear("user");
     } else {
       return console.error("Could not find user to remove in session storage");
     }

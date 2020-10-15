@@ -4,6 +4,7 @@ import React, { useContext, useState } from "react";
 import "../styles/account.css";
 import { UserContext } from "../../../UserContext";
 import { deleteUser } from "../../../UserApi";
+import { removeUserFromSessionStorage } from "../../../SessionStorageApi";
 import UpdateAccount from "./UpdateAccount";
 export default function Account({ view }) {
   const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
@@ -80,6 +81,7 @@ export default function Account({ view }) {
           value="Logout"
           type="button"
           onClick={() => {
+            removeUserFromSessionStorage(authorizedUser);
             setAuthorizedUser(null);
           }}
         ></input>
