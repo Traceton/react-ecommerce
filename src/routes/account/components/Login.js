@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import "../styles/login.css";
 import { loginUser } from "../../../UserApi";
+import { saveUserToSessionStorage } from "../../../SessionStorageApi";
 import { UserContext } from "../../../UserContext";
 
 export default function Login() {
@@ -20,6 +21,8 @@ export default function Login() {
       usernameInput.toLowerCase().trim(),
       passwordInput.toLowerCase().trim()
     );
+    // saves user to session storage
+    await saveUserToSessionStorage(loginStatus);
     // sets the authorized user for the entire app.
     await setAuthorizedUser(loginStatus);
   };

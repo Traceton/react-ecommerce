@@ -1,5 +1,10 @@
 import Axios from "axios";
 
+import {
+  saveUserToSessionStorage,
+  removeUserFromSessionStorage,
+} from "./SessionStorageApi";
+
 const ENVIROMENT_OPTIONS = {
   HEROKU: "heroku",
   LOCAL: "local",
@@ -39,6 +44,7 @@ export const createUser = async (
       console.log(response);
       final = await response.data;
     });
+    saveUserToSessionStorage(final);
     return final;
   } catch (error) {
     return console.log("UserApi error");
@@ -55,6 +61,7 @@ export const loginUser = async (usernameInput, passwordInput) => {
     }
   );
   try {
+    saveUserToSessionStorage(final);
     return final;
   } catch (error) {
     console.log("loginUserApi error");
@@ -96,6 +103,7 @@ export const deleteUser = async (usernameInput, passwordInput) => {
     Axios.delete(`${API}/users/delete/${usernameInput}/${passwordInput}`).then(
       (response) => {
         console.log(response);
+        removeUserFromSessionStorage(usernameInput);
         return response;
       }
     );
