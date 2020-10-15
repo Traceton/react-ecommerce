@@ -7,7 +7,7 @@ export default function HomeWelcome() {
   let displayedWelcome;
   if (authorizedUser) {
     displayedWelcome = (
-      <div>
+      <div className="homeWelcomeDiv">
         <h1>Welcome</h1>
         <br />
         <h1> {authorizedUser.username}!</h1>
@@ -15,7 +15,7 @@ export default function HomeWelcome() {
     );
   } else {
     displayedWelcome = (
-      <div>
+      <div className="homeWelcomeDiv">
         <h1>Welcome!</h1>
       </div>
     );
