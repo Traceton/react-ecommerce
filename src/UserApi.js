@@ -11,7 +11,7 @@ const ENVIROMENT_OPTIONS = {
 };
 
 // SET DEVELOPMENT ENVIROMENT HERE
-const ENVIROMENT = ENVIROMENT_OPTIONS.HEROKU;
+const ENVIROMENT = ENVIROMENT_OPTIONS.LOCAL;
 
 let API;
 if (ENVIROMENT === "local") {
@@ -48,7 +48,7 @@ export const createUser = async (
     saveUserToSessionStorage(final);
     return final;
   } catch (error) {
-    return console.log("UserApi error");
+    return console.log("UserApi create user error");
   }
 };
 

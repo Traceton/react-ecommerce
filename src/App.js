@@ -5,11 +5,14 @@ import "./navbar.css";
 import AccountManager from "./routes/account/components/AccountManager";
 import HomeManager from "./routes/home/components/HomeManager";
 import { UserContext } from "./UserContext";
-import { getUserFromSessionStorage } from "./SessionStorageApi";
+import {
+  getUserFromSessionStorage,
+  removeUserFromSessionStorage,
+} from "./SessionStorageApi";
 import CreateAccount from "./routes/account/components/CreateAccount";
 import UpdateAccount from "./routes/account/components/UpdateAccount";
 
-// TODO: ADD SESSION STORAGE FOR THE USERS, MAKE APP LOOK MORE PROFESSIONAL.
+// TODO:  MAKE APP LOOK MORE PROFESSIONAL.
 
 function App() {
   const [authorizedUser, setAuthorizedUser] = useState(null);
@@ -30,7 +33,16 @@ function App() {
     getUserFromStorage();
   }, []);
 
-  // changed project name test comment
+  // clear any user account after 30 minutes
+  const halfHour = 1800000;
+  setTimeout(() => {
+    if (authorizedUser) {
+      removeUserFromSessionStorage(authorizedUser);
+      setAuthorizedUser(null);
+    } else {
+      console.log("30 mins -> no user to clear from storage");
+    }
+  }, halfHour);
 
   return (
     <div className="App">
