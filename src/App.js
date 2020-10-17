@@ -11,6 +11,7 @@ import {
 } from "./SessionStorageApi";
 import CreateAccount from "./routes/account/components/OgCreateAccount";
 import UpdateAccount from "./routes/account/components/UpdateAccount";
+import Login from "./routes/account/components/Login";
 
 function App() {
   // state of any authorized user is contained here.
@@ -57,6 +58,7 @@ function App() {
           <Route exact path="/account" render={() => <AccountManager />} />
           <Route exact path="/createAccount" render={() => <CreateAccount />} />
           <Route exact path="/updateAccount" render={() => <UpdateAccount />} />
+          <Route exact path="/login" render={() => <Login />} />
         </UserContext.Provider>
       </Router>
     </div>
