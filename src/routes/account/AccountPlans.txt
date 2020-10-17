@@ -3,10 +3,18 @@ User Account Plans, guide, and requirements.
 
 <!-- Create a new account -->
 
-The user should be able to create a single account, the user shouldn't be able to create a account if a account with the same username, email, or phone number already exists. If the username already exists, the user should be suggested to try another. If the email already exists, the user should be suggested to login. If the phone number is already in use, the user should be asked to login.
+The user should be able to create a single account, the user shouldn't be able to create a account if a account with the same username, email, or phone number already exists. Username,email,or phone should be autodetected. If the username already exists, the user should be suggested to try another. If the email already exists, the user should be suggested to login. If the phone number is already in use, the user should be asked to login.
 
 <!-- Login to a users account -->
 
-The user should be able to login using either their username, email, or phone + password. If username, email, or phone number is not found.
+The user should be able to login using either their username, email, or phone + password. Username, email or phone should be autodetected. If username, email, or phone number is not found, the user should be suggested to try another. If the username,email, or phone is detected, and the password is incorrect, the user should be notified and offered passsword retrieval through email.
+
+<!-- Update a current account -->
+
+When the user is viewing their own account, they should have the ability to update their account information, By clicking a single button and then having the ability to change all of the information. Once the user updates a certain field and saves their changes, they should be asked to confirm. Then the user should be redirected to view their own account again with the new values they have saved(if any).
+
+<!-- Account View (viewing users own account) -->
+
+When the user is viewing their own account, They should be able to see all of their personal information(except password). They should Be able to see a list of any items they have for sale(which are also links to edit their listings). The user should have a button to click to update their account information.
 
 <!-- still working on this -->
