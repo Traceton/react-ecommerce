@@ -28,8 +28,8 @@ export default function UpdateAccount({ setisUpdating }) {
     );
     // trying to get authenticated user to update correctly.
     await setUpdatedUser(updatedUserPromise);
-    await setAuthorizedUser(updatedUser);
-    await saveUserToSessionStorage(authorizedUser);
+    await setAuthorizedUser(null);
+    await saveUserToSessionStorage(null);
   };
 
   return (

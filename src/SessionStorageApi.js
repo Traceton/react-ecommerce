@@ -41,7 +41,7 @@ export const getUserFromSessionStorage = async () => {
       // console.log("User Was Found in Session storage");
       return JSON.parse(userFromSessionStorage);
     } else {
-      console.error("No user found in session storage");
+      // console.error("No user found in session storage");
     }
   } catch (error) {
     console.error("Could not get user from session storage ");
