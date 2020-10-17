@@ -21,4 +21,9 @@ When the user is viewing their own account, They should be able to see all of th
 
 When the public profile of a user is being viewed, only the username, city,state,country should be accessable from the api. The option to send the user a message should also be possible.
 
-<!-- still working on this -->
+<!-- Account View (In a listing) -->
+
+When a item is listed, the seller should specify what contact info to share. But the sellers username, Profile picture, the ability to send the seller a message, and a link to the sellers public profile should always be present.
+
+Updated Oct 17, 2020.
+Traceton Timmerman
