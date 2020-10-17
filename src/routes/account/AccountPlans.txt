@@ -1,0 +1,12 @@
+User Account Plans, guide, and requirements.
+/Account route and child components.
+
+<!-- Create a new account -->
+
+The user should be able to create a single account, the user shouldn't be able to create a account if a account with the same username, email, or phone number already exists. If the username already exists, the user should be suggested to try another. If the email already exists, the user should be suggested to login. If the phone number is already in use, the user should be asked to login.
+
+<!-- Login to a users account -->
+
+The user should be able to login using either their username, email, or phone + password. If username, email, or phone number is not found.
+
+<!-- still working on this -->

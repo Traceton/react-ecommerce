@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../../UserContext";
 import { updateUser } from "../../../UserApi";
-import { saveUserToSessionStorage } from "../../../SessionStorageApi";
+// import { saveUserToSessionStorage } from "../../../SessionStorageApi";
 import "../styles/updateAccount.css";
 export default function UpdateAccount({ setisUpdating }) {
-  const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
+  const { authorizedUser } = useContext(UserContext);
 
   const [usernameInput, setUsernameInput] = useState(authorizedUser.username);
   const [passwordInput, setPasswordInput] = useState(authorizedUser.password);
@@ -15,10 +15,10 @@ export default function UpdateAccount({ setisUpdating }) {
   const [emailInput, setEmailInput] = useState(authorizedUser.email);
   const [phoneInput, setPhoneInput] = useState(authorizedUser.phone);
 
-  const [updatedUser, setUpdatedUser] = useState(authorizedUser);
+  // const [updatedUser, setUpdatedUser] = useState(authorizedUser);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedUserPromise = await updateUser(
+    await updateUser(
       usernameInput.toLowerCase().trim(),
       passwordInput.trim(),
       firstNameInput.toLowerCase().trim(),
@@ -27,9 +27,9 @@ export default function UpdateAccount({ setisUpdating }) {
       phoneInput
     );
     // trying to get authenticated user to update correctly.
-    await setUpdatedUser(updatedUserPromise);
-    await setAuthorizedUser(null);
-    await saveUserToSessionStorage(null);
+    // await setUpdatedUser(updatedUserPromise);
+    // await setAuthorizedUser(null);
+    // await saveUserToSessionStorage(null);
   };
 
   return (
