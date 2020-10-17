@@ -15,6 +15,10 @@ When the user is viewing their own account, they should have the ability to upda
 
 <!-- Account View (viewing users own account) -->
 
-When the user is viewing their own account, They should be able to see all of their personal information(except password). They should Be able to see a list of any items they have for sale(which are also links to edit their listings). The user should have a button to click to update their account information.
+When the user is viewing their own account, They should be able to see all of their personal information(except password). They should Be able to see a list of any items they have for sale(which are also links to edit or view their listings). The user should have a button to click to update their account information. The user should have the ability to delete their account, with a extra username/email/phone + password confirmation. The user should be able to recieve messages associated with items they have listed for sale and a user who is sending them(with or without the user having a account.)
+
+<!-- Account View (Public Profile) -->
+
+When the public profile of a user is being viewed, only the username, city,state,country should be accessable from the api. The option to send the user a message should also be possible.
 
 <!-- still working on this -->
