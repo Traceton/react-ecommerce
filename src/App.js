@@ -9,7 +9,7 @@ import {
   getUserFromSessionStorage,
   removeUserFromSessionStorage,
 } from "./SessionStorageApi";
-import CreateAccount from "./routes/account/components/OgCreateAccount";
+import CreateAccount from "./routes/account/components/CreateAccount";
 import UpdateAccount from "./routes/account/components/UpdateAccount";
 import Login from "./routes/account/components/Login";
 

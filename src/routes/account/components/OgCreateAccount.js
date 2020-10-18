@@ -4,7 +4,7 @@ import { createUser } from "../../../UserApi";
 import "../styles/createAccount.css";
 import Account from "./Account";
 
-export default function CreateAccount() {
+export default function OgCreateAccount() {
   const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
 
   const [usernameInput, setUsernameInput] = useState(null);
