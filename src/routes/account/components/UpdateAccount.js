@@ -1,31 +1,27 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { UserContext } from "../../../UserContext";
 import { updateUser } from "../../../UserApi";
 // import { saveUserToSessionStorage } from "../../../SessionStorageApi";
+import useForm from "../../../utils/useForm";
 import "../styles/updateAccount.css";
 export default function UpdateAccount({ setisUpdating }) {
   const { authorizedUser } = useContext(UserContext);
 
-  const [usernameInput, setUsernameInput] = useState(authorizedUser.username);
-  const [passwordInput, setPasswordInput] = useState(authorizedUser.password);
-  const [firstNameInput, setFirstNameInput] = useState(
-    authorizedUser.firstName
-  );
-  const [lastNameInput, setLastNameInput] = useState(authorizedUser.lastName);
-  const [emailInput, setEmailInput] = useState(authorizedUser.email);
-  const [phoneInput, setPhoneInput] = useState(authorizedUser.phone);
+  const initialState = {
+    username: authorizedUser.username,
+    password: authorizedUser.password,
+    firstName: authorizedUser.firstName,
+    lastName: authorizedUser.lastName,
+    email: authorizedUser.email,
+    phone: authorizedUser.phone,
+  };
+
+  const [values, handleChange] = useForm(initialState);
 
   // const [updatedUser, setUpdatedUser] = useState(authorizedUser);
-  const handleSubmit = async (e) => {
+  const updateAccount = async (e) => {
     e.preventDefault();
-    await updateUser(
-      usernameInput.toLowerCase().trim(),
-      passwordInput.trim(),
-      firstNameInput.toLowerCase().trim(),
-      lastNameInput.toLowerCase().trim(),
-      emailInput.toLowerCase().trim(),
-      phoneInput
-    );
+    await updateUser(values);
     // trying to get authenticated user to update correctly.
     // await setUpdatedUser(updatedUserPromise);
     // await setAuthorizedUser(null);
@@ -35,67 +31,61 @@ export default function UpdateAccount({ setisUpdating }) {
   return (
     <div>
       <div className="updateAccount">
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={updateAccount}>
           <h1>Update Account</h1>
           <br />
           <label htmlFor="username">Username</label>
           <input
             type="username"
             name="username"
+            value={values.username || ""}
             placeholder={authorizedUser.username}
-            onChange={(e) => {
-              setUsernameInput(e.target.value);
-            }}
+            onChange={handleChange}
           ></input>
           <br />
           <label htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
+            value={values.password || ""}
             placeholder={authorizedUser.password}
-            onChange={(e) => {
-              setPasswordInput(e.target.value);
-            }}
+            onChange={handleChange}
           ></input>
           <br />
           <label htmlFor="firstName">FirstName</label>
           <input
             type="firstName"
             name="firstName"
+            value={values.firstName || ""}
             placeholder={authorizedUser.firstName}
-            onChange={(e) => {
-              setFirstNameInput(e.target.value);
-            }}
+            onChange={handleChange}
           ></input>
           <br />
           <label htmlFor="lastName">LastName</label>
           <input
             type="lastName"
             name="lastName"
+            value={values.lastName || ""}
             placeholder={authorizedUser.lastName}
-            onChange={(e) => {
-              setLastNameInput(e.target.value);
-            }}
+            onChange={handleChange}
           ></input>
           <br />
           <label htmlFor="email">Email</label>
           <input
             type="email"
             name="email"
+            value={values.email || ""}
             placeholder={authorizedUser.email}
-            onChange={(e) => {
-              setEmailInput(e.target.value);
-            }}
+            onChange={handleChange}
           ></input>
           <br />
           <label htmlFor="phone">Phone</label>
           <input
             type="phone"
             name="phone"
+            value={values.phone || ""}
             placeholder={authorizedUser.phone}
-            onChange={(e) => {
-              setPhoneInput(e.target.value);
-            }}
+            onChange={handleChange}
           ></input>
           <br />
           <input type="submit" value="Update Account"></input>

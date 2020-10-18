@@ -11,7 +11,7 @@ const ENVIROMENT_OPTIONS = {
 };
 
 // SET DEVELOPMENT ENVIROMENT HERE
-const ENVIROMENT = ENVIROMENT_OPTIONS.HEROKU;
+const ENVIROMENT = ENVIROMENT_OPTIONS.LOCAL;
 
 let API;
 if (ENVIROMENT === "local") {
@@ -23,21 +23,14 @@ if (ENVIROMENT === "local") {
 // these functions should contact the react-store-node-api and verify user credentials.
 
 // create user
-export const createUser = async (
-  usernameInput,
-  passwordInput,
-  firstNameInput,
-  lastNameInput,
-  emailInput,
-  phoneInput
-) => {
+export const createUser = async (userInfo) => {
   const newUser = await new FormData();
-  newUser.append("username", usernameInput);
-  newUser.append("password", passwordInput);
-  newUser.append("firstName", firstNameInput);
-  newUser.append("lastName", lastNameInput);
-  newUser.append("email", emailInput);
-  newUser.append("phone", phoneInput);
+  newUser.append("username", userInfo.username.toLowerCase().trim());
+  newUser.append("password", userInfo.password.trim());
+  newUser.append("firstName", userInfo.firstName.toLowerCase().trim());
+  newUser.append("lastName", userInfo.lastName.toLowerCase().trim());
+  newUser.append("email", userInfo.email.toLowerCase().trim());
+  newUser.append("phone", userInfo.phone.trim());
   newUser.append("userId", Date.now());
   let final;
   try {
@@ -53,14 +46,14 @@ export const createUser = async (
 };
 
 // login user
-export const loginUser = async (usernameInput, passwordInput) => {
+export const loginUser = async (userInfo) => {
   let final;
-  await Axios.get(`${API}/users/login/${usernameInput}/${passwordInput}`).then(
-    async (response) => {
-      //   console.log(response);
-      final = await response.data;
-    }
-  );
+  await Axios.get(
+    `${API}/users/login/${userInfo.username}/${userInfo.password}`
+  ).then(async (response) => {
+    //   console.log(response);
+    final = await response.data;
+  });
   try {
     saveUserToSessionStorage(final);
     return final;
@@ -70,26 +63,23 @@ export const loginUser = async (usernameInput, passwordInput) => {
 };
 
 // update user
-export const updateUser = async (
-  usernameInput,
-  passwordInput,
-  firstNameInput,
-  lastNameInput,
-  emailInput,
-  phoneInput
-) => {
+export const updateUser = async (userInfo) => {
   const updatedUser = await new FormData();
-  updatedUser.append("username", usernameInput);
-  updatedUser.append("password", passwordInput);
-  updatedUser.append("firstName", firstNameInput);
-  updatedUser.append("lastName", lastNameInput);
-  updatedUser.append("email", emailInput);
-  updatedUser.append("phone", phoneInput);
+  updatedUser.append("username", userInfo.username.toLowerCase().trim());
+  updatedUser.append("password", userInfo.password.trim());
+  updatedUser.append("firstName", userInfo.firstName.toLowerCase().trim());
+  updatedUser.append("lastName", userInfo.lastName.toLowerCase().trim());
+  updatedUser.append("email", userInfo.email.toLowerCase().trim());
+  updatedUser.append("phone", userInfo.phone.trim());
+  updatedUser.append("userId", Date.now());
 
   let updateUserPromise;
 
   try {
-    Axios.patch(`${API}/users/updateUser/${usernameInput}`, await updatedUser)
+    Axios.patch(
+      `${API}/users/updateUser/${userInfo.username.toLowerCase().trim()}`,
+      await updatedUser
+    )
       .then(async (data) => {
         console.log(data);
         updateUserPromise = await data;
