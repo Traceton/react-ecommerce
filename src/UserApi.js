@@ -11,7 +11,7 @@ const ENVIROMENT_OPTIONS = {
 };
 
 // SET DEVELOPMENT ENVIROMENT HERE
-const ENVIROMENT = ENVIROMENT_OPTIONS.LOCAL;
+const ENVIROMENT = ENVIROMENT_OPTIONS.HEROKU;
 
 let API;
 if (ENVIROMENT === "local") {
@@ -54,7 +54,9 @@ export const createUser = async (userInfo) => {
 export const loginUser = async (userInfo) => {
   let final;
   await Axios.get(
-    `${API}/users/login/${userInfo.username}/${userInfo.password}`
+    `${API}/users/login/${userInfo.username
+      .toLowerCase()
+      .trim()}/${userInfo.password.toLowerCase().trim()}`
   ).then(async (response) => {
     //   console.log(response);
     final = await response.data;
