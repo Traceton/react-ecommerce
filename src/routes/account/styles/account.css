@@ -19,21 +19,32 @@
   text-align: center;
 }
 
-.user input {
-  border-style: none;
-  border-radius: 10%;
-  height: 2.5em;
-  background-color: #333;
-  margin: 0.5em;
-  padding: 1em;
-}
-
 .user hr {
   width: 50%;
   text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
+  .user h2,
+  user h3 {
+    height: 0.1em;
+  }
+  .user input {
+    border-style: none;
+    border-radius: 10%;
+    height: 0.1em;
+    background-color: #333;
+    margin: 0.5em;
+    padding: 1em;
+  }
 }
 @media only screen and (min-width: 600px) {
+  .user input {
+    border-style: none;
+    border-radius: 10%;
+    height: 1em;
+    background-color: #333;
+    margin: 0.5em;
+    padding: 1em;
+  }
 }
