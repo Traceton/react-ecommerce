@@ -34,7 +34,7 @@ export default function Account({ view }) {
   let displayedUser;
   if (authorizedUser && view === "authorized" && !isUpdating) {
     displayedUser = (
-      <div className="user">
+      <div>
         <div>
           <img
             className="userImage"
@@ -42,56 +42,58 @@ export default function Account({ view }) {
             alt="temp profile img"
           />
         </div>
-        <h1>My Account</h1>
-        <hr />
-        <h2>Username</h2>
-        <br />
-        <h3>{authorizedUser.username}</h3>
-        <br />
-        <h2>Password</h2>
-        <br />
-        <h3> {authorizedUser.password} </h3>
-        <br />
-        <h2>First Name</h2>
-        <br />
-        <h3>{authorizedUser.firstName} </h3>
-        <br />
-        <h2>Last Name</h2>
-        <br />
-        <h3> {authorizedUser.lastName} </h3>
-        <br />
-        <h2>Email</h2>
-        <br />
-        <h3> {authorizedUser.email} </h3>
-        <br />
-        <h2>Phone</h2>
-        <br />
-        <h3> {authorizedUser.phone} </h3>
-        <br />
-        <input
-          value="Update Account"
-          type="button"
-          onClick={() => {
-            setisUpdating(true);
-          }}
-        ></input>
-        <br />
-        <input
-          value="Click twice to delete account"
-          type="button"
-          onClick={() => {
-            checkDeleteConfirm();
-          }}
-        ></input>
-        <br />
-        <input
-          value="Logout"
-          type="button"
-          onClick={() => {
-            removeUserFromSessionStorage(authorizedUser);
-            setAuthorizedUser(null);
-          }}
-        ></input>
+        <div className="user">
+          <h1>My Account</h1>
+          <hr />
+          <h2>Username</h2>
+          <br />
+          <h3>{authorizedUser.username}</h3>
+          <br />
+          <h2>Password</h2>
+          <br />
+          <h3> {authorizedUser.password} </h3>
+          <br />
+          <h2>First Name</h2>
+          <br />
+          <h3>{authorizedUser.firstName} </h3>
+          <br />
+          <h2>Last Name</h2>
+          <br />
+          <h3> {authorizedUser.lastName} </h3>
+          <br />
+          <h2>Email</h2>
+          <br />
+          <h3> {authorizedUser.email} </h3>
+          <br />
+          <h2>Phone</h2>
+          <br />
+          <h3> {authorizedUser.phone} </h3>
+          <br />
+          <input
+            value="Update Account"
+            type="button"
+            onClick={() => {
+              setisUpdating(true);
+            }}
+          ></input>
+          <br />
+          <input
+            value="Click twice to delete account"
+            type="button"
+            onClick={() => {
+              checkDeleteConfirm();
+            }}
+          ></input>
+          <br />
+          <input
+            value="Logout"
+            type="button"
+            onClick={() => {
+              removeUserFromSessionStorage(authorizedUser);
+              setAuthorizedUser(null);
+            }}
+          ></input>
+        </div>
       </div>
     );
   } else if (authorizedUser && view === "un-authorized") {
