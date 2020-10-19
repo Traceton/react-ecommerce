@@ -14,6 +14,11 @@ export default function UpdateAccount({ setisUpdating }) {
     lastName: authorizedUser.lastName,
     email: authorizedUser.email,
     phone: authorizedUser.phone,
+    userBio: authorizedUser.userBio,
+    streetAddress: authorizedUser.streetAddress,
+    city: authorizedUser.city,
+    state: authorizedUser.state,
+    zipCode: authorizedUser.zipCode,
   };
 
   const [values, handleChange] = useForm(initialState);
@@ -87,6 +92,50 @@ export default function UpdateAccount({ setisUpdating }) {
             placeholder={authorizedUser.phone}
             onChange={handleChange}
           ></input>
+          <br />
+          <label htmlFor="userBio">Bio</label>
+          <input
+            type="userBio"
+            name="userBio"
+            value={values.userBio || ""}
+            onChange={handleChange}
+          />
+          <br />
+          <label htmlFor="streetAddress">Street Address</label>
+          <input
+            required
+            type="streetAddress"
+            name="streetAddress"
+            value={values.streetAddress || ""}
+            onChange={handleChange}
+          />
+          <br />
+          <label htmlFor="city">City</label>
+          <input
+            required
+            type="city"
+            name="city"
+            value={values.city || ""}
+            onChange={handleChange}
+          />
+          <br />
+          <label htmlFor="state">State</label>
+          <input
+            required
+            type="state"
+            name="state"
+            value={values.state || ""}
+            onChange={handleChange}
+          />
+          <br />
+          <label htmlFor="zipCode">Zip</label>
+          <input
+            required
+            type="zipCode"
+            name="zipCode"
+            value={values.zipCode || ""}
+            onChange={handleChange}
+          />
           <br />
           <input type="submit" value="Update Account"></input>
           <br />

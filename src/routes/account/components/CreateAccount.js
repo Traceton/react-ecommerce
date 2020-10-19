@@ -14,7 +14,11 @@ import useForm from "../../../utils/useForm";
 export default function CreateAccount() {
   const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
 
-  const [values, handleChange] = useForm();
+  const initialState = {
+    userBio: "none",
+  };
+
+  const [values, handleChange] = useForm(initialState);
 
   const register = async (e) => {
     e.preventDefault();
