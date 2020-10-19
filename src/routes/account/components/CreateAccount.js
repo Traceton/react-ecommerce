@@ -28,6 +28,7 @@ export default function CreateAccount() {
         <h1>Create Account</h1>
         <label htmlFor="username">Username</label>
         <input
+          required
           type="username"
           name="username"
           value={values.username || ""}
@@ -35,6 +36,7 @@ export default function CreateAccount() {
         />
         <label htmlFor="password">Password</label>
         <input
+          required
           type="password"
           name="password"
           value={values.password || ""}
@@ -57,6 +59,7 @@ export default function CreateAccount() {
 
         <label htmlFor="email">Email</label>
         <input
+          required
           type="email"
           name="email"
           value={values.email || ""}
@@ -64,9 +67,50 @@ export default function CreateAccount() {
         />
         <label htmlFor="phone">Phone</label>
         <input
+          required
           type="phone"
           name="phone"
           value={values.phone || ""}
+          onChange={handleChange}
+        />
+        {/* new below */}
+        <label htmlFor="userBio">Bio</label>
+        <input
+          type="userBio"
+          name="userBio"
+          value={values.userBio || ""}
+          onChange={handleChange}
+        />
+        <label htmlFor="streetAddress">Street Address</label>
+        <input
+          required
+          type="streetAddress"
+          name="streetAddress"
+          value={values.streetAddress || ""}
+          onChange={handleChange}
+        />
+        <label htmlFor="city">City</label>
+        <input
+          required
+          type="city"
+          name="city"
+          value={values.city || ""}
+          onChange={handleChange}
+        />
+        <label htmlFor="state">State</label>
+        <input
+          required
+          type="state"
+          name="state"
+          value={values.state || ""}
+          onChange={handleChange}
+        />
+        <label htmlFor="zipCode">Zip</label>
+        <input
+          required
+          type="zipCode"
+          name="zipCode"
+          value={values.zipCode || ""}
           onChange={handleChange}
         />
         <input type="submit" value="Create Account" />
