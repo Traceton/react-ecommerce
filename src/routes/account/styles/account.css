@@ -25,6 +25,13 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .userImage {
+    height: 10vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   .user h2,
   user h3 {
     height: 0.1em;
@@ -39,6 +46,12 @@
   }
 }
 @media only screen and (min-width: 600px) {
+  .userImage {
+    height: 10vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   .user input {
     border-style: none;
     border-radius: 10%;

@@ -35,6 +35,13 @@ export default function Account({ view }) {
   if (authorizedUser && view === "authorized" && !isUpdating) {
     displayedUser = (
       <div className="user">
+        <div>
+          <img
+            className="userImage"
+            src={require("./tempProfilePic.jpg")}
+            alt="temp profile img"
+          />
+        </div>
         <h1>My Account</h1>
         <hr />
         <h2>Username</h2>
