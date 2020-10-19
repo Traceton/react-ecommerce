@@ -32,11 +32,11 @@ export const createUser = async (userInfo) => {
   newUser.append("email", userInfo.email.toLowerCase().trim());
   newUser.append("phone", userInfo.phone.trim());
   newUser.append("userId", Date.now());
-  newUser.append("email", userInfo.userBio.toLowerCase().trim());
-  newUser.append("email", userInfo.streetAddress.toLowerCase().trim());
-  newUser.append("email", userInfo.city.toLowerCase().trim());
-  newUser.append("email", userInfo.state.toLowerCase().trim());
-  newUser.append("email", userInfo.zipCode.toLowerCase().trim());
+  newUser.append("userBio", userInfo.userBio.toLowerCase().trim());
+  newUser.append("streetAddress", userInfo.streetAddress.toLowerCase().trim());
+  newUser.append("city", userInfo.city.toLowerCase().trim());
+  newUser.append("state", userInfo.state.toLowerCase().trim());
+  newUser.append("zipCode", userInfo.zipCode.toLowerCase().trim());
   let final;
   try {
     await Axios.post(`${API}/users`, await newUser).then(async (response) => {
@@ -77,10 +77,10 @@ export const updateUser = async (userInfo) => {
   updatedUser.append("email", userInfo.email.toLowerCase().trim());
   updatedUser.append("phone", userInfo.phone.trim());
   updatedUser.append("userId", Date.now());
-  updatedUser.append("email", userInfo.userBio.toLowerCase().trim());
-  updatedUser.append("email", userInfo.city.toLowerCase().trim());
-  updatedUser.append("email", userInfo.state.toLowerCase().trim());
-  updatedUser.append("email", userInfo.zipCode.toLowerCase().trim());
+  updatedUser.append("userBio", userInfo.userBio.toLowerCase().trim());
+  updatedUser.append("city", userInfo.city.toLowerCase().trim());
+  updatedUser.append("state", userInfo.state.toLowerCase().trim());
+  updatedUser.append("zipCode", userInfo.zipCode.toLowerCase().trim());
 
   let updateUserPromise;
 
