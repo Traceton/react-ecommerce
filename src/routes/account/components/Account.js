@@ -28,7 +28,7 @@ export default function Account({ view }) {
           <div>
             <h1>{authorizedUser.username}</h1>
             <input
-              value="Update Account"
+              value="Edit Profile"
               type="button"
               onClick={() => {
                 setisUpdating(true);
