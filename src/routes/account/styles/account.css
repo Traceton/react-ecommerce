@@ -72,6 +72,7 @@
     margin: 0.5em;
     padding: 1em;
     text-align: center;
+    font-size: 5vw;
   }
 }
 @media only screen and (min-width: 600px) {
