@@ -6,8 +6,13 @@ import { UserContext } from "../../../UserContext";
 import useForm from "../../../utils/useForm";
 
 export default function Login() {
+  const initialState = {
+    username: "",
+    password: "",
+  };
+
   // username and password the user has entered in form below
-  const [values, handleChange] = useForm();
+  const [values, handleChange] = useForm(initialState);
 
   // sets if the user has been authorized/verified to the app level context
   const { setAuthorizedUser } = useContext(UserContext);
