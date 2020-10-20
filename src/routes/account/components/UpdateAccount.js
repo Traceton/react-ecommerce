@@ -1,11 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../../../UserContext";
+import { deleteUser } from "../../../UserApi";
 import { updateUser } from "../../../UserApi";
 // import { saveUserToSessionStorage } from "../../../SessionStorageApi";
 import useForm from "../../../utils/useForm";
 import "../styles/updateAccount.css";
 export default function UpdateAccount({ setisUpdating }) {
-  const { authorizedUser } = useContext(UserContext);
+  const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
+
+  const [isDeleted, setIsDeleted] = useState(0);
+
+  const checkDeleteConfirm = () => {
+    // check and delete if confirmed
+    if (isDeleted > 0) {
+      deleteUser(authorizedUser.username, authorizedUser.password);
+      return setAuthorizedUser(null);
+    } else {
+      return setIsDeleted(isDeleted + 1);
+    }
+  };
 
   const initialState = {
     username: authorizedUser.username,
@@ -144,6 +157,14 @@ export default function UpdateAccount({ setisUpdating }) {
             value="Cancel"
             onClick={() => {
               setisUpdating(false);
+            }}
+          ></input>
+          <br />
+          <input
+            value="Click twice to delete account"
+            type="button"
+            onClick={() => {
+              checkDeleteConfirm();
             }}
           ></input>
         </form>

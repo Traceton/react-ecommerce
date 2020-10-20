@@ -30,7 +30,7 @@ export const createUser = async (userInfo) => {
   newUser.append("firstName", userInfo.firstName.toLowerCase().trim());
   newUser.append("lastName", userInfo.lastName.toLowerCase().trim());
   newUser.append("email", userInfo.email.toLowerCase().trim());
-  newUser.append("phone", userInfo.phone.trim());
+  newUser.append("phone", userInfo.phone);
   newUser.append("userId", Date.now());
   newUser.append("userBio", userInfo.userBio.toLowerCase().trim());
   newUser.append("streetAddress", userInfo.streetAddress.toLowerCase().trim());
@@ -77,7 +77,7 @@ export const updateUser = async (userInfo) => {
   updatedUser.append("firstName", userInfo.firstName.toLowerCase().trim());
   updatedUser.append("lastName", userInfo.lastName.toLowerCase().trim());
   updatedUser.append("email", userInfo.email.toLowerCase().trim());
-  updatedUser.append("phone", userInfo.phone.trim());
+  updatedUser.append("phone", userInfo.phone);
   updatedUser.append("userId", Date.now());
   updatedUser.append("userBio", userInfo.userBio.toLowerCase().trim());
   updatedUser.append("city", userInfo.city.toLowerCase().trim());
