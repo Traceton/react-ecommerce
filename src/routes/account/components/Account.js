@@ -34,21 +34,26 @@ export default function Account({ view }) {
   let displayedUser;
   if (authorizedUser && view === "authorized" && !isUpdating) {
     displayedUser = (
-      <div>
-        <div>
+      // create a good looking account view
+      <div className="user">
+        <div className="userImageDiv">
           <img
             className="userImage"
             src={require("./tempProfilePic.jpg")}
             alt="temp profile img"
           />
+          <div>
+            <h1>{authorizedUser.username}</h1>
+            <input
+              value="Update Account"
+              type="button"
+              onClick={() => {
+                setisUpdating(true);
+              }}
+            ></input>
+          </div>
         </div>
-        <div className="user">
-          <h1>My Account</h1>
-          <hr />
-          <h2>Username</h2>
-          <br />
-          <h3>{authorizedUser.username}</h3>
-          <br />
+        <div>
           <h2>Password</h2>
           <br />
           <h3> {authorizedUser.password} </h3>
@@ -69,13 +74,7 @@ export default function Account({ view }) {
           <br />
           <h3> {authorizedUser.phone} </h3>
           <br />
-          <input
-            value="Update Account"
-            type="button"
-            onClick={() => {
-              setisUpdating(true);
-            }}
-          ></input>
+
           <br />
           <input
             value="Click twice to delete account"
@@ -111,7 +110,11 @@ export default function Account({ view }) {
       </div>
     );
   } else if (authorizedUser && view === "authorized" && isUpdating) {
-    displayedUser = <UpdateAccount setisUpdating={setisUpdating} />;
+    displayedUser = (
+      <div className="account">
+        <UpdateAccount setisUpdating={setisUpdating} />
+      </div>
+    );
   } else {
     displayedUser = (
       <div className="user">
@@ -120,5 +123,5 @@ export default function Account({ view }) {
     );
   }
 
-  return <div className="account">{displayedUser}</div>;
+  return <div>{displayedUser}</div>;
 }
