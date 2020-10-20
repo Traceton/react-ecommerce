@@ -14,11 +14,7 @@ import useForm from "../../../utils/useForm";
 export default function CreateAccount() {
   const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
 
-  const initialState = {
-    userBio: "none",
-  };
-
-  const [values, handleChange] = useForm(initialState);
+  const [values, handleChange] = useForm();
 
   const register = async (e) => {
     e.preventDefault();
@@ -48,6 +44,7 @@ export default function CreateAccount() {
         />
         <label htmlFor="firstName">First name</label>
         <input
+          required
           type="firstName"
           name="firstName"
           value={values.firstName || ""}
@@ -55,6 +52,7 @@ export default function CreateAccount() {
         />
         <label htmlFor="lastName">Last name</label>
         <input
+          required
           type="lastName"
           name="lastName"
           value={values.lastName || ""}
@@ -80,6 +78,7 @@ export default function CreateAccount() {
         {/* new below */}
         <label htmlFor="userBio">Bio</label>
         <input
+          required
           type="userBio"
           name="userBio"
           value={values.userBio || ""}
