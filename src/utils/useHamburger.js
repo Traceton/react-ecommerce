@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useHamburger = () => {
+const useHamburger = (links) => {
   const [isHamburgerActive, setisHamburgerActive] = useState(false);
 
   const handleChange = (e) => {
@@ -8,6 +8,11 @@ const useHamburger = () => {
     setisHamburgerActive(!isHamburgerActive);
   };
 
-  return [isHamburgerActive, handleChange];
+  if (isHamburgerActive === true) {
+    //   change this to include a finished hamburger component
+    return [isHamburgerActive, handleChange];
+  } else {
+    return [isHamburgerActive, handleChange];
+  }
 };
 export default useHamburger;

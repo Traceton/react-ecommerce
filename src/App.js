@@ -9,7 +9,7 @@ import {
   getUserFromSessionStorage,
   removeUserFromSessionStorage,
 } from "./SessionStorageApi";
-import useHamburger from "./utils/useHamburger";
+// import useHamburger from "./utils/useHamburger";
 import CreateAccount from "./routes/account/components/CreateAccount";
 import UpdateAccount from "./routes/account/components/UpdateAccount";
 import Login from "./routes/account/components/Login";
@@ -18,7 +18,14 @@ function App() {
   // state of any authorized user is contained here.
   const [authorizedUser, setAuthorizedUser] = useState(null);
 
-  const [isHamburgerActive, handleChange] = useHamburger();
+  // const [isHamburgerActive, handleChange] = useHamburger(
+  //   <div>
+  //     <Link to="/">Home</Link>
+  //     <Link to="/buy">Buy</Link>
+  //     <Link to="/sell">Sell</Link>
+  //     <Link to="/account">Account</Link>
+  //   </div>
+  // );
 
   // memo for authorized user state
   const userProvider = useMemo(() => ({ authorizedUser, setAuthorizedUser }), [
