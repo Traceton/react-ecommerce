@@ -44,7 +44,6 @@ export default function Account({ view }) {
           <h3>
             {authorizedUser.city},{authorizedUser.state}
           </h3>
-          <br />
           <h4>{authorizedUser.userBio}</h4>
         </div>
         <div>
