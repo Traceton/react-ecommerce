@@ -1,13 +1,9 @@
 import React, { useContext, useState } from "react";
-
-// import { UpdateAccount } from "../components/UpdateAccount";
 import "../styles/account.css";
 import { UserContext } from "../../../UserContext";
-
-import { removeUserFromSessionStorage } from "../../../SessionStorageApi";
 import UpdateAccount from "./UpdateAccount";
 export default function Account({ view }) {
-  const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
+  const { authorizedUser } = useContext(UserContext);
   const [isUpdating, setisUpdating] = useState(false);
 
   // Account should show certain info depending on a "view variable passed to it".
@@ -51,33 +47,11 @@ export default function Account({ view }) {
           <br />
           <h4>{authorizedUser.userBio}</h4>
         </div>
-
-        {/* <div className="userBioDiv">
-          <div className="">
-            <h4>
-              {authorizedUser.firstName} {authorizedUser.lastName}
-            </h4>
-          </div>
-          <div>
-            <input
-              value="Edit Profile"
-              type="button"
-              onClick={() => {
-                setisUpdating(true);
-              }}
-            ></input>
-            <h2>{authorizedUser.userBio}</h2>
-            <br />
-            <input
-              value="Logout"
-              type="button"
-              onClick={() => {
-                removeUserFromSessionStorage(authorizedUser);
-                setAuthorizedUser(null);
-              }}
-            ></input>
-          </div>
-        </div> */}
+        <div>
+          <br />
+          <br />
+          <h4>Once you list something for sale, it will appear here.</h4>
+        </div>
       </div>
     );
   } else if (authorizedUser && view === "un-authorized") {

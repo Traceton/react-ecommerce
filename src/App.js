@@ -9,6 +9,7 @@ import {
   getUserFromSessionStorage,
   removeUserFromSessionStorage,
 } from "./SessionStorageApi";
+import useHamburger from "./utils/useHamburger";
 import CreateAccount from "./routes/account/components/CreateAccount";
 import UpdateAccount from "./routes/account/components/UpdateAccount";
 import Login from "./routes/account/components/Login";
@@ -16,6 +17,9 @@ import Login from "./routes/account/components/Login";
 function App() {
   // state of any authorized user is contained here.
   const [authorizedUser, setAuthorizedUser] = useState(null);
+
+  const [isHamburgerActive, handleChange] = useHamburger();
+
   // memo for authorized user state
   const userProvider = useMemo(() => ({ authorizedUser, setAuthorizedUser }), [
     authorizedUser,
@@ -44,33 +48,16 @@ function App() {
     }
   }, halfHour);
 
-  let logoutOption;
-
-  const logoutButton = (
-    <input
-      value="Logout"
-      type="button"
-      onClick={() => {
-        removeUserFromSessionStorage(authorizedUser);
-        setAuthorizedUser(null);
-      }}
-    ></input>
-  );
-
-  if (authorizedUser) {
-    logoutOption = logoutButton;
-  } else {
-    logoutOption = "";
-  }
-
   return (
     <div className="App">
       <Router>
+        {}
         <div className="navbar">
           <ul>
             <Link to="/">Home</Link>
-            <Link to="/account">My Account</Link>
-            {logoutOption}
+            <Link to="/buy">Buy</Link>
+            <Link to="/sell">Sell</Link>
+            <Link to="/account">Account</Link>
           </ul>
         </div>
         <UserContext.Provider value={userProvider}>
