@@ -1,6 +1,6 @@
-.account {
+.updateAccount {
   color: white;
-  background-image: url("https://images.unsplash.com/photo-1545156521-77bd85671d30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80");
+  background-image: url("https://images.unsplash.com/photo-1585032083826-2f87ca6a0472?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,7 +19,7 @@
   background-size: cover;
   display: flex;
   justify-content: flex-start;
-  padding: 5vw;
+  /* padding: 3vw; */
   flex-wrap: wrap;
   flex-direction: column;
   /* align-items: center; */
@@ -35,28 +35,55 @@
   /* new below */
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
   align-items: center;
   margin: 0.5em;
 }
 
 @media only screen and (max-width: 600px) {
-  .userBioDiv {
-    height: 10vh;
-    margin-top: 5vh;
+  .userImage {
+    height: 13vh;
+    padding: 0em;
     border-radius: 6vw;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .userImage {
-    height: 10vh;
+  .userImageDiv h3,
+  .userImageDiv h4,
+  .userImageDiv h5,
+  .userImageDiv input {
+    padding: 1.5vw;
+  }
+
+  .userImageBesideDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 0.5em;
-    border-radius: 6vw;
+    border-radius: 5vw;
+
+    /* background-color: #333; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  .userBioDiv {
+    /* height: 15vh; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5vw;
+    /* new below */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    align-items: flex-start;
+    margin: 0.5em;
   }
 
   .user input {
@@ -69,7 +96,7 @@
     border-radius: 10%;
     height: 0.1em;
     background-color: #333;
-    margin: 0.5em;
+    /* margin: 0.5em; */
     padding: 1em;
     text-align: center;
     font-size: 5vw;

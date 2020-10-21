@@ -25,8 +25,13 @@ export default function Account({ view }) {
             src={require("./tempProfilePic.jpg")}
             alt="temp profile img"
           />
-          <div>
-            <h1>{authorizedUser.username}</h1>
+          <div className="userImageBesideDiv">
+            <div>
+              <h2>@{authorizedUser.username}</h2>
+            </div>
+            <div>
+              <br />
+            </div>
             <input
               value="Edit Profile"
               type="button"
@@ -37,17 +42,42 @@ export default function Account({ view }) {
           </div>
         </div>
         <div className="userBioDiv">
-          <h2>{authorizedUser.userBio}</h2>
+          <h1>
+            {authorizedUser.firstName} {authorizedUser.lastName}
+          </h1>
+          <h3>
+            {authorizedUser.city},{authorizedUser.state}
+          </h3>
           <br />
-          <input
-            value="Logout"
-            type="button"
-            onClick={() => {
-              removeUserFromSessionStorage(authorizedUser);
-              setAuthorizedUser(null);
-            }}
-          ></input>
+          <h4>{authorizedUser.userBio}</h4>
         </div>
+
+        {/* <div className="userBioDiv">
+          <div className="">
+            <h4>
+              {authorizedUser.firstName} {authorizedUser.lastName}
+            </h4>
+          </div>
+          <div>
+            <input
+              value="Edit Profile"
+              type="button"
+              onClick={() => {
+                setisUpdating(true);
+              }}
+            ></input>
+            <h2>{authorizedUser.userBio}</h2>
+            <br />
+            <input
+              value="Logout"
+              type="button"
+              onClick={() => {
+                removeUserFromSessionStorage(authorizedUser);
+                setAuthorizedUser(null);
+              }}
+            ></input>
+          </div>
+        </div> */}
       </div>
     );
   } else if (authorizedUser && view === "un-authorized") {
@@ -66,7 +96,7 @@ export default function Account({ view }) {
     );
   } else if (authorizedUser && view === "authorized" && isUpdating) {
     displayedUser = (
-      <div className="account">
+      <div className="updateAccount">
         <UpdateAccount setisUpdating={setisUpdating} />
       </div>
     );

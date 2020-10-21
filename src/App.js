@@ -44,6 +44,25 @@ function App() {
     }
   }, halfHour);
 
+  let logoutOption;
+
+  const logoutButton = (
+    <input
+      value="Logout"
+      type="button"
+      onClick={() => {
+        removeUserFromSessionStorage(authorizedUser);
+        setAuthorizedUser(null);
+      }}
+    ></input>
+  );
+
+  if (authorizedUser) {
+    logoutOption = logoutButton;
+  } else {
+    logoutOption = "";
+  }
+
   return (
     <div className="App">
       <Router>
@@ -51,6 +70,7 @@ function App() {
           <ul>
             <Link to="/">Home</Link>
             <Link to="/account">My Account</Link>
+            {logoutOption}
           </ul>
         </div>
         <UserContext.Provider value={userProvider}>
