@@ -7,19 +7,22 @@ export default function HomeWelcome() {
   let displayedWelcome;
   if (authorizedUser) {
     displayedWelcome = (
-      <div className="homeWelcomeDiv">
+      <div className="relative flex flex-col justify-center items-center">
         <h1>Welcome</h1>
-        <br />
         <h1> {authorizedUser.username}!</h1>
       </div>
     );
   } else {
     displayedWelcome = (
-      <div className="homeWelcomeDiv">
+      <div className="relative">
         <h1>Welcome!</h1>
       </div>
     );
   }
 
-  return <div className="homeWelcome">{displayedWelcome}</div>;
+  return (
+    <div className="homeWelcome text-black text-3xl font-bold">
+      {displayedWelcome}
+    </div>
+  );
 }

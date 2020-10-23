@@ -31,27 +31,43 @@ export default function Login() {
 
   // User login form. Sets username and password states when changed.
   return (
-    <div className="login">
-      <form onSubmit={login}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="username"
-          name="username"
-          value={values.username || ""}
-          onChange={handleChange}
-        ></input>
-        <br />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={values.password || ""}
-          onChange={handleChange}
-        ></input>
-        <br />
-        <input type="submit" value="Login"></input>
-        <br />
-        <a href="/createAccount">Create A New Account</a>
+    <div className="login rounded text-2xl text-white flex justify-center content-center items-center text-center flex-col align-middle">
+      <form className="p-6" onSubmit={login}>
+        <div>
+          <label htmlFor="username">Username</label>
+          <input
+            className="py-2 m-2 bg-gray-350 rounded"
+            type="username"
+            name="username"
+            value={values.username || ""}
+            onChange={handleChange}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            className="py-2 m-2 bg-gray-350 rounded"
+            type="password"
+            name="password"
+            value={values.password || ""}
+            onChange={handleChange}
+          ></input>
+        </div>
+        <div>
+          <input
+            type="submit"
+            value="Login"
+            className="bg-gray-350 hover:bg-blue-500 rounded px-10 py-4 m-2"
+          ></input>
+        </div>
+        <div>
+          <a
+            className="text-xl text-blue-500 bg-gray-350 rounded p-2 m-2"
+            href="/createAccount"
+          >
+            Create A New Account
+          </a>
+        </div>
       </form>
     </div>
   );

@@ -1,6 +1,6 @@
 .homeWelcome {
   position: relative;
-  height: 30vh;
+  height: 25vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,7 +8,7 @@
 
 .homeWelcome::before {
   content: "";
-  background-image: url("https://images.unsplash.com/photo-1594299957187-344c1f2b8f6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+  background-image: url("https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -18,14 +18,4 @@
   bottom: 0px;
   left: 0px;
   /* opacity: 0.75; */
-}
-
-.homeWelcomeDiv {
-  position: relative;
-  color: white;
-}
-
-@media only screen and (max-width: 600px) {
-}
-@media only screen and (min-width: 600px) {
 }

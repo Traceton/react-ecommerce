@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import "../styles/account.css";
+// import "../styles/account.css";
 import { UserContext } from "../../../UserContext";
 import UpdateAccount from "./UpdateAccount";
 export default function Account({ view }) {
@@ -14,21 +14,30 @@ export default function Account({ view }) {
   if (authorizedUser && view === "authorized" && !isUpdating) {
     displayedUser = (
       // create a good looking account view
-      <div className="user">
-        <div className="userImageDiv">
+      <div className="flex justify-start flex-col flex-wrap text-white bg-gray-350 h-screen">
+        <div
+          className="flex flex-row "
+          style={{
+            backgroundImage:
+              "url(" +
+              "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" +
+              ")",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
           <img
-            className="userImage"
+            className="h-24 m-4 rounded"
             src={require("./tempProfilePic.jpg")}
             alt="temp profile img"
           />
-          <div className="userImageBesideDiv">
+          <div className="flex flex-col justify-center p-6   font-bold">
             <div>
-              <h2>@{authorizedUser.username}</h2>
-            </div>
-            <div>
-              <br />
+              <h2 className="italic text-3xl">@{authorizedUser.username}</h2>
             </div>
             <input
+              className="m-1 p-1 bg-transparent border-2 border  rounded"
               value="Edit Profile"
               type="button"
               onClick={() => {
@@ -37,19 +46,17 @@ export default function Account({ view }) {
             ></input>
           </div>
         </div>
-        <div className="userBioDiv">
-          <h1>
+        <div className="flex flex-col justify-center text-start px-4 py-1  m-3 h-48 bg-blue-500 rounded ">
+          <h1 className="font-bold text-3xl">
             {authorizedUser.firstName} {authorizedUser.lastName}
           </h1>
-          <h3>
+          <h3 className="font-bold text-2xl ">
             {authorizedUser.city},{authorizedUser.state}
           </h3>
-          <h4>{authorizedUser.userBio}</h4>
+          <h4 className="text-xl mt-2">{authorizedUser.userBio}</h4>
         </div>
-        <div>
-          <br />
-          <br />
-          <h4>Once you list something for sale, it will appear here.</h4>
+        <div className="flex flex-col justify-center text-center bg-blue-500 m-3 rounded text-3xl  ">
+          <button className="font-bold h-48">Click here to Sell a Item.</button>
         </div>
       </div>
     );

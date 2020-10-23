@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "./navbar.css";
 import AccountManager from "./routes/account/components/AccountManager";
 import HomeManager from "./routes/home/components/HomeManager";
 import { UserContext } from "./UserContext";
@@ -57,11 +56,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <header className="bg-gray-900 ">
+        <header className="bg-gray-350 ">
           <div className="flex justify-between p-4 items-center  text-3xl  h-12 ">
             <div>
               <button
-                className="hover:bg-blue-500 text-black font-bold rounded"
+                className="hover:bg-gray-600 text-white font-bold rounded"
                 type="button"
               >
                 <Link className="" to="/">
@@ -78,7 +77,7 @@ function App() {
                 }}
               >
                 <img
-                  className="px-2 h-10 hover:bg-blue-500  rounded"
+                  className="px-2 h-10 hover:bg-gray-600   rounded"
                   src="..//hamburger.jpg"
                   alt="menu"
                 />
@@ -92,23 +91,23 @@ function App() {
                 : "hidden"
             }
           >
-            <Link className="block hover:bg-gray-800 rounded px-2" to="/">
+            <Link className="block hover:bg-gray-600 rounded px-2" to="/">
               Home
             </Link>
             <Link
-              className="block hover:bg-gray-800 rounded px-2 mt-1"
+              className="block hover:bg-gray-600 rounded px-2 mt-1"
               to="/buy"
             >
               Buy
             </Link>
             <Link
-              className="block hover:bg-gray-800 rounded px-2 mt-1"
+              className="block hover:bg-gray-600 rounded px-2 mt-1"
               to="/sell"
             >
               Sell
             </Link>
             <Link
-              className="block hover:bg-gray-800 rounded px-2"
+              className="block hover:bg-gray-600 rounded px-2"
               to="/account"
             >
               Account
