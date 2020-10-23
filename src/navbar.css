@@ -1,4 +1,4 @@
-.navbar {
+/* .navbar {
   color: white;
   background-color: #333;
   height: 17vw;
@@ -9,8 +9,8 @@
   align-items: center;
   font-size: 5vw;
   /* padding: 1em; */
-}
-.navbar ul {
+/* } */
+/* .navbar ul {
   padding: 0;
 }
 .navbar a {
@@ -22,4 +22,4 @@
 @media only screen and (max-width: 600px) {
 }
 @media only screen and (min-width: 600px) {
-}
+} */

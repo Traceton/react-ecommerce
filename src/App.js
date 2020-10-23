@@ -16,7 +16,7 @@ import Login from "./routes/account/components/Login";
 function App() {
   // state of any authorized user is contained here.
   const [authorizedUser, setAuthorizedUser] = useState(null);
-
+  const [navIsOpen, setNavIsOpen] = useState(false);
   // const [isHamburgerActive, handleChange] = useHamburger(
   //   <div>
   //     <Link to="/">Home</Link>
@@ -57,15 +57,71 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {}
-        <div className="navbar">
-          <ul>
-            <Link to="/">Home</Link>
-            <Link to="/buy">Buy</Link>
-            <Link to="/sell">Sell</Link>
-            <Link to="/account">Account</Link>
+        <header className="bg-gray-900 text-white">
+          <div className="flex justify-between p-4 items-center  text-2xl  h-12 ">
+            <div>
+              <button className="hover:bg-blue-800 " type="button">
+                React JS
+              </button>
+            </div>
+            <div>
+              <button
+                className="hover:bg-blue-800 px-2 items-center flex"
+                type="button"
+                onClick={() => {
+                  setNavIsOpen(!navIsOpen);
+                }}
+              >
+                <img className="h-10" src="..//hamburger.jpg" alt="menu" />
+              </button>
+            </div>
+          </div>
+          <div
+            className={
+              navIsOpen
+                ? "text-4xl text-center flex-col items-center px-2 pb-4"
+                : "hidden"
+            }
+          >
+            <Link className="block hover:bg-gray-800 rounded px-2" to="/">
+              Home
+            </Link>
+            <Link
+              className="block hover:bg-gray-800 rounded px-2 mt-1"
+              to="/buy"
+            >
+              Buy
+            </Link>
+            <Link
+              className="block hover:bg-gray-800 rounded px-2 mt-1"
+              to="/sell"
+            >
+              Sell
+            </Link>
+            <Link
+              className="block hover:bg-gray-800 rounded px-2"
+              to="/account"
+            >
+              Account
+            </Link>
+          </div>
+        </header>
+        {/* <div className="">
+          <ul className="">
+            <Link className="" to="/">
+              Home
+            </Link>
+            <Link className="" to="/buy">
+              Buy
+            </Link>
+            <Link className="" to="/sell">
+              Sell
+            </Link>
+            <Link className="" to="/account">
+              Account
+            </Link>
           </ul>
-        </div>
+        </div> */}
         <UserContext.Provider value={userProvider}>
           <Route exact path="/" render={() => <HomeManager />} />
           <Route exact path="/account" render={() => <AccountManager />} />
