@@ -1776,6 +1776,16 @@ video {
           appearance: none;
 }
 
+.hover\:appearance-none:hover {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+.focus\:appearance-none:focus {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
 .bg-fixed {
   background-attachment: fixed;
 }
@@ -20400,6 +20410,16 @@ video {
             appearance: none;
   }
 
+  .sm\:hover\:appearance-none:hover {
+    -webkit-appearance: none;
+            appearance: none;
+  }
+
+  .sm\:focus\:appearance-none:focus {
+    -webkit-appearance: none;
+            appearance: none;
+  }
+
   .sm\:bg-fixed {
     background-attachment: fixed;
   }
@@ -38990,6 +39010,16 @@ video {
   }
 
   .md\:appearance-none {
+    -webkit-appearance: none;
+            appearance: none;
+  }
+
+  .md\:hover\:appearance-none:hover {
+    -webkit-appearance: none;
+            appearance: none;
+  }
+
+  .md\:focus\:appearance-none:focus {
     -webkit-appearance: none;
             appearance: none;
   }
@@ -57588,6 +57618,16 @@ video {
             appearance: none;
   }
 
+  .lg\:hover\:appearance-none:hover {
+    -webkit-appearance: none;
+            appearance: none;
+  }
+
+  .lg\:focus\:appearance-none:focus {
+    -webkit-appearance: none;
+            appearance: none;
+  }
+
   .lg\:bg-fixed {
     background-attachment: fixed;
   }
@@ -76178,6 +76218,16 @@ video {
   }
 
   .xl\:appearance-none {
+    -webkit-appearance: none;
+            appearance: none;
+  }
+
+  .xl\:hover\:appearance-none:hover {
+    -webkit-appearance: none;
+            appearance: none;
+  }
+
+  .xl\:focus\:appearance-none:focus {
     -webkit-appearance: none;
             appearance: none;
   }

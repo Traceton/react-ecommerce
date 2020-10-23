@@ -57,22 +57,31 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <header className="bg-gray-900 text-white">
-          <div className="flex justify-between p-4 items-center  text-2xl  h-12 ">
+        <header className="bg-gray-900 ">
+          <div className="flex justify-between p-4 items-center  text-3xl  h-12 ">
             <div>
-              <button className="hover:bg-blue-800 " type="button">
-                React JS
+              <button
+                className="hover:bg-blue-500 text-black font-bold rounded"
+                type="button"
+              >
+                <Link className="" to="/">
+                  React JS
+                </Link>
               </button>
             </div>
             <div>
               <button
-                className="hover:bg-blue-800 px-2 items-center flex"
+                className="items-center flex focus:outline-none  "
                 type="button"
                 onClick={() => {
                   setNavIsOpen(!navIsOpen);
                 }}
               >
-                <img className="h-10" src="..//hamburger.jpg" alt="menu" />
+                <img
+                  className="px-2 h-10 hover:bg-blue-500  rounded"
+                  src="..//hamburger.jpg"
+                  alt="menu"
+                />
               </button>
             </div>
           </div>

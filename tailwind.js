@@ -725,7 +725,7 @@ module.exports = {
     alignContent: ["responsive"],
     alignItems: ["responsive"],
     alignSelf: ["responsive"],
-    appearance: ["responsive"],
+    appearance: ["responsive", "hover", "focus"],
     backgroundAttachment: ["responsive"],
     backgroundClip: ["responsive"],
     backgroundColor: ["responsive", "hover", "focus"],
