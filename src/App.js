@@ -111,8 +111,9 @@ function App() {
               className="block hover:bg-gray-600 rounded px-2 m-1"
               to="/account"
             >
-              Account
+              {authorizedUser ? "Account" : "Login"}
             </Link>
+
             <Link
               className={
                 authorizedUser
