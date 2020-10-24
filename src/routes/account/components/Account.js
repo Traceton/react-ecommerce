@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 // import "../styles/account.css";
 import { UserContext } from "../../../UserContext";
 import UpdateAccount from "./UpdateAccount";
+import { API } from "../../../UserApi";
 export default function Account({ view }) {
   const { authorizedUser } = useContext(UserContext);
   const [isUpdating, setisUpdating] = useState(false);
@@ -40,7 +41,7 @@ export default function Account({ view }) {
         >
           <img
             className="h-24 m-4 rounded"
-            src={`http://localhost:3001/users/profilePics/${authorizedUser.userId}`}
+            src={`${API}/users/profilePics/${authorizedUser.userId}`}
             alt="temp profile img"
           />
           <div className="flex flex-col justify-center p-6   font-bold">
