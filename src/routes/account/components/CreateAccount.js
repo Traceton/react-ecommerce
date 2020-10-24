@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "../styles/createAccount.css";
 import Account from "./Account";
 import { UserContext } from "../../../UserContext";
@@ -13,21 +13,46 @@ import useForm from "../../../utils/useForm";
 //      If the phone number is already in use, the user should be asked to login.
 export default function CreateAccount() {
   const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
-
+  const [profilePic, setprofilePic] = useState(null);
   const [values, handleChange] = useForm();
 
   const register = async (e) => {
     e.preventDefault();
-    let createStatus = await createUser(values);
+    let createStatus = await createUser(values, profilePic);
     setAuthorizedUser(createStatus);
   };
 
   let createAccountForm = (
-    <div>
-      <form className="createAccount" onSubmit={register}>
+    <div
+      className="flex flex-col justify-center text-white text-center align-center p-4 text-xl "
+      style={{
+        backgroundImage:
+          "url(" +
+          "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" +
+          ")",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <form className="flex flex-col text-center text-2xl" onSubmit={register}>
         <h1>Create Account</h1>
+        <label htmlFor="profilePic">Profile picture</label>
+        <input
+          className="bg-gray-350 rounded text-center p-1"
+          name="profilePic"
+          multiple
+          type="file"
+          accept=".jpg"
+          onChange={(Event) => {
+            const file = Event.target.files[0];
+            setprofilePic(file);
+          }}
+        ></input>
+
         <label htmlFor="username">Username</label>
         <input
+          className="bg-gray-350 rounded text-center p-1"
           required
           type="username"
           name="username"
@@ -36,6 +61,7 @@ export default function CreateAccount() {
         />
         <label htmlFor="password">Password</label>
         <input
+          className="bg-gray-350 rounded text-center p-1"
           required
           type="password"
           name="password"
@@ -44,6 +70,7 @@ export default function CreateAccount() {
         />
         <label htmlFor="firstName">First name</label>
         <input
+          className="bg-gray-350 rounded text-center p-1"
           required
           type="firstName"
           name="firstName"
@@ -52,6 +79,7 @@ export default function CreateAccount() {
         />
         <label htmlFor="lastName">Last name</label>
         <input
+          className="bg-gray-350 rounded text-center p-1"
           required
           type="lastName"
           name="lastName"
@@ -61,6 +89,7 @@ export default function CreateAccount() {
 
         <label htmlFor="email">Email</label>
         <input
+          className="bg-gray-350 rounded text-center p-1"
           required
           type="email"
           name="email"
@@ -69,6 +98,7 @@ export default function CreateAccount() {
         />
         <label htmlFor="phone">Phone</label>
         <input
+          className="bg-gray-350 rounded text-center p-1"
           required
           type="phone"
           name="phone"
@@ -78,6 +108,7 @@ export default function CreateAccount() {
         {/* new below */}
         <label htmlFor="userBio">Bio</label>
         <input
+          className="bg-gray-350 rounded text-center p-1"
           required
           type="userBio"
           name="userBio"
@@ -86,6 +117,7 @@ export default function CreateAccount() {
         />
         <label htmlFor="streetAddress">Street Address</label>
         <input
+          className="bg-gray-350 rounded text-center p-1"
           required
           type="streetAddress"
           name="streetAddress"
@@ -94,6 +126,7 @@ export default function CreateAccount() {
         />
         <label htmlFor="city">City</label>
         <input
+          className="bg-gray-350 rounded text-center p-1"
           required
           type="city"
           name="city"
@@ -102,6 +135,7 @@ export default function CreateAccount() {
         />
         <label htmlFor="state">State</label>
         <input
+          className="bg-gray-350 rounded text-center p-1"
           required
           type="state"
           name="state"
@@ -110,13 +144,18 @@ export default function CreateAccount() {
         />
         <label htmlFor="zipCode">Zip</label>
         <input
+          className="bg-gray-350 rounded text-center p-1"
           required
           type="zipCode"
           name="zipCode"
           value={values.zipCode || ""}
           onChange={handleChange}
         />
-        <input type="submit" value="Create Account" />
+        <input
+          className="bg-blue-500 p-1 my-4 rounded"
+          type="submit"
+          value="Create Account"
+        />
       </form>
     </div>
   );

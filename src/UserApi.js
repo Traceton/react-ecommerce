@@ -23,7 +23,7 @@ if (ENVIROMENT === "local") {
 // these functions should contact the react-store-node-api and verify user credentials.
 
 // create user
-export const createUser = async (userInfo) => {
+export const createUser = async (userInfo, profilePic) => {
   const newUser = await new FormData();
   newUser.append("username", userInfo.username.toLowerCase().trim());
   newUser.append("password", userInfo.password.trim());
@@ -37,6 +37,7 @@ export const createUser = async (userInfo) => {
   newUser.append("city", userInfo.city.toLowerCase().trim());
   newUser.append("state", userInfo.state.toLowerCase().trim());
   newUser.append("zipCode", userInfo.zipCode.toLowerCase().trim());
+  newUser.append("profilePic", profilePic);
   let final;
   try {
     await Axios.post(`${API}/users`, await newUser).then(async (response) => {

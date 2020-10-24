@@ -31,12 +31,23 @@ export default function Login() {
 
   // User login form. Sets username and password states when changed.
   return (
-    <div className="login rounded text-2xl text-white flex justify-center content-center items-center text-center flex-col align-middle">
-      <form className="p-6" onSubmit={login}>
+    <div
+      className=" rounded text-2xl text-white flex justify-center content-center items-center text-center h-screen flex-col align-middle"
+      style={{
+        backgroundImage:
+          "url(" +
+          "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" +
+          ")",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <form className="p-6 " onSubmit={login}>
         <div>
           <label htmlFor="username">Username</label>
           <input
-            className="py-2 m-2 bg-gray-350 rounded"
+            className="py-4 m-2 bg-gray-350 rounded"
             type="username"
             name="username"
             value={values.username || ""}
@@ -46,7 +57,7 @@ export default function Login() {
         <div>
           <label htmlFor="password">Password</label>
           <input
-            className="py-2 m-2 bg-gray-350 rounded"
+            className="py-4 m-2 bg-gray-350 rounded"
             type="password"
             name="password"
             value={values.password || ""}

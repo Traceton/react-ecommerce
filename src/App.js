@@ -88,7 +88,7 @@ function App() {
           <div
             className={
               navIsOpen
-                ? "text-4xl text-center flex-col items-center px-2 pb-4"
+                ? "text-4xl text-white text-center flex-col items-center px-2 pb-4"
                 : "hidden"
             }
           >
@@ -108,10 +108,24 @@ function App() {
               Sell
             </Link>
             <Link
-              className="block hover:bg-gray-600 rounded px-2"
+              className="block hover:bg-gray-600 rounded px-2 m-1"
               to="/account"
             >
               Account
+            </Link>
+            <Link
+              className={
+                authorizedUser
+                  ? "block bg-red-700 hover:bg-red-600 rounded px-2 m-1"
+                  : "hidden"
+              }
+              to="/account"
+              onClick={() => {
+                removeUserFromSessionStorage(authorizedUser);
+                setAuthorizedUser(null);
+              }}
+            >
+              Logout
             </Link>
           </div>
         </header>

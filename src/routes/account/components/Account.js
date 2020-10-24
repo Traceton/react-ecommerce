@@ -40,7 +40,7 @@ export default function Account({ view }) {
         >
           <img
             className="h-24 m-4 rounded"
-            src={require("./tempProfilePic.jpg")}
+            src={`http://localhost:3001/users/profilePics/${authorizedUser.userId}`}
             alt="temp profile img"
           />
           <div className="flex flex-col justify-center p-6   font-bold">
@@ -60,7 +60,7 @@ export default function Account({ view }) {
 
         {/* bottom half  */}
         <div className="flex flex-col justify-center text-start m-3 p-2  rounded h-40">
-          <h1 className="font-bold text-2xl">
+          <h1 className="font-bold text-3xl">
             {authorizedUser.firstName} {authorizedUser.lastName}
           </h1>
           <h3 className="font-bold text-xl ">
