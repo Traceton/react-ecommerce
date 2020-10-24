@@ -28,7 +28,7 @@ export default function Account({ view }) {
         }}
       >
         <div
-          className="flex flex-row justify-around m-1 p-2 h-32"
+          className="flex flex-row justify-around m-1 p-2 h-40"
           // style={{
           //   backgroundImage:
           //     "url(" +
@@ -40,7 +40,7 @@ export default function Account({ view }) {
           // }}
         >
           <img
-            className="h-24 m-4 rounded"
+            className="h-32 m-4 rounded-2xl"
             src={`${API}/users/profilePics/${authorizedUser.userId}`}
             alt="temp profile img"
           />
