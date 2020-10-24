@@ -10,22 +10,33 @@ export default function Account({ view }) {
   // if the user looks at their own account, all should be visable.
   // if a user is looking at somebody elses account,
   // (from a item/blog/picture etc posting.) only some info should be visable
+  const americanFlagPic =
+    "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
+
   let displayedUser;
   if (authorizedUser && view === "authorized" && !isUpdating) {
     displayedUser = (
       // create a good looking account view
-      <div className="flex justify-start flex-col flex-wrap text-white bg-gray-350 h-screen">
+      <div
+        className="flex justify-start flex-col flex-wrap text-white h-screen"
+        style={{
+          backgroundImage: "url(" + americanFlagPic + ")",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <div
           className="flex flex-row "
-          style={{
-            backgroundImage:
-              "url(" +
-              "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" +
-              ")",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-          }}
+          // style={{
+          //   backgroundImage:
+          //     "url(" +
+          //     "https://images.unsplash.com/photo-1603413954143-f8203e60bfe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" +
+          //     ")",
+          //   backgroundPosition: "center",
+          //   backgroundSize: "cover",
+          //   backgroundRepeat: "no-repeat",
+          // }}
         >
           <img
             className="h-24 m-4 rounded"
@@ -46,17 +57,19 @@ export default function Account({ view }) {
             ></input>
           </div>
         </div>
-        <div className="flex flex-col justify-center text-start px-4 py-1  m-3 h-48 bg-blue-500 rounded ">
-          <h1 className="font-bold text-3xl">
+
+        {/* bottom half  */}
+        <div className="flex flex-col justify-center text-start m-3 p-2  rounded h-40">
+          <h1 className="font-bold text-2xl">
             {authorizedUser.firstName} {authorizedUser.lastName}
           </h1>
-          <h3 className="font-bold text-2xl ">
+          <h3 className="font-bold text-xl ">
             {authorizedUser.city},{authorizedUser.state}
           </h3>
-          <h4 className="text-xl mt-2">{authorizedUser.userBio}</h4>
+          <h4 className="text-lg mt-2">{authorizedUser.userBio}</h4>
         </div>
-        <div className="flex flex-col justify-center text-center bg-blue-500 m-3 rounded text-3xl  ">
-          <button className="font-bold h-48">Click here to Sell a Item.</button>
+        <div className="flex flex-col justify-center text-center bg-gray-350 m-3 rounded text-3xl  ">
+          <button className="font-bold h-16">Create a listing here</button>
         </div>
       </div>
     );

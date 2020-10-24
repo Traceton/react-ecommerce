@@ -42,8 +42,9 @@ function App() {
     getUserFromStorage();
   }, []);
 
+  const halfHour = 1800000 * 2;
   // clear any user account after 30 minutes
-  const halfHour = 1800000;
+  // const halfHour = 1800000;
   setTimeout(() => {
     if (authorizedUser) {
       removeUserFromSessionStorage(authorizedUser);
