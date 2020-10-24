@@ -7,21 +7,31 @@ export default function HomeWelcome() {
   let displayedWelcome;
   if (authorizedUser) {
     displayedWelcome = (
-      <div className="relative flex flex-col justify-center items-center">
+      <div className="content-center flex flex-col align-middle justify-center items-center">
         <h1>Welcome</h1>
         <h1> {authorizedUser.username}!</h1>
       </div>
     );
   } else {
     displayedWelcome = (
-      <div className="relative">
+      <div className="content-center flex flex-col align-middle justify-center items-center">
         <h1>Welcome!</h1>
       </div>
     );
   }
 
+  const americanFlagPic =
+    "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
   return (
-    <div className="homeWelcome text-black text-3xl font-bold">
+    <div
+      className="flex flex-col align-middle justify-center h-screen text-white text-4xl font-bold"
+      style={{
+        backgroundImage: "url(" + americanFlagPic + ")",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       {displayedWelcome}
     </div>
   );
