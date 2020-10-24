@@ -36,7 +36,7 @@ export default function CreateAccount() {
       }}
     >
       <form className="flex flex-col text-center text-2xl" onSubmit={register}>
-        <h1>Create Account</h1>
+        <h1 className="text-4xl font-bold">Create Account</h1>
         <label htmlFor="profilePic">Profile picture</label>
         <input
           className="bg-gray-350 rounded text-center p-1"
