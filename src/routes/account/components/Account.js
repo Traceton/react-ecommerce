@@ -28,7 +28,7 @@ export default function Account({ view }) {
         }}
       >
         <div
-          className="flex flex-row justify-around"
+          className="flex flex-row justify-around m-1 p-2 h-32"
           // style={{
           //   backgroundImage:
           //     "url(" +
@@ -60,7 +60,7 @@ export default function Account({ view }) {
         </div>
 
         {/* bottom half  */}
-        <div className="flex flex-col justify-center text-start m-3 p-2  rounded h-40">
+        <div className="flex flex-col justify-center text-start m-1 p-2  rounded h-auto">
           <h1 className="font-bold text-3xl">
             {authorizedUser.firstName} {authorizedUser.lastName}
           </h1>
