@@ -53,7 +53,6 @@ export default function UpdateAccount({ setisUpdating }) {
   const deleteProfilePic = () => {
     Axios.delete(`${API}/users/deleteProfilePic/${values.userId}`).then(
       async (response) => {
-        await response;
         return console.log(response);
       }
     );
@@ -72,15 +71,6 @@ export default function UpdateAccount({ setisUpdating }) {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* used below for testing */}
-      {/* <div>
-        <input
-          className="text-black"
-          type="button"
-          value="delete profile pic"
-          onClick={deleteProfilePic}
-        />
-      </div> */}
       <form
         className="flex flex-col text-center text-2xl "
         onSubmit={updateAccount}
