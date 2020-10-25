@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../../../UserContext";
 import { deleteUser } from "../../../UserApi";
 import { updateUser } from "../../../UserApi";
-import { API } from "../../../UserApi";
+// import { API } from "../../../UserApi";
 // import { saveUserToSessionStorage } from "../../../SessionStorageApi";
 import useForm from "../../../utils/useForm";
 import "../styles/updateAccount.css";
-import Axios from "axios";
+// import Axios from "axios";
 export default function UpdateAccount({ setisUpdating }) {
   const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
 

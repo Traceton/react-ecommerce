@@ -8,7 +8,7 @@ export default function CategoryManager() {
 
   return (
     <div>
-      <div className="categoryManager">
+      <div className="">
         <input
           type="button"
           value="Cars"

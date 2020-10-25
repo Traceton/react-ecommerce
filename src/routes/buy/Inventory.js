@@ -34,7 +34,12 @@ export default function Inventory({ category }) {
     inventoryItems.length > 0
   ) {
     inventoryItems.map((item) => {
-      return items.push(<InventoryItem key={item._id} inventoryItem={item} />);
+      return items.push(
+        //   adjusts width of each element here
+        <div className="flex w-48" key={item._id}>
+          <InventoryItem key={item._id} inventoryItem={item} />{" "}
+        </div>
+      );
     });
   } else {
     return (
@@ -49,5 +54,6 @@ export default function Inventory({ category }) {
     return <h1>Loading...</h1>;
   }
 
-  return <div>{items}</div>;
+  //   MAKE THIS UTILIZE GRID AND LOOK LIKE FACEBOOK MARKETPLACE.
+  return <div className=" bg-gray-350 flex flex-col ">{items}</div>;
 }
