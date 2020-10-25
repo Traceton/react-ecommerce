@@ -8,6 +8,7 @@ import {
   removeUserFromSessionStorage,
 } from "./SessionStorageApi";
 // import useHamburger from "./utils/useHamburger";
+import BuyManager from "./routes/buy/BuyManager";
 import CreateAccount from "./routes/account/components/CreateAccount";
 import UpdateAccount from "./routes/account/components/UpdateAccount";
 import Login from "./routes/account/components/Login";
@@ -16,14 +17,7 @@ function App() {
   // state of any authorized user is contained here.
   const [authorizedUser, setAuthorizedUser] = useState(null);
   const [navIsOpen, setNavIsOpen] = useState(false);
-  // const [isHamburgerActive, handleChange] = useHamburger(
-  //   <div>
-  //     <Link to="/">Home</Link>
-  //     <Link to="/buy">Buy</Link>
-  //     <Link to="/sell">Sell</Link>
-  //     <Link to="/account">Account</Link>
-  //   </div>
-  // );
+  //
 
   // memo for authorized user state
   const userProvider = useMemo(() => ({ authorizedUser, setAuthorizedUser }), [
@@ -42,6 +36,7 @@ function App() {
     getUserFromStorage();
   }, []);
 
+  // set at 1 hour for build
   const halfHour = 1800000 * 2;
   // clear any user account after 30 minutes
   // const halfHour = 1800000;
@@ -148,6 +143,9 @@ function App() {
         </div> */}
         <UserContext.Provider value={userProvider}>
           <Route exact path="/" render={() => <HomeManager />} />
+
+          <Route exact path="/buy" render={() => <BuyManager />} />
+
           <Route exact path="/account" render={() => <AccountManager />} />
           <Route exact path="/createAccount" render={() => <CreateAccount />} />
           <Route exact path="/updateAccount" render={() => <UpdateAccount />} />
