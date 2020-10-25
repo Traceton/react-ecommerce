@@ -71,7 +71,7 @@ export const loginUser = async (userInfo) => {
 };
 
 // update user
-export const updateUser = async (userInfo) => {
+export const updateUser = async (userInfo, profilePic) => {
   const updatedUser = await new FormData();
   updatedUser.append("username", userInfo.username.toLowerCase().trim());
   updatedUser.append("password", userInfo.password.trim());
@@ -79,15 +79,24 @@ export const updateUser = async (userInfo) => {
   updatedUser.append("lastName", userInfo.lastName.toLowerCase().trim());
   updatedUser.append("email", userInfo.email.toLowerCase().trim());
   updatedUser.append("phone", userInfo.phone);
-  updatedUser.append("userId", Date.now());
+  updatedUser.append("userId", userInfo.userId);
   updatedUser.append("userBio", userInfo.userBio.toLowerCase().trim());
   updatedUser.append("city", userInfo.city.toLowerCase().trim());
   updatedUser.append("state", userInfo.state.toLowerCase().trim());
   updatedUser.append("zipCode", userInfo.zipCode.toLowerCase().trim());
+  if (profilePic) {
+    updatedUser.append("profilePic", profilePic);
+  }
 
   let updateUserPromise;
 
   try {
+    await Axios.delete(`${API}/users/deleteProfilePic/${userInfo.userId}`).then(
+      async (response) => {
+        return console.log(response);
+      }
+    );
+
     Axios.patch(
       `${API}/users/updateUser/${userInfo.username.toLowerCase().trim()}`,
       await updatedUser

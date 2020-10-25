@@ -19,6 +19,7 @@ export default function UpdateAccount({ setisUpdating }) {
       return setIsDeleted(isDeleted + 1);
     }
   };
+  const [profilePic, setprofilePic] = useState(null);
 
   const initialState = {
     username: authorizedUser.username,
@@ -32,6 +33,7 @@ export default function UpdateAccount({ setisUpdating }) {
     city: authorizedUser.city,
     state: authorizedUser.state,
     zipCode: authorizedUser.zipCode,
+    profilePic: null,
   };
 
   const [values, handleChange] = useForm(initialState);
@@ -39,7 +41,7 @@ export default function UpdateAccount({ setisUpdating }) {
   // const [updatedUser, setUpdatedUser] = useState(authorizedUser);
   const updateAccount = async (e) => {
     e.preventDefault();
-    await updateUser(values);
+    await updateUser(values, profilePic);
     // trying to get authenticated user to update correctly.
     // await setUpdatedUser(updatedUserPromise);
     // await setAuthorizedUser(null);
@@ -64,6 +66,19 @@ export default function UpdateAccount({ setisUpdating }) {
         onSubmit={updateAccount}
       >
         <h1 className="text-4xl font-bold">Update Account</h1>
+        <br />
+        <label htmlFor="profilePic">Profile picture</label>
+        <input
+          className="bg-gray-350 rounded text-center p-1"
+          name="profilePic"
+          multiple
+          type="file"
+          accept=".jpg"
+          onChange={(Event) => {
+            const file = Event.target.files[0];
+            setprofilePic(file);
+          }}
+        ></input>
         <br />
         <label htmlFor="username">Username</label>
         <input
