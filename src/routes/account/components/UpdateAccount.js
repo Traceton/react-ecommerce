@@ -50,14 +50,6 @@ export default function UpdateAccount({ setisUpdating }) {
     // await saveUserToSessionStorage(null);
   };
 
-  const deleteProfilePic = () => {
-    Axios.delete(`${API}/users/deleteProfilePic/${values.userId}`).then(
-      async (response) => {
-        return console.log(response);
-      }
-    );
-  };
-
   return (
     <div
       className="flex flex-col justify-center text-white text-center align-center p-4 text-xl "
