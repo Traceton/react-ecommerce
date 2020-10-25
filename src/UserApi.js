@@ -11,7 +11,7 @@ const ENVIROMENT_OPTIONS = {
 };
 
 // SET DEVELOPMENT ENVIROMENT HERE
-const ENVIROMENT = ENVIROMENT_OPTIONS.HEROKU;
+const ENVIROMENT = ENVIROMENT_OPTIONS.LOCAL;
 
 export let API;
 if (ENVIROMENT === "local") {
@@ -85,18 +85,18 @@ export const updateUser = async (userInfo, profilePic) => {
   updatedUser.append("state", userInfo.state.toLowerCase().trim());
   updatedUser.append("zipCode", userInfo.zipCode.toLowerCase().trim());
   if (profilePic) {
+    Axios.delete(`${API}/users/deleteProfilePic/${userInfo.userId}`).then(
+      async (response) => {
+        await response;
+        return console.log(response);
+      }
+    );
     updatedUser.append("profilePic", profilePic);
   }
 
   let updateUserPromise;
 
   try {
-    await Axios.delete(`${API}/users/deleteProfilePic/${userInfo.userId}`).then(
-      async (response) => {
-        return console.log(response);
-      }
-    );
-
     Axios.patch(
       `${API}/users/updateUser/${userInfo.username.toLowerCase().trim()}`,
       await updatedUser

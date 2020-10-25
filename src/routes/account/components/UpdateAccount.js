@@ -2,9 +2,11 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../../../UserContext";
 import { deleteUser } from "../../../UserApi";
 import { updateUser } from "../../../UserApi";
+import { API } from "../../../UserApi";
 // import { saveUserToSessionStorage } from "../../../SessionStorageApi";
 import useForm from "../../../utils/useForm";
 import "../styles/updateAccount.css";
+import Axios from "axios";
 export default function UpdateAccount({ setisUpdating }) {
   const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
 
@@ -33,7 +35,7 @@ export default function UpdateAccount({ setisUpdating }) {
     city: authorizedUser.city,
     state: authorizedUser.state,
     zipCode: authorizedUser.zipCode,
-    profilePic: null,
+    userId: authorizedUser.userId,
   };
 
   const [values, handleChange] = useForm(initialState);
@@ -46,6 +48,15 @@ export default function UpdateAccount({ setisUpdating }) {
     // await setUpdatedUser(updatedUserPromise);
     // await setAuthorizedUser(null);
     // await saveUserToSessionStorage(null);
+  };
+
+  const deleteProfilePic = () => {
+    Axios.delete(`${API}/users/deleteProfilePic/${values.userId}`).then(
+      async (response) => {
+        await response;
+        return console.log(response);
+      }
+    );
   };
 
   return (
@@ -61,6 +72,15 @@ export default function UpdateAccount({ setisUpdating }) {
         backgroundRepeat: "no-repeat",
       }}
     >
+      {/* used below for testing */}
+      {/* <div>
+        <input
+          className="text-black"
+          type="button"
+          value="delete profile pic"
+          onClick={deleteProfilePic}
+        />
+      </div> */}
       <form
         className="flex flex-col text-center text-2xl "
         onSubmit={updateAccount}
