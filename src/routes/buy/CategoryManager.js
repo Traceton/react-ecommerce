@@ -6,10 +6,22 @@ export default function CategoryManager() {
     <Inventory category={"car"} />
   );
 
+  const americanFlagPic =
+    "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
+
   return (
     <div>
-      <div className="">
+      <div
+        className="flex flex-row bg-gray-350 justify-around text-white text-xl"
+        style={{
+          backgroundImage: "url(" + americanFlagPic + ")",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <input
+          className="m-1 p-1 bg-gray-350 border-2 border  rounded"
           type="button"
           value="Cars"
           onClick={(Event) => {
@@ -17,6 +29,7 @@ export default function CategoryManager() {
           }}
         />
         <input
+          className="m-1 p-1 bg-gray-350 border-2 border  rounded"
           type="button"
           value="Trucks"
           onClick={(Event) => {
@@ -24,6 +37,7 @@ export default function CategoryManager() {
           }}
         />
         <input
+          className="m-1 p-1 bg-gray-350 border-2 border  rounded"
           type="button"
           value="Parts"
           onClick={(Event) => {

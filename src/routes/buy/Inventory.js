@@ -36,7 +36,7 @@ export default function Inventory({ category }) {
     inventoryItems.map((item) => {
       return items.push(
         //   adjusts width of each element here
-        <div className="flex w-48" key={item._id}>
+        <div className="flex " key={item._id}>
           <InventoryItem key={item._id} inventoryItem={item} />{" "}
         </div>
       );
@@ -53,7 +53,20 @@ export default function Inventory({ category }) {
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
-
+  const americanFlagPic =
+    "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
   //   MAKE THIS UTILIZE GRID AND LOOK LIKE FACEBOOK MARKETPLACE.
-  return <div className=" bg-gray-350 flex flex-col ">{items}</div>;
+  return (
+    <div
+      className=" flex flex-col h-screen "
+      style={{
+        backgroundImage: "url(" + americanFlagPic + ")",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {items}
+    </div>
+  );
 }

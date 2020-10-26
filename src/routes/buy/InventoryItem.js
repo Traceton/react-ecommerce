@@ -42,16 +42,27 @@ export default function InventoryItem({ inventoryItem }) {
       </h2>
     );
   }
-
+  let itemPic = `https://react-store-node-api.herokuapp.com/inventoryItems/images/${item.itemId}`;
   return (
-    <div className="inventoryItem flex">
-      <div className="">
-        <img
+    <div className="flex flex-row justify-evenly w-screen bg-blue-500 rounded m-1 p-1 text-white text-xl ">
+      <div
+        className="w-64 "
+        style={{
+          backgroundImage: "url(" + itemPic + ")",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {/* <img
+          className="rounded-md "
           src={`https://react-store-node-api.herokuapp.com/inventoryItems/images/${item.itemId}`}
           alt=" not found"
-        />
+        /> */}
       </div>
-      <div className="inventoryItemInfo flex">{layout}</div>
+      <div className="flex justify-center text-center items-center w-1/2 ">
+        {layout}
+      </div>
     </div>
   );
 }
