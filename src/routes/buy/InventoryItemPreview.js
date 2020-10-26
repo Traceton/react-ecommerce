@@ -53,7 +53,10 @@ export default function InventoryItemPreview({ inventoryItem }) {
           backgroundRepeat: "no-repeat",
         }}
       ></div>
-      <div className="flex justify-center text-center items-center w-1/2 ">
+      <div
+        className="flex justify-center text-center items-center w-1/2"
+        onClick={}
+      >
         {layout}
       </div>
     </div>

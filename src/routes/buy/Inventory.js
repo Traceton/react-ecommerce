@@ -4,7 +4,8 @@ import InventoryItemPreview from "./InventoryItemPreview";
 export default function Inventory({ category }) {
   const [isLoading, setisLoading] = useState(true);
   const [inventoryItems, setinventoryItems] = useState();
-
+  const americanFlagPic =
+    "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
   // fetches all inventory items from the react-store database
   let getInventoryItemsFromApi = () => {
     fetch(
@@ -42,8 +43,15 @@ export default function Inventory({ category }) {
     });
   } else {
     return (
-      <div className="inventoryItem">
-        {" "}
+      <div
+        className="flex flex-col justify-around align-middle text-3xl tech white "
+        style={{
+          backgroundImage: "url(" + americanFlagPic + ")",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <h1>No items found. Please list a item.</h1>
       </div>
     );
@@ -52,8 +60,7 @@ export default function Inventory({ category }) {
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
-  const americanFlagPic =
-    "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
+
   //   MAKE THIS UTILIZE GRID AND LOOK LIKE FACEBOOK MARKETPLACE.
   return (
     <div
