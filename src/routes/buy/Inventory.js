@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-
-import InventoryItem from "./InventoryItem";
+import InventoryItemPreview from "./InventoryItemPreview";
 
 export default function Inventory({ category }) {
   const [isLoading, setisLoading] = useState(true);
@@ -37,7 +36,7 @@ export default function Inventory({ category }) {
       return items.push(
         //   adjusts width of each element here
         <div className="flex " key={item._id}>
-          <InventoryItem key={item._id} inventoryItem={item} />{" "}
+          <InventoryItemPreview key={item._id} inventoryItem={item} />{" "}
         </div>
       );
     });

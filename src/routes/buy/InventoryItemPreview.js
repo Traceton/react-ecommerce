@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function InventoryItem({ inventoryItem }) {
+export default function InventoryItemPreview({ inventoryItem }) {
   // checks if a inventory item was passed as a prop
   let item;
   if (inventoryItem) {
