@@ -37,14 +37,14 @@ export default function InventoryItem({ inventoryItem }) {
       <h2>
         {item.itemName}
         <br />${item.itemPrice} <br />
-        {item.itemDescription} <br />
+        {/* {item.itemDescription} <br /> */}
         {singleOrMultiple}
       </h2>
     );
   }
   let itemPic = `https://react-store-node-api.herokuapp.com/inventoryItems/images/${item.itemId}`;
   return (
-    <div className="flex flex-row justify-evenly w-screen bg-blue-500 rounded m-1 p-1 text-white text-xl ">
+    <div className="flex flex-row justify-evenly w-screen bg-blue-500 rounded m-1 p-1 text-white text-xl h-40">
       <div
         className="w-64 "
         style={{
