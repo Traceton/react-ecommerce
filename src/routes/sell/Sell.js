@@ -1,22 +1,37 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import useForm from "../../utils/useForm";
 import { createNewInventoryItem } from "../../InventoryItemApi";
 import { UserContext } from "../../UserContext";
 export default function Sell() {
-  const [values, handleChange] = useForm();
-  const { authorizedUser, setAuthorizedUser } = useContext(UserContext);
+  const initialValues = {
+    itemName: "Test name",
+    itemPrice: 123,
+    itemCategory: "parts",
+    itemPartNumber: 123,
+    itemLocation: "Test location",
+    itemsInStock: 123,
+    itemDescription: "Test description",
+    itemYearCreated: 123,
+    itemMake: "Test Make",
+    itemModel: "Test model",
+    itemId: 123,
+  };
+
+  const [values, handleChange] = useForm(initialValues);
+  const [itemPicture, setItemPicture] = useState(null);
+  const { authorizedUser } = useContext(UserContext);
+
   const sellItem = (e) => {
     e.preventDefault();
-    createNewInventoryItem(authorizedUser.userId, authorizedUser.password);
+    createNewInventoryItem(
+      values,
+      authorizedUser.userId,
+      authorizedUser.password,
+      itemPicture
+    );
     // need to append data to the post request
   };
-  //   {
-  //     itemPrice: 0,
-  //     itemsInStock: 1,
-  //     itemShippingDistance: 0,
-  //     _id: 5f974bd006c178e292384d0e,
-  //     itemId: '1603658834340'
-  //   }
+
   return (
     <div
       className="flex flex-col justify-center text-white text-center align-center p-4 text-xl "
@@ -33,16 +48,16 @@ export default function Sell() {
       <form className="flex flex-col text-center text-2xl " onSubmit={sellItem}>
         <h1 className="text-4xl font-bold">Sell Here</h1>
         <br />
-        <label htmlFor="profilePic">Item Pictures</label>
+        <label htmlFor="itemPicture">Item Pictures</label>
         <input
           className="bg-gray-350 rounded text-center p-1"
-          name="profilePic"
+          name="itemPicture"
           multiple
           type="file"
           accept=".jpg"
           onChange={(Event) => {
             const file = Event.target.files[0];
-            // setprofilePic(file);
+            setItemPicture(file);
           }}
         ></input>
         <br />
