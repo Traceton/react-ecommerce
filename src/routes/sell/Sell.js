@@ -16,8 +16,8 @@ export default function Sell() {
     itemMake: "Test Make",
     itemModel: "Test model",
     // WHEN USING USER ID AS A ITEM MARKER, MULTIPLE ITEMS HAVE THE SAME NUMBER
-    // MUST BE CHANGED
-    itemId: authorizedUser.userId,
+    // each item now includes the user id and its own item id.
+    itemId: Date.now(),
   };
 
   const [values, handleChange] = useForm(initialValues);
@@ -31,7 +31,6 @@ export default function Sell() {
       authorizedUser.password,
       itemPicture
     );
-    // need to append data to the post request
   };
 
   return (
