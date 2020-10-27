@@ -3,6 +3,7 @@ import useForm from "../../utils/useForm";
 import { createNewInventoryItem } from "../../InventoryItemApi";
 import { UserContext } from "../../UserContext";
 export default function Sell() {
+  const { authorizedUser } = useContext(UserContext);
   const initialValues = {
     itemName: "Test name",
     itemPrice: 123,
@@ -14,12 +15,13 @@ export default function Sell() {
     itemYearCreated: 123,
     itemMake: "Test Make",
     itemModel: "Test model",
-    itemId: 123,
+    // WHEN USING USER ID AS A ITEM MARKER, MULTIPLE ITEMS HAVE THE SAME NUMBER
+    // MUST BE CHANGED
+    itemId: authorizedUser.userId,
   };
 
   const [values, handleChange] = useForm(initialValues);
   const [itemPicture, setItemPicture] = useState(null);
-  const { authorizedUser } = useContext(UserContext);
 
   const sellItem = (e) => {
     e.preventDefault();
