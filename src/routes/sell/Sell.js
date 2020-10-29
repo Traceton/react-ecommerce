@@ -3,6 +3,8 @@ import useForm from "../../utils/useForm";
 import { createNewInventoryItem } from "../../InventoryItemApi";
 import { UserContext } from "../../UserContext";
 export default function Sell() {
+  const americanFlagPic =
+    "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
   const { authorizedUser } = useContext(UserContext);
   const initialValues = {
     itemName: "Test name",
@@ -32,6 +34,26 @@ export default function Sell() {
       itemPicture
     );
   };
+
+  if (!authorizedUser) {
+    return (
+      <div
+        className="flex h-screen flex-col justify-center align-middle text-3xl text-blue-500  "
+        style={{
+          backgroundImage: "url(" + americanFlagPic + ")",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <button className="rounded-lg m-2 p-2 bg-gray-350">
+          <a href="/account">
+            Must have a account to sell, click here to login or create one.
+          </a>
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div
