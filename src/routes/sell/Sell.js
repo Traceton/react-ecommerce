@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import useForm from "../../utils/useForm";
 import { createNewInventoryItem } from "../../InventoryItemApi";
 import { UserContext } from "../../UserContext";
+import Login from "../account/components/Login";
 export default function Sell() {
   const americanFlagPic =
     "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
@@ -38,7 +39,7 @@ export default function Sell() {
   if (!authorizedUser) {
     return (
       <div
-        className="flex h-screen flex-col justify-center align-middle text-3xl text-blue-500  "
+        className="flex h-screen flex-col justify-center align-middle text-3xl text-white  "
         style={{
           backgroundImage: "url(" + americanFlagPic + ")",
           backgroundPosition: "center",
@@ -48,9 +49,10 @@ export default function Sell() {
       >
         <button className="rounded-lg m-2 p-2 bg-gray-350">
           <a href="/account">
-            Must have a account to sell, click here to login or create one.
+            Must have a account to sell, Please login or create one.
           </a>
         </button>
+        <Login />
       </div>
     );
   }

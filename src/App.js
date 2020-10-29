@@ -88,24 +88,39 @@ function App() {
                 : "hidden"
             }
           >
-            <Link className="block hover:bg-gray-600 rounded px-2" to="/">
+            <Link
+              className="block hover:bg-gray-600 rounded px-2"
+              to="/"
+              onClick={() => {
+                setNavIsOpen(!navIsOpen);
+              }}
+            >
               Home
             </Link>
             <Link
               className="block hover:bg-gray-600 rounded px-2 mt-1"
               to="/buy"
+              onClick={() => {
+                setNavIsOpen(!navIsOpen);
+              }}
             >
               Buy
             </Link>
             <Link
               className="block hover:bg-gray-600 rounded px-2 mt-1"
               to="/sell"
+              onClick={() => {
+                setNavIsOpen(!navIsOpen);
+              }}
             >
               Sell
             </Link>
             <Link
               className="block hover:bg-gray-600 rounded px-2 m-1"
               to="/account"
+              onClick={() => {
+                setNavIsOpen(!navIsOpen);
+              }}
             >
               {authorizedUser ? "Account" : "Login"}
             </Link>

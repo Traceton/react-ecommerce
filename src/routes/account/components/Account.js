@@ -70,7 +70,9 @@ export default function Account({ view }) {
           <h4 className="text-lg mt-2">{authorizedUser.userBio}</h4>
         </div>
         <div className="flex flex-col justify-center text-center bg-gray-350 m-3 rounded text-3xl  ">
-          <button className="font-bold h-16">Create a listing here</button>
+          <button className="rounded-lg m-2 p-2 bg-gray-350">
+            <a href="/sell">Create a listing here.</a>
+          </button>
         </div>
       </div>
     );
