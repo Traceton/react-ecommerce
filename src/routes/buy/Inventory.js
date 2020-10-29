@@ -44,7 +44,7 @@ export default function Inventory({ category }) {
   } else {
     return (
       <div
-        className="flex flex-col justify-around align-middle text-3xl tech white "
+        className="flex h-screen flex-col justify-around align-middle text-3xl tech white "
         style={{
           backgroundImage: "url(" + americanFlagPic + ")",
           backgroundPosition: "center",
