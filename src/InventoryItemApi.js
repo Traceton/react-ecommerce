@@ -7,12 +7,13 @@ export const createNewInventoryItem = async (
   itemInfo,
   userId,
   password,
+  itemCategory,
   itemImage
 ) => {
   const newItem = await new FormData();
   newItem.append("itemName", itemInfo.itemName);
   newItem.append("itemPrice", itemInfo.itemPrice);
-  newItem.append("itemCategory", itemInfo.itemCategory.toLowerCase().trim());
+  newItem.append("itemCategory", itemCategory.toLowerCase().trim());
   newItem.append("itemPartNumber", itemInfo.itemPartNumber);
   newItem.append("itemLocation", itemInfo.itemLocation.trim());
   newItem.append("itemsInStock", itemInfo.itemsInStock);

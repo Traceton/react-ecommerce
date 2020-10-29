@@ -4,13 +4,14 @@ import { createNewInventoryItem } from "../../InventoryItemApi";
 import { UserContext } from "../../UserContext";
 import Login from "../account/components/Login";
 export default function Sell() {
+  const [itemCategory, setItemCategory] = useState(null);
+
   const americanFlagPic =
     "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
   const { authorizedUser } = useContext(UserContext);
   const initialValues = {
     itemName: "Test name",
     itemPrice: 123,
-    itemCategory: "parts",
     itemPartNumber: 123,
     itemLocation: "Test location",
     itemsInStock: 123,
@@ -32,6 +33,7 @@ export default function Sell() {
       values,
       authorizedUser.userId,
       authorizedUser.password,
+      itemCategory,
       itemPicture
     );
   };
@@ -86,14 +88,54 @@ export default function Sell() {
           }}
         ></input>
         <br />
-        <label htmlFor="itemCategory">itemCategory</label>
-        <input
-          className="bg-gray-350 rounded text-center p-1"
-          type="itemCategory"
-          name="itemCategory"
-          value={values.itemCategory || ""}
-          onChange={handleChange}
-        ></input>
+        {/* radio input for category */}
+        <label htmlFor="itemCategoryDiv">Item Category</label>
+        <div
+          className="bg-gray-350 rounded text-center m-1 p-1"
+          name="itemCategoryDiv"
+        >
+          <label htmlFor="car" className="m-1 p-1">
+            Car
+          </label>
+          <input
+            type="radio"
+            id="car"
+            name="itemCategory"
+            value="car"
+            onChange={(Event) => {
+              const { value } = Event.target;
+              setItemCategory(value);
+            }}
+          />
+          <br />
+          <label htmlFor="truck" className="m-1 p-1">
+            Truck
+          </label>
+          <input
+            type="radio"
+            id="truck"
+            name="itemCategory"
+            value="truck"
+            onChange={(Event) => {
+              const { value } = Event.target;
+              setItemCategory(value);
+            }}
+          />
+          <br />
+          <label htmlFor="parts" className="m-1 p-1">
+            Parts
+          </label>
+          <input
+            type="radio"
+            id="parts"
+            name="itemCategory"
+            value="parts"
+            onChange={(Event) => {
+              const { value } = Event.target;
+              setItemCategory(value);
+            }}
+          />
+        </div>
         <br />
         <label htmlFor="itemName">itemName</label>
         <input
