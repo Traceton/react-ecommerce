@@ -129,7 +129,6 @@ export default function Account({ view }) {
             <a href="/sell">Create a listing here.</a>
           </button>
         </div>
-        {items}
       </div>
     );
   } else if (authorizedUser && view === "un-authorized") {
@@ -160,5 +159,20 @@ export default function Account({ view }) {
     );
   }
 
-  return <div>{displayedUser}</div>;
+  return (
+    <div>
+      <div>{displayedUser}</div>
+      <div
+        className=" flex flex-col h-auto "
+        style={{
+          backgroundImage: "url(" + americanFlagPic + ")",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {items}
+      </div>
+    </div>
+  );
 }
