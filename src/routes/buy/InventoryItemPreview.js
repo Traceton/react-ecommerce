@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import InventoryItem from "./InventoryItem";
 
 export default function InventoryItemPreview({ inventoryItem }) {
+  const [isItemPreview, setisItemPreview] = useState(false);
   // checks if a inventory item was passed as a prop
   let item;
   if (inventoryItem) {
@@ -42,20 +44,38 @@ export default function InventoryItemPreview({ inventoryItem }) {
     );
   }
   let itemPic = `https://react-store-node-api.herokuapp.com/inventoryItems/images/${item.itemId}`;
-  return (
-    <div className="flex flex-row justify-evenly w-screen bg-blue-500 rounded m-1 p-1 text-white text-xl h-40">
-      <div
-        className="w-64 "
-        style={{
-          backgroundImage: "url(" + itemPic + ")",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      ></div>
-      <div className="flex justify-center text-center items-center w-1/2">
-        {layout}
+  let isPreview;
+  if (isItemPreview) {
+    return (isPreview = (
+      <div className=" w-screen flex justify-center">
+        <InventoryItem
+          key={item._id}
+          inventoryItem={item}
+          setisItemPreview={setisItemPreview}
+        />
       </div>
-    </div>
-  );
+    ));
+  } else {
+    return (
+      <div
+        className="flex flex-row justify-evenly w-screen bg-blue-500 rounded m-1 p-1 text-white text-xl h-40"
+        onClick={() => {
+          setisItemPreview(!isItemPreview);
+        }}
+      >
+        <div
+          className="w-64 "
+          style={{
+            backgroundImage: "url(" + itemPic + ")",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></div>
+        <div className="flex justify-center text-center items-center w-1/2">
+          {layout}
+        </div>
+      </div>
+    );
+  }
 }

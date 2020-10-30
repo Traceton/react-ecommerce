@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function InventoryItem({ inventoryItem }) {
+export default function InventoryItem({ inventoryItem, setisItemPreview }) {
   // checks if a inventory item was passed as a prop
   let item;
   if (inventoryItem) {
@@ -43,17 +43,23 @@ export default function InventoryItem({ inventoryItem }) {
   }
   let itemPic = `https://react-store-node-api.herokuapp.com/inventoryItems/images/${item.itemId}`;
   return (
-    <div className="flex flex-row justify-evenly w-screen bg-blue-500 rounded m-1 p-1 text-white text-xl h-40">
+    <div
+      className="flex flex-col justify-start w-11/12 bg-blue-500 rounded m-1 p-1 text-white text-xl h-auto"
+      onClick={() => {
+        setisItemPreview(false);
+      }}
+    >
       <div
-        className="w-64 "
+        className="  rounded m-1 p-1 "
         style={{
+          height: "50vh",
           backgroundImage: "url(" + itemPic + ")",
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
       ></div>
-      <div className="flex justify-center text-center items-center w-1/2 ">
+      <div className="flex justify-evenly text-center items-center w-auto h-auto ">
         {layout}
       </div>
     </div>

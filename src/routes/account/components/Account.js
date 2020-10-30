@@ -45,20 +45,6 @@ export default function Account({ view }) {
         </div>
       );
     });
-  } else {
-    return (
-      <div
-        className="flex h-screen flex-col justify-around align-middle text-3xl text-white "
-        style={{
-          backgroundImage: "url(" + americanFlagPic + ")",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <h1>No items found. Please list a item.</h1>
-      </div>
-    );
   }
 
   if (isLoading) {
@@ -74,13 +60,13 @@ export default function Account({ view }) {
     displayedUser = (
       // create a good looking account view
       <div
-        className="flex justify-start flex-col flex-wrap text-white h-auto"
-        style={{
-          backgroundImage: "url(" + americanFlagPic + ")",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
+        className="flex justify-start flex-col flex-wrap text-white"
+        // style={{
+        //   backgroundImage: "url(" + americanFlagPic + ")",
+        //   backgroundPosition: "center",
+        //   backgroundSize: "cover",
+        //   backgroundRepeat: "no-repeat",
+        // }}
       >
         <div
           className="flex flex-row justify-around m-1 p-2 h-40"
@@ -160,19 +146,17 @@ export default function Account({ view }) {
   }
 
   return (
-    <div>
+    <div
+      className=" flex flex-col h-screen"
+      style={{
+        backgroundImage: "url(" + americanFlagPic + ")",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div>{displayedUser}</div>
-      <div
-        className=" flex flex-col h-auto "
-        style={{
-          backgroundImage: "url(" + americanFlagPic + ")",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        {items}
-      </div>
+      <div className=" flex flex-col h-auto">{items}</div>
     </div>
   );
 }
