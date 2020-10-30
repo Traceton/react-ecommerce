@@ -1,25 +1,80 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 // import "../styles/account.css";
 import { UserContext } from "../../../UserContext";
 import UpdateAccount from "./UpdateAccount";
 import { API } from "../../../UserApi";
+import InventoryItemPreview from "../../buy/InventoryItemPreview";
 export default function Account({ view }) {
+  const americanFlagPic =
+    "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
   const { authorizedUser } = useContext(UserContext);
   const [isUpdating, setisUpdating] = useState(false);
+  const [isLoading, setisLoading] = useState(true);
+  const [inventoryItems, setinventoryItems] = useState();
 
+  // fetches all inventory items from the react-store database
+  let getInventoryItemsFromApi = () => {
+    fetch(`${API}/inventoryItems/findOwnUserItems/${authorizedUser.userId}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        // sets the data from database to inventory items
+        setinventoryItems(data);
+        setisLoading(false);
+      });
+  };
+  useEffect(() => {
+    getInventoryItemsFromApi();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading]);
+
+  // inventory items to be displayed.
+  let items = [];
+  // checks if data was recieved from the database.
+  if (
+    inventoryItems != null &&
+    inventoryItems !== undefined &&
+    inventoryItems.length > 0
+  ) {
+    inventoryItems.map((item) => {
+      return items.push(
+        //   adjusts width of each element here
+        <div className="flex " key={item._id}>
+          <InventoryItemPreview key={item._id} inventoryItem={item} />{" "}
+        </div>
+      );
+    });
+  } else {
+    return (
+      <div
+        className="flex h-screen flex-col justify-around align-middle text-3xl text-white "
+        style={{
+          backgroundImage: "url(" + americanFlagPic + ")",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <h1>No items found. Please list a item.</h1>
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
   // Account should show certain info depending on a "view variable passed to it".
   // if the user looks at their own account, all should be visable.
   // if a user is looking at somebody elses account,
   // (from a item/blog/picture etc posting.) only some info should be visable
-  const americanFlagPic =
-    "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
 
   let displayedUser;
   if (authorizedUser && view === "authorized" && !isUpdating) {
     displayedUser = (
       // create a good looking account view
       <div
-        className="flex justify-start flex-col flex-wrap text-white h-screen"
+        className="flex justify-start flex-col flex-wrap text-white h-auto"
         style={{
           backgroundImage: "url(" + americanFlagPic + ")",
           backgroundPosition: "center",
@@ -74,6 +129,7 @@ export default function Account({ view }) {
             <a href="/sell">Create a listing here.</a>
           </button>
         </div>
+        {items}
       </div>
     );
   } else if (authorizedUser && view === "un-authorized") {
