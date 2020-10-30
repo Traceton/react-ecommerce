@@ -50,9 +50,9 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
       }}
     >
       <div
-        className="  rounded m-1 p-1 "
+        className="rounded m-1 p-1 "
         style={{
-          height: "50vh",
+          height: "30vh",
           backgroundImage: "url(" + itemPic + ")",
           backgroundPosition: "center",
           backgroundSize: "cover",
