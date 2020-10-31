@@ -41,7 +41,7 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
         </div>
         <div className="flex  flex-col justify-center ">
           <input
-            className="bg-transparent p-1 m-1 font-bold rounded border-2 text-3xl"
+            className="bg-transparent p-1 m-1 font-bold rounded border-2 border-blue-800 text-3xl"
             type="button"
             value="Message Seller"
             onClick={(e) => {
@@ -50,7 +50,7 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
             }}
           />
           <input
-            className="bg-transparent p-1 m-1 font-bold rounded border-2 text-2xl"
+            className="bg-transparent p-1 m-1 font-bold rounded border-2 border-blue-800 text-2xl"
             type="button"
             value="Save Vehicle"
             onClick={(e) => {
@@ -59,7 +59,7 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
             }}
           />
           <input
-            className="bg-transparent p-1 m-1 font-bold rounded border-2 text-xl"
+            className="bg-transparent p-1 m-1 font-bold rounded border-2 border-blue-800 text-xl"
             type="button"
             value="Share"
             onClick={(e) => {
