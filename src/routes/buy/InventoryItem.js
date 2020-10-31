@@ -22,15 +22,46 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
   let layout;
   if (item.itemYearCreated > 1) {
     layout = (
-      <h2>
-        ${item.itemPrice}
-        <br />
-        {item.itemYearCreated}
-        <br />
-        {item.itemMake}
-        <br />
-        {item.itemModel}
-      </h2>
+      <div className="flex justify-center  text-center flex-col rounded m-1 p-1  text-wrap">
+        <div className="flex flex-row justify-center flex-wrap text-2xl ">
+          <h1 className="p-1 m-1"> {item.itemYearCreated} </h1>
+          <h1 className="p-1 m-1">{item.itemMake}</h1>
+          <h1 className="p-1 m-1">{item.itemModel}</h1>
+        </div>
+        <div className="flex flex-col text-2xl justify-center">
+          <h1 className="pl-1 pr-1 ml-1 mr-1">${item.itemPrice}</h1>
+        </div>
+        <div className="flex flex-col justify-center text-2xl">
+          <h1 className="font-bold">Seller's Location</h1>
+          <h1 className="pl-1 pr-1 ml-1 mr-1">{item.itemLocation}</h1>
+        </div>
+        <div className="flex flex-col justify-center text-2xl">
+          <h1 className="font-bold">Seller's Description</h1>
+          <h1 className="pl-1 pr-1 ml-1 mr-1">{item.itemDescription}</h1>
+        </div>
+        <div className="flex  flex-row justify-center ">
+          <input
+            className="bg-transparent p-1 m-1 font-bold rounded border-2 text-2xl"
+            type="button"
+            value="Message Seller"
+          />
+          {/* HIDDEN CURRENTLY */}
+          <input
+            className="hidden bg-transparent p-1 m-1 font-bold rounded border-2 text-xl"
+            type="button"
+            value="Save Vehicle"
+          />
+        </div>
+      </div>
+      // <h2>
+      //   ${item.itemPrice}
+      //   <br />
+      //   {item.itemYearCreated}
+      //   <br />
+      //   {item.itemMake}
+      //   <br />
+      //   {item.itemModel}
+      // </h2>
     );
   } else {
     layout = (
