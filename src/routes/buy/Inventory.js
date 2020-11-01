@@ -52,7 +52,7 @@ export default function Inventory({ category }) {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <h1>No items found. Please list a item.</h1>
+        <h1 className="m-1 p-1">No items found. Please list a item.</h1>
       </div>
     );
   }
