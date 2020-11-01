@@ -15,16 +15,31 @@ export const sendNewMessage = async (
     messageBody: messageBody,
   };
 
-  //   let final;
+  let returnValue;
   try {
     await Axios.post(
       `${API}/messages/sendNewMessage/${senderUserId}/${recieverUserId}`,
       newMessage
     ).then(async (response) => {
       console.log(response);
-      //   final = await response.data;
+      returnValue = await response.data;
     });
-    // return final;
+    return returnValue;
+  } catch (error) {
+    return console.log("Message api create new message error");
+  }
+};
+
+export const getMessages = async (senderUserId, recieverUserId) => {
+  let returnValue;
+  try {
+    await Axios.get(
+      `${API}/messages/sendNewMessage/${senderUserId}/${recieverUserId}`
+    ).then(async (response) => {
+      console.log(response);
+      returnValue = await response.data;
+    });
+    return returnValue;
   } catch (error) {
     return console.log("Message api create new message error");
   }
