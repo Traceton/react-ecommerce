@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import Message from "../message/Message";
 
 export default function InventoryItem({ inventoryItem, setisItemPreview }) {
+  const [messaging, setMessaging] = useState(false);
   // checks if a inventory item was passed as a prop
   let item;
   if (inventoryItem) {
@@ -46,7 +48,7 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
             value="Message Seller"
             onClick={(e) => {
               e.preventDefault();
-              alert("Message sent");
+              setMessaging(!messaging);
             }}
           />
           <input
@@ -88,14 +90,14 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
       </h2>
     );
   }
+  let message;
+  if (messaging === true) {
+    message = <Message recieverUserId={item.itemUserId} />;
+  }
+
   let itemPic = `https://react-store-node-api.herokuapp.com/inventoryItems/images/${item.itemId}`;
   return (
-    <div
-      className="flex flex-col justify-start w-11/12 bg-blue-500 rounded m-1 p-1 text-white text-xl h-auto"
-      onClick={() => {
-        setisItemPreview(false);
-      }}
-    >
+    <div className="flex flex-col justify-start w-11/12 bg-blue-500 rounded m-1 p-1 text-white text-xl h-auto">
       <div
         className="rounded m-1 p-1 "
         style={{
@@ -105,9 +107,15 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
+        onClick={() => {
+          setisItemPreview(false);
+        }}
       ></div>
       <div className="flex justify-evenly text-center items-center w-auto h-auto ">
         {layout}
+      </div>
+      <div className="flex justify-evenly text-center items-center w-auto h-auto ">
+        {message}
       </div>
     </div>
   );

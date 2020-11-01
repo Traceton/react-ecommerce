@@ -13,6 +13,7 @@ import CreateAccount from "./routes/account/components/CreateAccount";
 import UpdateAccount from "./routes/account/components/UpdateAccount";
 import Login from "./routes/account/components/Login";
 import Sell from "./routes/sell/Sell";
+// import Message from "./routes/message/Message";
 
 function App() {
   // state of any authorized user is contained here.
@@ -165,6 +166,7 @@ function App() {
           <Route exact path="/createAccount" render={() => <CreateAccount />} />
           <Route exact path="/updateAccount" render={() => <UpdateAccount />} />
           <Route exact path="/login" render={() => <Login />} />
+          {/* <Route exact path="/message" render={() => <Message />} /> */}
         </UserContext.Provider>
       </Router>
     </div>
