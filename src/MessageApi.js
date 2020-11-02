@@ -41,6 +41,6 @@ export const getMessages = async (senderUserId, recieverUserId) => {
     });
     return returnValue;
   } catch (error) {
-    return console.log("Message api create new message error");
+    return console.log("Message api get messages error");
   }
 };
