@@ -92,7 +92,7 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
   }
   let message;
   if (messaging === true) {
-    message = <Message recieverUserId={item.itemUserId} />;
+    message = <Message recieverUserId={item.itemUserId} itemId={item.itemId} />;
   }
 
   let itemPic = `https://react-store-node-api.herokuapp.com/inventoryItems/images/${item.itemId}`;
