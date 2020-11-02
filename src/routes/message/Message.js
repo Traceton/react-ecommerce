@@ -5,7 +5,8 @@ export default function Message({ recieverUserId, itemId }) {
   const { authorizedUser } = useContext(UserContext);
   const [messageBody, setmessageBody] = useState(null);
 
-  let submitNewMessage = async () => {
+  let submitNewMessage = async (e) => {
+    e.preventDefault();
     if (messageBody) {
       sendNewMessage(
         authorizedUser.userId,
@@ -28,7 +29,7 @@ export default function Message({ recieverUserId, itemId }) {
       console.log(`messages from api -> ${messagesFromApi}`);
     };
     initMessages();
-  }, []);
+  }, [authorizedUser.userId, recieverUserId]);
 
   let displayedComponent;
   if (authorizedUser && authorizedUser.userId !== recieverUserId) {
@@ -49,7 +50,6 @@ export default function Message({ recieverUserId, itemId }) {
               type="text"
               name="messageBodyInput"
               onChange={(e) => {
-                e.preventDefault();
                 setmessageBody(e.target.value);
               }}
             />
