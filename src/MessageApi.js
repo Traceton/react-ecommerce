@@ -34,7 +34,7 @@ export const getMessages = async (senderUserId, recieverUserId) => {
   let returnValue;
   try {
     await Axios.get(
-      `${API}/messages/sendNewMessage/${senderUserId}/${recieverUserId}`
+      `${API}/messages/getPreviousMessages/${senderUserId}/${recieverUserId}`
     ).then(async (response) => {
       console.log(response);
       returnValue = await response.data;
