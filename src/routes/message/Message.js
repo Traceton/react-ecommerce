@@ -28,7 +28,7 @@ export default function Message({ recieverUserId, itemId }) {
       console.log(`messages from api -> ${messagesFromApi}`);
     };
     initMessages();
-  }, [authorizedUser]);
+  }, []);
 
   let displayedComponent;
   if (authorizedUser && authorizedUser.userId !== recieverUserId) {
@@ -42,7 +42,6 @@ export default function Message({ recieverUserId, itemId }) {
           <form
             className="flex flex-col bg-gray-350 rounded "
             onSubmit={submitNewMessage}
-            method="post"
           >
             <label htmlFor="messageBodyInput">Send new message</label>
             <input
