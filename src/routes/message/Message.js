@@ -4,6 +4,7 @@ import { sendNewMessage, getMessages } from "../../MessageApi";
 export default function Message({ recieverUserId, itemId }) {
   const { authorizedUser } = useContext(UserContext);
   const [messageBody, setmessageBody] = useState(null);
+  const [messagesFromApi, setMessagesFromApi] = useState(null);
 
   let submitNewMessage = async (e) => {
     e.preventDefault();
@@ -18,6 +19,15 @@ export default function Message({ recieverUserId, itemId }) {
       console.log("message body is empty.");
     }
   };
+  // should change css based on who is viewing the messages and who is sending them.
+  let displayedPreviousMessages;
+  if (messagesFromApi) {
+    messagesFromApi.map((message) => {
+      displayedPreviousMessages = <h1>{message.messageBody}</h1>;
+    });
+  } else {
+    displayedPreviousMessages = <h1>Loading messages</h1>;
+  }
 
   useEffect(() => {
     let initMessages = async () => {
@@ -26,7 +36,7 @@ export default function Message({ recieverUserId, itemId }) {
         authorizedUser.userId,
         recieverUserId
       );
-      console.log(`messages from api -> ${messagesFromApi}`);
+      setMessagesFromApi(messagesFromApi);
     };
     initMessages();
   }, [authorizedUser.userId, recieverUserId]);
@@ -38,6 +48,7 @@ export default function Message({ recieverUserId, itemId }) {
         <div>
           <h1>Sender = {authorizedUser.username}</h1>
           <h1>Seller id = {recieverUserId}</h1>
+          {displayedPreviousMessages}
         </div>
         <div>
           <form
