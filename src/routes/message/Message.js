@@ -20,10 +20,13 @@ export default function Message({ recieverUserId, itemId }) {
     }
   };
   // should change css based on who is viewing the messages and who is sending them.
-  let displayedPreviousMessages;
+  // needs to map through messages and sort them by date and then display them to the user.
+  let displayedPreviousMessages = [];
   if (messagesFromApi) {
     messagesFromApi.map((message) => {
-      displayedPreviousMessages = <h1>{message.messageBody}</h1>;
+      displayedPreviousMessages.push(
+        <h1 key={message.messageId}>{message.messageBody}</h1>
+      );
     });
   } else {
     displayedPreviousMessages = <h1>Loading messages</h1>;
@@ -31,7 +34,6 @@ export default function Message({ recieverUserId, itemId }) {
 
   useEffect(() => {
     let initMessages = async () => {
-      // THIS FUNCTION IS NOT COMPLETE IN NODE JS YET.
       let messagesFromApi = await getMessages(
         authorizedUser.userId,
         recieverUserId

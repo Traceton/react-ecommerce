@@ -13,6 +13,7 @@ export const sendNewMessage = async (
     recieverUserId: recieverUserId,
     itemId: itemId,
     messageBody: messageBody,
+    messageId: Math.random(),
   };
 
   let returnValue;
