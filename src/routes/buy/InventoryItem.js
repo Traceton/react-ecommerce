@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../../UserContext";
 import Message from "../message/Message";
 
 export default function InventoryItem({ inventoryItem, setisItemPreview }) {
+  const { authorizedUser } = useContext(UserContext);
   const [messaging, setMessaging] = useState(false);
   // checks if a inventory item was passed as a prop
   let item;
@@ -91,8 +93,16 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
     );
   }
   let message;
-  if (messaging === true) {
+  if (authorizedUser != null && messaging === true) {
     message = <Message recieverUserId={item.itemUserId} itemId={item.itemId} />;
+  } else if (messaging === true) {
+    message = (
+      <div className="border-2 border-white rounded m-1 p-1">
+        <h1>Please login to send a message :)</h1>
+      </div>
+    );
+    // hide message seller and save vehicle input if the user isnt signed in.
+    // or just notify them they need to login.
   }
 
   let itemPic = `https://react-store-node-api.herokuapp.com/inventoryItems/images/${item.itemId}`;
