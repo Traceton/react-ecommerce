@@ -47,7 +47,7 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
           <input
             className="bg-transparent p-1 m-1 font-bold rounded border-2 border-blue-800 text-3xl"
             type="button"
-            value="Message Seller"
+            value="Leave a comment"
             onClick={(e) => {
               e.preventDefault();
               setMessaging(!messaging);
@@ -98,7 +98,7 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
   } else if (messaging === true) {
     message = (
       <div className="border-2 border-white rounded m-1 p-1">
-        <h1>Please login to send a message :)</h1>
+        <h1>Please login to write a comment :)</h1>
       </div>
     );
     // hide message seller and save vehicle input if the user isnt signed in.

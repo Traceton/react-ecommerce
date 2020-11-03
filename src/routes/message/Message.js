@@ -39,7 +39,7 @@ export default function Message({ recieverUserId, itemId }) {
       );
     });
   } else {
-    displayedPreviousMessages = <h1>Loading messages</h1>;
+    displayedPreviousMessages = <h1>Loading comments</h1>;
   }
 
   useEffect(() => {
@@ -59,8 +59,8 @@ export default function Message({ recieverUserId, itemId }) {
     displayedComponent = (
       <div>
         <div>
-          <h1>Sender = {authorizedUser.username}</h1>
-          <h1>Seller id = {recieverUserId}</h1>
+          {/* <h1>Sender = {authorizedUser.username}</h1>
+          <h1>Seller id = {recieverUserId}</h1> */}
           {displayedPreviousMessages}
         </div>
         <div>
@@ -68,7 +68,7 @@ export default function Message({ recieverUserId, itemId }) {
             className="flex flex-col bg-gray-350 rounded "
             onSubmit={submitNewMessage}
           >
-            <label htmlFor="messageBodyInput">Send new message</label>
+            {/* <label htmlFor="messageBodyInput">Send new message</label> */}
             <input
               className="flex flex-col bg-gray-550 m-1 p-1 rounded text-black"
               type="text"
