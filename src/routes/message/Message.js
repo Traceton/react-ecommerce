@@ -6,15 +6,24 @@ export default function Message({ recieverUserId, itemId }) {
   const [messageBody, setmessageBody] = useState(null);
   const [messagesFromApi, setMessagesFromApi] = useState(null);
 
+  let initMessages = async () => {
+    let messagesFromApi = await getMessages(
+      authorizedUser.userId,
+      recieverUserId
+    );
+    setMessagesFromApi(messagesFromApi);
+  };
+
   let submitNewMessage = async (e) => {
     e.preventDefault();
     if (messageBody) {
-      sendNewMessage(
+      await sendNewMessage(
         authorizedUser.userId,
         recieverUserId,
         itemId,
         messageBody
       );
+      initMessages();
     } else {
       console.log("message body is empty.");
     }
