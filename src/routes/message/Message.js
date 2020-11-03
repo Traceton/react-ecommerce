@@ -9,7 +9,8 @@ export default function Message({ recieverUserId, itemId }) {
   let initMessages = async () => {
     let messagesFromApi = await getMessages(
       authorizedUser.userId,
-      recieverUserId
+      recieverUserId,
+      itemId
     );
     setMessagesFromApi(messagesFromApi);
   };
@@ -45,12 +46,13 @@ export default function Message({ recieverUserId, itemId }) {
     let initMessages = async () => {
       let messagesFromApi = await getMessages(
         authorizedUser.userId,
-        recieverUserId
+        recieverUserId,
+        itemId
       );
       setMessagesFromApi(messagesFromApi);
     };
     initMessages();
-  }, [authorizedUser.userId, recieverUserId]);
+  }, [authorizedUser.userId, recieverUserId, itemId]);
 
   let displayedComponent;
   if (authorizedUser && authorizedUser.userId !== recieverUserId) {
