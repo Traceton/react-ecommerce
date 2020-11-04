@@ -9,7 +9,8 @@ export default function Message({ recieverUserId, itemId }) {
   let initMessages = async () => {
     let messagesFromApi = await getMessages(
       authorizedUser.userId,
-      recieverUserId
+      recieverUserId,
+      itemId
     );
     setMessagesFromApi(messagesFromApi);
   };
@@ -45,7 +46,8 @@ export default function Message({ recieverUserId, itemId }) {
     let initMessages = async () => {
       let messagesFromApi = await getMessages(
         authorizedUser.userId,
-        recieverUserId
+        recieverUserId,
+        itemId
       );
       setMessagesFromApi(messagesFromApi);
     };
