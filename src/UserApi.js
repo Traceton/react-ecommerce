@@ -12,7 +12,6 @@ const ENVIROMENT_OPTIONS = {
 
 // SET DEVELOPMENT ENVIROMENT HERE
 const ENVIROMENT = ENVIROMENT_OPTIONS.HEROKU;
-
 export let API;
 if (ENVIROMENT === "local") {
   API = "http://localhost:3001";

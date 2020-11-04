@@ -31,11 +31,11 @@ export const sendNewMessage = async (
   }
 };
 
-export const getMessages = async (senderUserId, recieverUserId, itemId) => {
+export const getMessages = async (senderUserId, recieverUserId) => {
   let returnValue;
   try {
     await Axios.get(
-      `${API}/messages/getPreviousMessages/${senderUserId}/${recieverUserId}/${itemId}`
+      `${API}/messages/getPreviousMessages/${senderUserId}/${recieverUserId}`
     ).then(async (response) => {
       console.log(response);
       returnValue = await response.data;
