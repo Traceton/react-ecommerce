@@ -34,7 +34,7 @@ export default function Message({ recieverUserId, itemId }) {
   let displayedPreviousMessages = [];
   if (messagesFromApi) {
     messagesFromApi.map((message) => {
-      displayedPreviousMessages.push(
+      return displayedPreviousMessages.push(
         <h1 key={message.messageId}>{message.messageBody}</h1>
       );
     });

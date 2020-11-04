@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InventoryItem from "./InventoryItem";
-
+import { API } from "../../UserApi";
 export default function InventoryItemPreview({ inventoryItem }) {
   const [isItemPreview, setisItemPreview] = useState(false);
   // checks if a inventory item was passed as a prop
@@ -43,7 +43,7 @@ export default function InventoryItemPreview({ inventoryItem }) {
       </h2>
     );
   }
-  let itemPic = `https://react-store-node-api.herokuapp.com/inventoryItems/images/${item.itemId}`;
+  let itemPic = `${API}/inventoryItems/images/${item.itemId}`;
   let isPreview;
   if (isItemPreview) {
     return (isPreview = (
