@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../UserContext";
 import Message from "../message/Message";
-
+import { API } from "../../UserApi";
 export default function InventoryItem({ inventoryItem, setisItemPreview }) {
   const { authorizedUser } = useContext(UserContext);
   const [messaging, setMessaging] = useState(false);
@@ -105,7 +105,7 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
     // or just notify them they need to login.
   }
 
-  let itemPic = `https://react-store-node-api.herokuapp.com/inventoryItems/images/${item.itemId}`;
+  let itemPic = `${API}/inventoryItems/images/${item.itemId}`;
   return (
     <div className="flex flex-col justify-start w-11/12 bg-blue-500 rounded m-1 p-1 text-white text-xl h-auto">
       <div
