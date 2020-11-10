@@ -11,7 +11,7 @@ const ENVIROMENT_OPTIONS = {
 };
 
 // SET DEVELOPMENT ENVIROMENT HERE
-const ENVIROMENT = ENVIROMENT_OPTIONS.HEROKU;
+const ENVIROMENT = ENVIROMENT_OPTIONS.LOCAL;
 export let API;
 if (ENVIROMENT === "local") {
   API = "http://localhost:3001";
@@ -83,7 +83,7 @@ export const updateUser = async (userInfo, profilePic) => {
   updatedUser.append("city", userInfo.city.toLowerCase().trim());
   updatedUser.append("state", userInfo.state.toLowerCase().trim());
   updatedUser.append("zipCode", userInfo.zipCode.toLowerCase().trim());
-  if (profilePic) {
+  if (profilePic && profilePic.size < 800000) {
     Axios.delete(`${API}/users/deleteProfilePic/${userInfo.userId}`).then(
       async (response) => {
         await response;
@@ -91,9 +91,11 @@ export const updateUser = async (userInfo, profilePic) => {
       }
     );
     updatedUser.append("profilePic", profilePic);
+  } else if (profilePic && profilePic.size > 800000) {
+    return alert("profile picture is to large");
   }
 
-  let updateUserPromise;
+  // let updateUserPromise;
 
   try {
     Axios.patch(
@@ -102,8 +104,8 @@ export const updateUser = async (userInfo, profilePic) => {
     )
       .then(async (data) => {
         console.log(data);
-        updateUserPromise = await data;
-        return updateUserPromise;
+        return await data;
+        // return updateUserPromise;
       })
       .catch((err) => console.log(err));
   } catch (error) {

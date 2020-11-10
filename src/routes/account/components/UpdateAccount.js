@@ -43,7 +43,8 @@ export default function UpdateAccount({ setisUpdating }) {
   // const [updatedUser, setUpdatedUser] = useState(authorizedUser);
   const updateAccount = async (e) => {
     e.preventDefault();
-    await updateUser(values, profilePic);
+    let updateUserPromise = await updateUser(values, profilePic);
+    await updateUserPromise.then(console.log(updateUserPromise));
     // trying to get authenticated user to update correctly.
     // await setUpdatedUser(updatedUserPromise);
     // await setAuthorizedUser(null);
