@@ -85,6 +85,9 @@ export const updateUser = async (userInfo, profilePic) => {
   updatedUser.append("zipCode", userInfo.zipCode.toLowerCase().trim());
   console.log("update clickjed");
   // let updateUserPromise;
+
+  // COMPLETE FUNCTION BELOW NEEDS TO BE REFACTORED.
+
   try {
     if (profilePic && profilePic.size < 800000) {
       console.log("option 1");
@@ -100,6 +103,9 @@ export const updateUser = async (userInfo, profilePic) => {
     } else {
       console.log("option 3");
       // getting to here without succesfull api call
+      // here
+      // here
+      // here
       let responseData;
       await Axios.patch(
         `${API}/users/updateUser/${userInfo.username.toLowerCase().trim()}`,
