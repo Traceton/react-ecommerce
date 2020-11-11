@@ -83,30 +83,25 @@ export const updateUser = async (userInfo, profilePic) => {
   updatedUser.append("city", userInfo.city.toLowerCase().trim());
   updatedUser.append("state", userInfo.state.toLowerCase().trim());
   updatedUser.append("zipCode", userInfo.zipCode.toLowerCase().trim());
-  console.log("update clickjed");
-  // let updateUserPromise;
 
   // COMPLETE FUNCTION BELOW NEEDS TO BE REFACTORED.
 
   try {
     if (profilePic && profilePic.size < 800000) {
-      console.log("option 1");
-      await Axios.delete(
-        `${API}/users/deleteProfilePic/${userInfo.userId}`
-      ).then(async (response) => {
-        await response;
-      });
-      updatedUser.append("profilePic", profilePic);
+      try {
+        await Axios.delete(`${API}/users/deleteProfilePic/${userInfo.userId}`)
+          .then(async (response) => {
+            await response;
+          })
+          .catch((err) => console.log(err));
+        updatedUser.append("profilePic", profilePic);
+      } catch (error) {
+        console.log("delete image error");
+      }
     } else if (profilePic && profilePic.size > 800000) {
-      console.log("option 2");
       return console.log("profile pic is top large");
-    } else {
-      console.log("option 3");
-      // getting to here without succesfull api call
-      // november 10
-      // here
-      // here
-      // here
+    }
+    try {
       let responseData;
       await Axios.patch(
         `${API}/users/updateUser/${userInfo.username.toLowerCase().trim()}`,
@@ -115,14 +110,14 @@ export const updateUser = async (userInfo, profilePic) => {
         .then((data) => {
           responseData = data.data;
           console.log(responseData);
-          console.log("update clickjed2");
         })
         .catch((err) => console.log(err));
       return responseData;
+    } catch (error) {
+      console.log("update user error");
     }
-    console.log("option 4");
   } catch (error) {
-    return console.log("UpdateUserApi error");
+    return console.log(`updateUser function error -> ${error}`);
   }
 };
 // delete user
