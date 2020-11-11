@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-ecommerce/react-ecommerce/static/css/main.86709238.chunk.css",
-    "main.js": "/react-ecommerce/react-ecommerce/static/js/main.e539deec.chunk.js",
-    "main.js.map": "/react-ecommerce/react-ecommerce/static/js/main.e539deec.chunk.js.map",
-    "runtime-main.js": "/react-ecommerce/react-ecommerce/static/js/runtime-main.6718d199.js",
-    "runtime-main.js.map": "/react-ecommerce/react-ecommerce/static/js/runtime-main.6718d199.js.map",
-    "static/js/2.87d62c9d.chunk.js": "/react-ecommerce/react-ecommerce/static/js/2.87d62c9d.chunk.js",
-    "static/js/2.87d62c9d.chunk.js.map": "/react-ecommerce/react-ecommerce/static/js/2.87d62c9d.chunk.js.map",
-    "index.html": "/react-ecommerce/react-ecommerce/index.html",
-    "precache-manifest.eed380f35104b8f1aa4fdd3b4ddfc37f.js": "/react-ecommerce/react-ecommerce/precache-manifest.eed380f35104b8f1aa4fdd3b4ddfc37f.js",
-    "service-worker.js": "/react-ecommerce/react-ecommerce/service-worker.js",
-    "static/css/main.86709238.chunk.css.map": "/react-ecommerce/react-ecommerce/static/css/main.86709238.chunk.css.map",
-    "static/js/2.87d62c9d.chunk.js.LICENSE.txt": "/react-ecommerce/react-ecommerce/static/js/2.87d62c9d.chunk.js.LICENSE.txt"
+    "main.css": "/react-ecommerce/static/css/main.86709238.chunk.css",
+    "main.js": "/react-ecommerce/static/js/main.e539deec.chunk.js",
+    "main.js.map": "/react-ecommerce/static/js/main.e539deec.chunk.js.map",
+    "runtime-main.js": "/react-ecommerce/static/js/runtime-main.21f24975.js",
+    "runtime-main.js.map": "/react-ecommerce/static/js/runtime-main.21f24975.js.map",
+    "static/js/2.87d62c9d.chunk.js": "/react-ecommerce/static/js/2.87d62c9d.chunk.js",
+    "static/js/2.87d62c9d.chunk.js.map": "/react-ecommerce/static/js/2.87d62c9d.chunk.js.map",
+    "index.html": "/react-ecommerce/index.html",
+    "precache-manifest.b8488e08b7328fb8238ad08752c1a7c7.js": "/react-ecommerce/precache-manifest.b8488e08b7328fb8238ad08752c1a7c7.js",
+    "service-worker.js": "/react-ecommerce/service-worker.js",
+    "static/css/main.86709238.chunk.css.map": "/react-ecommerce/static/css/main.86709238.chunk.css.map",
+    "static/js/2.87d62c9d.chunk.js.LICENSE.txt": "/react-ecommerce/static/js/2.87d62c9d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.6718d199.js",
+    "static/js/runtime-main.21f24975.js",
     "static/js/2.87d62c9d.chunk.js",
     "static/css/main.86709238.chunk.css",
     "static/js/main.e539deec.chunk.js"
