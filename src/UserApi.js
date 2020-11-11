@@ -83,10 +83,11 @@ export const updateUser = async (userInfo, profilePic) => {
   updatedUser.append("city", userInfo.city.toLowerCase().trim());
   updatedUser.append("state", userInfo.state.toLowerCase().trim());
   updatedUser.append("zipCode", userInfo.zipCode.toLowerCase().trim());
-
+  console.log("update clickjed");
   // let updateUserPromise;
   try {
     if (profilePic && profilePic.size < 800000) {
+      console.log("option 1");
       await Axios.delete(
         `${API}/users/deleteProfilePic/${userInfo.userId}`
       ).then(async (response) => {
@@ -94,19 +95,25 @@ export const updateUser = async (userInfo, profilePic) => {
       });
       updatedUser.append("profilePic", profilePic);
     } else if (profilePic && profilePic.size > 800000) {
-      return alert("profile picture is to large");
+      console.log("option 2");
+      return console.log("profile pic is top large");
+    } else {
+      console.log("option 3");
+      // getting to here without succesfull api call
+      let responseData;
+      await Axios.patch(
+        `${API}/users/updateUser/${userInfo.username.toLowerCase().trim()}`,
+        updatedUser
+      )
+        .then((data) => {
+          responseData = data.data;
+          console.log(responseData);
+          console.log("update clickjed2");
+        })
+        .catch((err) => console.log(err));
+      return responseData;
     }
-    let responseData;
-    await Axios.patch(
-      `${API}/users/updateUser/${userInfo.username.toLowerCase().trim()}`,
-      await updatedUser
-    )
-      .then((data) => {
-        responseData = data.data;
-        console.log(responseData);
-      })
-      .catch((err) => console.log(err));
-    return responseData;
+    console.log("option 4");
   } catch (error) {
     return console.log("UpdateUserApi error");
   }

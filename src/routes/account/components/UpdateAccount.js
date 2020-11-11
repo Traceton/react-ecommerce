@@ -46,6 +46,7 @@ export default function UpdateAccount({ setisUpdating }) {
     try {
       const response = await updateUser(values, profilePic);
       // below is currently working
+      await setAuthorizedUser(values);
       console.log(`update account -> ${response.firstName}`);
     } catch (error) {
       console.log(`update account js error ${error}`);
