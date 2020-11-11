@@ -10,22 +10,20 @@ export const createNewInventoryItem = async (
   itemCategory,
   itemImage
 ) => {
-  const newItem = await new FormData();
-  newItem.append("itemName", itemInfo.itemName);
-  newItem.append("itemPrice", itemInfo.itemPrice);
-  newItem.append("itemCategory", itemCategory.toLowerCase().trim());
-  newItem.append("itemPartNumber", itemInfo.itemPartNumber);
-  newItem.append("itemLocation", itemInfo.itemLocation.trim());
-  newItem.append("itemsInStock", itemInfo.itemsInStock);
-  newItem.append("itemDescription", itemInfo.itemDescription);
-  newItem.append("itemYearCreated", itemInfo.itemYearCreated);
-  newItem.append("itemMake", itemInfo.itemMake);
-  newItem.append("itemModel", itemInfo.itemModel);
-  newItem.append("itemId", itemInfo.itemId);
-  newItem.append("itemImage", itemImage);
-
-  //   let final;
   try {
+    const newItem = await new FormData();
+    newItem.append("itemName", itemInfo.itemName);
+    newItem.append("itemPrice", itemInfo.itemPrice);
+    newItem.append("itemCategory", itemCategory.toLowerCase().trim());
+    newItem.append("itemPartNumber", itemInfo.itemPartNumber);
+    newItem.append("itemLocation", itemInfo.itemLocation.trim());
+    newItem.append("itemsInStock", itemInfo.itemsInStock);
+    newItem.append("itemDescription", itemInfo.itemDescription);
+    newItem.append("itemYearCreated", itemInfo.itemYearCreated);
+    newItem.append("itemMake", itemInfo.itemMake);
+    newItem.append("itemModel", itemInfo.itemModel);
+    newItem.append("itemId", itemInfo.itemId);
+    newItem.append("itemImage", itemImage);
     await Axios.post(
       `${API}/inventoryItems/createNewItem/${userId}/${password}`,
       newItem
