@@ -23,27 +23,30 @@ if (ENVIROMENT === "local") {
 
 // create user
 export const createUser = async (userInfo, profilePic) => {
-  const newUser = await new FormData();
-  newUser.append("username", userInfo.username.toLowerCase().trim());
-  newUser.append("password", userInfo.password.trim());
-  newUser.append("firstName", userInfo.firstName.toLowerCase().trim());
-  newUser.append("lastName", userInfo.lastName.toLowerCase().trim());
-  newUser.append("email", userInfo.email.toLowerCase().trim());
-  newUser.append("phone", userInfo.phone);
-  newUser.append("userId", Date.now());
-  newUser.append("userBio", userInfo.userBio.toLowerCase().trim());
-  newUser.append("streetAddress", userInfo.streetAddress.toLowerCase().trim());
-  newUser.append("city", userInfo.city.toLowerCase().trim());
-  newUser.append("state", userInfo.state.toLowerCase().trim());
-  newUser.append("zipCode", userInfo.zipCode.toLowerCase().trim());
-  newUser.append("profilePic", profilePic);
-  let final;
   try {
+    const newUser = await new FormData();
+    newUser.append("username", userInfo.username.toLowerCase().trim());
+    newUser.append("password", userInfo.password.trim());
+    newUser.append("firstName", userInfo.firstName.toLowerCase().trim());
+    newUser.append("lastName", userInfo.lastName.toLowerCase().trim());
+    newUser.append("email", userInfo.email.toLowerCase().trim());
+    newUser.append("phone", userInfo.phone);
+    newUser.append("userId", Date.now());
+    newUser.append("userBio", userInfo.userBio.toLowerCase().trim());
+    newUser.append(
+      "streetAddress",
+      userInfo.streetAddress.toLowerCase().trim()
+    );
+    newUser.append("city", userInfo.city.toLowerCase().trim());
+    newUser.append("state", userInfo.state.toLowerCase().trim());
+    newUser.append("zipCode", userInfo.zipCode.toLowerCase().trim());
+    newUser.append("profilePic", profilePic);
+    let final;
     await Axios.post(`${API}/users`, await newUser).then(async (response) => {
       console.log(response);
       final = await response.data;
     });
-    saveUserToSessionStorage(final);
+    await saveUserToSessionStorage(final);
     return final;
   } catch (error) {
     return console.log("UserApi create user error");
@@ -52,17 +55,17 @@ export const createUser = async (userInfo, profilePic) => {
 
 // login user
 export const loginUser = async (userInfo) => {
-  let final;
-  await Axios.get(
-    `${API}/users/login/${userInfo.username
-      .toLowerCase()
-      .trim()}/${userInfo.password.toLowerCase().trim()}`
-  ).then(async (response) => {
-    //   console.log(response);
-    final = await response.data;
-  });
   try {
-    saveUserToSessionStorage(final);
+    let final;
+    await Axios.get(
+      `${API}/users/login/${userInfo.username
+        .toLowerCase()
+        .trim()}/${userInfo.password.toLowerCase().trim()}`
+    ).then(async (response) => {
+      //   console.log(response);
+      final = await response.data;
+    });
+    await saveUserToSessionStorage(final);
     return final;
   } catch (error) {
     console.log("loginUserApi error");
@@ -124,9 +127,9 @@ export const updateUser = async (userInfo, profilePic) => {
 export const deleteUser = async (usernameInput, passwordInput) => {
   try {
     Axios.delete(`${API}/users/delete/${usernameInput}/${passwordInput}`).then(
-      (response) => {
+      async (response) => {
         console.log(response);
-        removeUserFromSessionStorage(usernameInput);
+        await removeUserFromSessionStorage(usernameInput);
         return response;
       }
     );
