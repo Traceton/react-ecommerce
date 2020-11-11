@@ -103,6 +103,7 @@ export const updateUser = async (userInfo, profilePic) => {
     } else {
       console.log("option 3");
       // getting to here without succesfull api call
+      // november 10
       // here
       // here
       // here
