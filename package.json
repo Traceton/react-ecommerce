@@ -2,7 +2,7 @@
   "name": "react-node-login",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tjcharm.github.io/react-ecommerce",
+  "homepage": "https://traceton-react-ecommerce.herokuapp.com/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -44,6 +44,6 @@
   "devDependencies": {
     "autoprefixer": "^9.8.6",
     "postcss-cli": "^8.1.0",
-    "tailwindcss": "^1.9.5"
+    "tailwindcss": "^1.9.6"
   }
 }
