@@ -83,31 +83,30 @@ export const updateUser = async (userInfo, profilePic) => {
   updatedUser.append("city", userInfo.city.toLowerCase().trim());
   updatedUser.append("state", userInfo.state.toLowerCase().trim());
   updatedUser.append("zipCode", userInfo.zipCode.toLowerCase().trim());
-  if (profilePic && profilePic.size < 800000) {
-    Axios.delete(`${API}/users/deleteProfilePic/${userInfo.userId}`).then(
-      async (response) => {
-        await response;
-        return console.log(response);
-      }
-    );
-    updatedUser.append("profilePic", profilePic);
-  } else if (profilePic && profilePic.size > 800000) {
-    return alert("profile picture is to large");
-  }
 
   // let updateUserPromise;
-
   try {
-    Axios.patch(
+    if (profilePic && profilePic.size < 800000) {
+      await Axios.delete(
+        `${API}/users/deleteProfilePic/${userInfo.userId}`
+      ).then(async (response) => {
+        await response;
+      });
+      updatedUser.append("profilePic", profilePic);
+    } else if (profilePic && profilePic.size > 800000) {
+      return alert("profile picture is to large");
+    }
+    let responseData;
+    await Axios.patch(
       `${API}/users/updateUser/${userInfo.username.toLowerCase().trim()}`,
       await updatedUser
     )
-      .then(async (data) => {
-        console.log(data);
-        return await data;
-        // return updateUserPromise;
+      .then((data) => {
+        responseData = data.data;
+        console.log(responseData);
       })
       .catch((err) => console.log(err));
+    return responseData;
   } catch (error) {
     return console.log("UpdateUserApi error");
   }

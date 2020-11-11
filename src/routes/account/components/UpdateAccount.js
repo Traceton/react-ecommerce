@@ -43,12 +43,13 @@ export default function UpdateAccount({ setisUpdating }) {
   // const [updatedUser, setUpdatedUser] = useState(authorizedUser);
   const updateAccount = async (e) => {
     e.preventDefault();
-    let updateUserPromise = await updateUser(values, profilePic);
-    await updateUserPromise.then(console.log(updateUserPromise));
-    // trying to get authenticated user to update correctly.
-    // await setUpdatedUser(updatedUserPromise);
-    // await setAuthorizedUser(null);
-    // await saveUserToSessionStorage(null);
+    try {
+      const response = await updateUser(values, profilePic);
+      // below is currently working
+      console.log(`update account -> ${response.firstName}`);
+    } catch (error) {
+      console.log(`update account js error ${error}`);
+    }
   };
 
   return (

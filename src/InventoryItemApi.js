@@ -30,10 +30,8 @@ export const createNewInventoryItem = async (
       `${API}/inventoryItems/createNewItem/${userId}/${password}`,
       newItem
     ).then(async (response) => {
-      console.log(response);
-      //   final = await response.data;
+      return response;
     });
-    // return final;
   } catch (error) {
     return console.log("Invetory item create new item api error");
   }
