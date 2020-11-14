@@ -23,7 +23,7 @@ export default function Inventory({ category }) {
   useEffect(() => {
     getInventoryItemsFromApi();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading, category]);
+  }, [category]);
 
   // inventory items to be displayed.
   let items = [];

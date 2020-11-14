@@ -27,7 +27,7 @@ export default function Account({ view }) {
   useEffect(() => {
     getInventoryItemsFromApi();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading]);
+  }, []);
 
   // inventory items to be displayed.
   let items = [];
