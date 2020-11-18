@@ -44,12 +44,12 @@ export default function Inventory({ category }) {
   } else {
     return (
       <div
-        className="flex h-screen flex-col justify-around align-middle text-3xl text-white "
+        className="flex h-auto flex-col justify-around align-middle text-3xl text-white "
         style={{
           backgroundImage: "url(" + americanFlagPic + ")",
           backgroundPosition: "center",
           backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
+          backgroundRepeat: "repeat",
         }}
       >
         <h1 className="m-1 p-1">No items found. Please list a item.</h1>
@@ -64,12 +64,12 @@ export default function Inventory({ category }) {
   //   MAKE THIS UTILIZE GRID AND LOOK LIKE FACEBOOK MARKETPLACE.
   return (
     <div
-      className=" flex flex-col h-screen "
+      className=" flex flex-col h-auto "
       style={{
         backgroundImage: "url(" + americanFlagPic + ")",
         backgroundPosition: "center",
         backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
+        backgroundRepeat: "repeat",
       }}
     >
       {items}

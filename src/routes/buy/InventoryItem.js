@@ -121,7 +121,7 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
           setisItemPreview(false);
         }}
       ></div>
-      <div className="flex justify-evenly text-center items-center w-auto h-auto ">
+      <div className="flex justify-evenly text-center items-center w-auto h-auto">
         {layout}
       </div>
       <div className="flex justify-evenly text-center items-center w-auto h-auto ">
