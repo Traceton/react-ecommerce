@@ -156,6 +156,14 @@ export default function Account({ view }) {
       }}
     >
       <div>{displayedUser}</div>
+      {items.length > 0 ? (
+        <div className="text-white font-bold flex flex-col justify-center text-center text-3xl">
+          {" "}
+          <h1>Your listings</h1>{" "}
+        </div>
+      ) : (
+        ""
+      )}
       <div className=" flex flex-col h-auto">{items}</div>
     </div>
   );

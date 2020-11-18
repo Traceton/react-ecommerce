@@ -101,8 +101,8 @@ export const updateUser = async (userInfo, profilePic) => {
       } catch (error) {
         console.log("delete image error");
       }
-    } else if (profilePic && profilePic.size > 800000) {
-      return console.log("profile pic is top large");
+    } else if (profilePic && profilePic.size > 10000000) {
+      return alert("profile pic is top large");
     }
     try {
       let responseData;

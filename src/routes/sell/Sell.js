@@ -27,7 +27,7 @@ export default function Sell() {
   const [values, handleChange] = useForm(initialValues);
   const [itemPicture, setItemPicture] = useState(null);
 
-  const sellItem = (e) => {
+  const sellItem = async (e) => {
     e.preventDefault();
     createNewInventoryItem(
       values,
