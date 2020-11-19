@@ -12,11 +12,11 @@ export default function Sell() {
   const initialValues = {
     itemName: "Test name",
     itemPrice: 123,
-    itemPartNumber: 123,
+    itemPartNumber: 1,
     itemLocation: "Test location",
-    itemsInStock: 123,
+    itemsInStock: 1,
     itemDescription: "Test description",
-    itemYearCreated: 123,
+    itemYearCreated: 1,
     itemMake: "Test Make",
     itemModel: "Test model",
     // WHEN USING USER ID AS A ITEM MARKER, MULTIPLE ITEMS HAVE THE SAME NUMBER

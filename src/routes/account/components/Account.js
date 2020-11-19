@@ -40,7 +40,7 @@ export default function Account({ view }) {
     inventoryItems.map((item) => {
       return items.push(
         //   adjusts width of each element here
-        <div className="flex " key={item._id}>
+        <div className="flex  h-auto" key={item._id}>
           <InventoryItemPreview key={item._id} inventoryItem={item} />{" "}
         </div>
       );
@@ -147,17 +147,17 @@ export default function Account({ view }) {
 
   return (
     <div
-      className=" flex flex-col h-screen"
+      className=" flex flex-col h-auto"
       style={{
         backgroundImage: "url(" + americanFlagPic + ")",
         backgroundPosition: "center",
         backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
+        backgroundRepeat: "repeat",
       }}
     >
       <div>{displayedUser}</div>
       {items.length > 0 ? (
-        <div className="text-white font-bold flex flex-col justify-center text-center text-3xl">
+        <div className="text-white flex flex-col justify-center text-center text-3xl">
           {" "}
           <h1>Your listings</h1>{" "}
         </div>

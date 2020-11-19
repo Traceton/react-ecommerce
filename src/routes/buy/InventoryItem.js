@@ -85,11 +85,12 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
     );
   } else {
     layout = (
-      <h2>
-        {item.itemName}
-        <br />${item.itemPrice} <br />
-        {singleOrMultiple}
-      </h2>
+      <div>
+        <h2 className="font-bold text-2xl">${item.itemPrice}</h2>
+        <h2 className="font-bold text-2xl">{item.itemName}</h2>
+        <h2 className="">Sellers Description {item.itemDescription}</h2>
+        <h2 className="">{singleOrMultiple}</h2>
+      </div>
     );
   }
   let message;
