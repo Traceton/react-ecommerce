@@ -86,10 +86,41 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
   } else {
     layout = (
       <div>
-        <h2 className="font-bold text-2xl">${item.itemPrice}</h2>
-        <h2 className="font-bold text-2xl">{item.itemName}</h2>
-        <h2 className="">Sellers Description {item.itemDescription}</h2>
-        <h2 className="">{singleOrMultiple}</h2>
+        <div>
+          <h2 className="font-bold text-2xl">${item.itemPrice}</h2>
+          <h2 className="font-bold text-2xl">{item.itemName}</h2>
+          <h2 className="">Sellers Description {item.itemDescription}</h2>
+          <h2 className="">{singleOrMultiple}</h2>
+        </div>
+        <div className="flex  flex-col justify-center ">
+          <input
+            className="bg-transparent p-1 m-1 font-bold rounded border-2 border-blue-800 text-3xl"
+            type="button"
+            value="Leave a comment"
+            onClick={(e) => {
+              e.preventDefault();
+              setMessaging(!messaging);
+            }}
+          />
+          <input
+            className="bg-transparent p-1 m-1 font-bold rounded border-2 border-blue-800 text-2xl"
+            type="button"
+            value="Save Vehicle"
+            onClick={(e) => {
+              e.preventDefault();
+              alert("Vehicle Saved");
+            }}
+          />
+          <input
+            className="bg-transparent p-1 m-1 font-bold rounded border-2 border-blue-800 text-xl"
+            type="button"
+            value="Share"
+            onClick={(e) => {
+              e.preventDefault();
+              alert("Vehicle Shared");
+            }}
+          />
+        </div>
       </div>
     );
   }
