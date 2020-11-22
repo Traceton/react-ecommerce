@@ -147,7 +147,7 @@ export default function Account({ view }) {
 
   return (
     <div
-      className=" flex flex-col h-auto"
+      className=" flex flex-col min-h-screen"
       style={{
         backgroundImage: "url(" + americanFlagPic + ")",
         backgroundPosition: "center",
