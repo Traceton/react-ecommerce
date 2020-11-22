@@ -59,27 +59,8 @@ export default function Account({ view }) {
   if (authorizedUser && view === "authorized" && !isUpdating) {
     displayedUser = (
       // create a good looking account view
-      <div
-        className="flex justify-start flex-col flex-wrap text-white"
-        // style={{
-        //   backgroundImage: "url(" + americanFlagPic + ")",
-        //   backgroundPosition: "center",
-        //   backgroundSize: "cover",
-        //   backgroundRepeat: "no-repeat",
-        // }}
-      >
-        <div
-          className="flex flex-row justify-around m-1 p-2 h-40"
-          // style={{
-          //   backgroundImage:
-          //     "url(" +
-          //     "https://images.unsplash.com/photo-1603413954143-f8203e60bfe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" +
-          //     ")",
-          //   backgroundPosition: "center",
-          //   backgroundSize: "cover",
-          //   backgroundRepeat: "no-repeat",
-          // }}
-        >
+      <div className="flex justify-start flex-col flex-wrap text-white">
+        <div className="flex flex-row justify-around m-1 p-2 h-40">
           <img
             className="h-32 m-4 rounded-2xl"
             src={`${API}/users/profilePics/${authorizedUser.userId}`}
