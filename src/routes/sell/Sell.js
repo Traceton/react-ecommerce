@@ -82,7 +82,7 @@ export default function Sell() {
           className="flex flex-col text-center text-2xl "
           onSubmit={sellItem}
         >
-          <h1 className="text-4xl font-bold">Sell Here</h1>
+          <h1 className="text-4xl font-bold">Sell a part</h1>
           <br />
           <label htmlFor="itemPicture">Item Pictures</label>
           <input
@@ -178,7 +178,7 @@ export default function Sell() {
           className="flex flex-col text-center text-2xl "
           onSubmit={sellItem}
         >
-          <h1 className="text-4xl font-bold">Sell Here</h1>
+          <h1 className="text-4xl font-bold">Sell a {itemCategory}</h1>
           <br />
           <label htmlFor="itemPicture">Item Pictures</label>
           <input
