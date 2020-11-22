@@ -64,7 +64,7 @@ export default function Inventory({ category }) {
   //   MAKE THIS UTILIZE GRID AND LOOK LIKE FACEBOOK MARKETPLACE.
   return (
     <div
-      className=" flex flex-col h-auto "
+      className=" flex flex-col min-h-screen "
       style={{
         backgroundImage: "url(" + americanFlagPic + ")",
         backgroundPosition: "center",
