@@ -4,8 +4,6 @@ import { createNewInventoryItem } from "../../InventoryItemApi";
 import { UserContext } from "../../UserContext";
 import Login from "../account/components/Login";
 
-// I BROKE THIS PAGE
-
 export default function Sell() {
   const [itemCategory, setItemCategory] = useState(null);
 
@@ -62,7 +60,11 @@ export default function Sell() {
     );
   }
   let displayedForm;
-  if (itemCategory !== "car" && itemCategory !== "truck") {
+  if (
+    itemCategory !== "car" &&
+    itemCategory !== "truck" &&
+    itemCategory !== null
+  ) {
     displayedForm = (
       <div
         className="flex flex-col justify-center text-white text-center align-center p-4 text-xl "
@@ -94,55 +96,6 @@ export default function Sell() {
               setItemPicture(file);
             }}
           ></input>
-          <br />
-          {/* radio input for category */}
-          <label htmlFor="itemCategoryDiv">Item Category</label>
-          <div
-            className="bg-gray-350 rounded text-center m-1 p-1"
-            name="itemCategoryDiv"
-          >
-            <label htmlFor="car" className="m-1 p-1">
-              Car
-            </label>
-            <input
-              type="radio"
-              id="car"
-              name="itemCategory"
-              value="car"
-              onChange={(Event) => {
-                const { value } = Event.target;
-                setItemCategory(value);
-              }}
-            />
-            <br />
-            <label htmlFor="truck" className="m-1 p-1">
-              Truck
-            </label>
-            <input
-              type="radio"
-              id="truck"
-              name="itemCategory"
-              value="truck"
-              onChange={(Event) => {
-                const { value } = Event.target;
-                setItemCategory(value);
-              }}
-            />
-            <br />
-            <label htmlFor="parts" className="m-1 p-1">
-              Parts
-            </label>
-            <input
-              type="radio"
-              id="parts"
-              name="itemCategory"
-              value="parts"
-              onChange={(Event) => {
-                const { value } = Event.target;
-                setItemCategory(value);
-              }}
-            />
-          </div>
           <br />
           <label htmlFor="itemName">itemName</label>
           <input
@@ -189,7 +142,7 @@ export default function Sell() {
             onChange={handleChange}
           ></input>
           <br />
-          <label htmlFor="itemLocation">itemLocation</label>
+          {/* <label htmlFor="itemLocation">itemLocation</label>
           <input
             className="bg-gray-350 rounded text-center p-1"
             type="itemLocation"
@@ -197,7 +150,7 @@ export default function Sell() {
             value={values.itemLocation || ""}
             onChange={handleChange}
           />
-          <br />
+          <br /> */}
           <input
             className="bg-blue-500 p-1 rounded"
             type="submit"
@@ -207,7 +160,7 @@ export default function Sell() {
         </form>
       </div>
     );
-  } else if (itemCategory === "parts") {
+  } else if (itemCategory !== "parts" && itemCategory !== null) {
     displayedForm = (
       <div
         className="flex flex-col justify-center text-white text-center align-center p-4 text-xl "
@@ -239,55 +192,6 @@ export default function Sell() {
               setItemPicture(file);
             }}
           ></input>
-          <br />
-          {/* radio input for category */}
-          <label htmlFor="itemCategoryDiv">Item Category</label>
-          <div
-            className="bg-gray-350 rounded text-center m-1 p-1"
-            name="itemCategoryDiv"
-          >
-            <label htmlFor="car" className="m-1 p-1">
-              Car
-            </label>
-            <input
-              type="radio"
-              id="car"
-              name="itemCategory"
-              value="car"
-              onChange={(Event) => {
-                const { value } = Event.target;
-                setItemCategory(value);
-              }}
-            />
-            <br />
-            <label htmlFor="truck" className="m-1 p-1">
-              Truck
-            </label>
-            <input
-              type="radio"
-              id="truck"
-              name="itemCategory"
-              value="truck"
-              onChange={(Event) => {
-                const { value } = Event.target;
-                setItemCategory(value);
-              }}
-            />
-            <br />
-            <label htmlFor="parts" className="m-1 p-1">
-              Parts
-            </label>
-            <input
-              type="radio"
-              id="parts"
-              name="itemCategory"
-              value="parts"
-              onChange={(Event) => {
-                const { value } = Event.target;
-                setItemCategory(value);
-              }}
-            />
-          </div>
 
           <br />
           <label htmlFor="itemDescription">itemDescription</label>
@@ -359,54 +263,46 @@ export default function Sell() {
     );
   } else if (itemCategory === null) {
     displayedForm = (
-      <div>
-        {/* radio input for category */}
-        <label htmlFor="itemCategoryDiv">Item Category</label>
-        <div
-          className="bg-gray-350 rounded text-center m-1 p-1"
-          name="itemCategoryDiv"
-        >
-          <label htmlFor="car" className="m-1 p-1">
+      <div
+        className="flex flex-col justify-center text-white text-center align-center p-4 text-4xl min-h-screen"
+        style={{
+          backgroundImage:
+            "url(" +
+            "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" +
+            ")",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="flex flex-col">
+          <h1>What would you like to sell?</h1>
+          <button
+            className=" bg-blue-500 rounded m-2 p-2"
+            onClick={() => {
+              setItemCategory("car");
+            }}
+          >
+            {" "}
             Car
-          </label>
-          <input
-            type="radio"
-            id="car"
-            name="itemCategory"
-            value="car"
-            onChange={(Event) => {
-              const { value } = Event.target;
-              setItemCategory(value);
+          </button>
+          <button
+            className=" bg-blue-500 rounded m-2 p-2"
+            onClick={() => {
+              setItemCategory("truck");
             }}
-          />
-          <br />
-          <label htmlFor="truck" className="m-1 p-1">
+          >
+            {" "}
             Truck
-          </label>
-          <input
-            type="radio"
-            id="truck"
-            name="itemCategory"
-            value="truck"
-            onChange={(Event) => {
-              const { value } = Event.target;
-              setItemCategory(value);
+          </button>
+          <button
+            className=" bg-blue-500 rounded m-2 p-2"
+            onClick={() => {
+              setItemCategory("parts");
             }}
-          />
-          <br />
-          <label htmlFor="parts" className="m-1 p-1">
+          >
             Parts
-          </label>
-          <input
-            type="radio"
-            id="parts"
-            name="itemCategory"
-            value="parts"
-            onChange={(Event) => {
-              const { value } = Event.target;
-              setItemCategory(value);
-            }}
-          />
+          </button>
         </div>
       </div>
     );

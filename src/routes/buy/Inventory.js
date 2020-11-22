@@ -44,7 +44,7 @@ export default function Inventory({ category }) {
   } else {
     return (
       <div
-        className="flex h-auto flex-col justify-around align-middle text-3xl text-white "
+        className="flex min-h-screen flex-col justify-center align-middle text-center text-3xl font-bold text-white "
         style={{
           backgroundImage: "url(" + americanFlagPic + ")",
           backgroundPosition: "center",
@@ -52,7 +52,9 @@ export default function Inventory({ category }) {
           backgroundRepeat: "repeat",
         }}
       >
-        <h1 className="m-1 p-1">No items found. Please list a item.</h1>
+        <div className=" bg-blue-500 rounded m-2 p-2">
+          <h1 className="m-1 p-1 ">No items found. Please list a item.</h1>
+        </div>
       </div>
     );
   }
