@@ -14,8 +14,13 @@ export default function HomeWelcome() {
     );
   } else {
     displayedWelcome = (
-      <div className="content-center flex flex-col align-middle justify-center items-center">
+      <div className="rounded bg-blue-500 m-1 p-2 content-center text-center flex flex-col align-middle justify-center items-center">
         <h1>Welcome!</h1>
+        <h1>
+          {" "}
+          Please use the username of "test" and password of "test" to try out
+          the application features. Thanks!
+        </h1>
       </div>
     );
   }
