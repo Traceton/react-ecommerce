@@ -44,20 +44,20 @@ export default function Login() {
       }}
     >
       <form className="p-6 " onSubmit={login}>
-        <div>
+        <div className="flex flex-col m-4 p-2 font-bold">
           <label htmlFor="username">Username</label>
           <input
-            className="py-4 m-2 bg-gray-350 rounded"
+            className="py-4 m-1  bg-gray-350 rounded"
             type="username"
             name="username"
             value={values.username || ""}
             onChange={handleChange}
           ></input>
         </div>
-        <div>
+        <div className="flex flex-col m-4 p-2 font-bold">
           <label htmlFor="password">Password</label>
           <input
-            className="py-4 m-2 bg-gray-350 rounded"
+            className="py-4 m-1 bg-gray-350 rounded"
             type="password"
             name="password"
             value={values.password || ""}
