@@ -127,12 +127,8 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
   let message;
   if (authorizedUser != null && messaging === true) {
     message = <Message recieverUserId={item.itemUserId} itemId={item.itemId} />;
-  } else if (messaging === true) {
-    message = (
-      <div className="border-2 border-white rounded m-1 p-1">
-        <h1>Please login to write a comment :)</h1>
-      </div>
-    );
+  } else if (authorizedUser == null && messaging === true) {
+    message = <Message recieverUserId={item.itemUserId} itemId={item.itemId} />;
     // hide message seller and save vehicle input if the user isnt signed in.
     // or just notify them they need to login.
   }

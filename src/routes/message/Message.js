@@ -44,7 +44,7 @@ export default function Message({ recieverUserId, itemId }) {
       setMessagesFromApi(messagesFromApi);
     };
     initMessages();
-  }, [authorizedUser.userId, recieverUserId, itemId]);
+  }, [recieverUserId, itemId]);
 
   let displayedComponent;
   if (authorizedUser && authorizedUser.userId) {
