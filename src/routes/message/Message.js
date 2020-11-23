@@ -7,11 +7,7 @@ export default function Message({ recieverUserId, itemId }) {
   const [messagesFromApi, setMessagesFromApi] = useState(null);
 
   let initMessages = async () => {
-    let messagesFromApi = await getAllMessages(
-      authorizedUser.userId,
-      recieverUserId,
-      itemId
-    );
+    let messagesFromApi = await getAllMessages(itemId);
     setMessagesFromApi(messagesFromApi);
   };
 
