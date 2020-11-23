@@ -6,7 +6,8 @@ export const sendNewMessage = async (
   senderUserId,
   recieverUserId,
   itemId,
-  messageBody
+  messageBody,
+  senderUsername
 ) => {
   const newMessage = {
     senderUserId: senderUserId,
@@ -19,7 +20,7 @@ export const sendNewMessage = async (
   let returnValue;
   try {
     await Axios.post(
-      `${API}/messages/sendNewMessage/${senderUserId}/${recieverUserId}`,
+      `${API}/messages/sendNewMessage/${senderUserId}/${recieverUserId}/${senderUsername}`,
       newMessage
     ).then(async (response) => {
       console.log(response);

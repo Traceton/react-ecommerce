@@ -18,7 +18,8 @@ export default function Message({ recieverUserId, itemId }) {
         authorizedUser.userId,
         recieverUserId,
         itemId,
-        messageBody
+        messageBody,
+        authorizedUser.username
       );
       initMessages();
     } else {
