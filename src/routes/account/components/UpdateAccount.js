@@ -3,7 +3,7 @@ import { UserContext } from "../../../UserContext";
 import { deleteUser } from "../../../UserApi";
 import { updateUser } from "../../../UserApi";
 // import { API } from "../../../UserApi";
-// import { saveUserToSessionStorage } from "../../../SessionStorageApi";
+import { saveUserToSessionStorage } from "../../../SessionStorageApi";
 import useForm from "../../../utils/useForm";
 import "../styles/updateAccount.css";
 // import Axios from "axios";
@@ -47,6 +47,7 @@ export default function UpdateAccount({ setisUpdating }) {
       const response = await updateUser(values, profilePic);
       // below is currently working
       await setAuthorizedUser(values);
+      await saveUserToSessionStorage(values);
       console.log(`update account -> ${response.firstName}`);
     } catch (error) {
       console.log(`update account js error ${error}`);
