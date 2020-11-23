@@ -82,11 +82,17 @@ export default function Message({ recieverUserId, itemId }) {
       </div>
     );
   } else if (!authorizedUser) {
-    displayedComponent = <div>{displayedPreviousMessages}</div>;
+    displayedComponent = (
+      <div>
+        {displayedPreviousMessages}
+        <hr />
+        <h1 className="font-bold">Please login to leave a comment</h1>
+      </div>
+    );
   }
 
   return (
-    <div className="h-auto w-11/12 bg-gray-350 rounded m-1 p-1">
+    <div className="h-auto w-11/12 bg-gray-350 rounded m-1 p-1 text-2xl">
       {displayedComponent}
     </div>
   );
