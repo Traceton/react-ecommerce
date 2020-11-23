@@ -53,7 +53,9 @@ export default function Inventory({ category }) {
         }}
       >
         <div className=" bg-blue-500 rounded m-2 p-2">
-          <h1 className="m-1 p-1 ">No items found. Please list a item.</h1>
+          <a href="/sell">
+            <h1 className="">No items found. Please list a item.</h1>
+          </a>
         </div>
       </div>
     );

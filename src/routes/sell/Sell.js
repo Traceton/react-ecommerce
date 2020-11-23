@@ -6,10 +6,11 @@ import Login from "../account/components/Login";
 
 export default function Sell() {
   const [itemCategory, setItemCategory] = useState(null);
+  const { authorizedUser } = useContext(UserContext);
 
   const americanFlagPic =
     "https://images.unsplash.com/photo-1603417406253-4c65c06974c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80";
-  const { authorizedUser } = useContext(UserContext);
+
   const initialValues = {
     itemName: "Test name",
     itemPrice: 123,
@@ -180,7 +181,7 @@ export default function Sell() {
         >
           <h1 className="text-4xl font-bold">Sell a {itemCategory}</h1>
           <br />
-          <label htmlFor="itemPicture">Item Pictures</label>
+          <label htmlFor="itemPicture">Vehicle Pictures</label>
           <input
             className="bg-gray-350 rounded text-center p-1"
             name="itemPicture"
@@ -194,7 +195,7 @@ export default function Sell() {
           ></input>
 
           <br />
-          <label htmlFor="itemDescription">itemDescription</label>
+          <label htmlFor="itemDescription">Vehicle Description</label>
           <input
             className="bg-gray-350 rounded text-center p-1"
             type="itemDescription"
@@ -203,7 +204,7 @@ export default function Sell() {
             onChange={handleChange}
           ></input>
           <br />
-          <label htmlFor="itemPrice">itemPrice</label>
+          <label htmlFor="itemPrice">Vehicle Price</label>
           <input
             className="bg-gray-350 rounded text-center p-1"
             type="itemPrice"
@@ -213,7 +214,7 @@ export default function Sell() {
           ></input>
           <br />
 
-          <label htmlFor="itemLocation">itemLocation</label>
+          <label htmlFor="itemLocation">Vehicle Location</label>
           <input
             className="bg-gray-350 rounded text-center p-1"
             type="itemLocation"
@@ -222,7 +223,7 @@ export default function Sell() {
             onChange={handleChange}
           />
           <br />
-          <label htmlFor="itemYearCreated">itemYearCreated</label>
+          <label htmlFor="itemYearCreated">Vehicle Year</label>
           <input
             className="bg-gray-350 rounded text-center p-1"
             required
@@ -232,7 +233,7 @@ export default function Sell() {
             onChange={handleChange}
           />
           <br />
-          <label htmlFor="itemMake">itemMake</label>
+          <label htmlFor="itemMake">Vehicle Make</label>
           <input
             className="bg-gray-350 rounded text-center p-1"
             required
@@ -242,7 +243,7 @@ export default function Sell() {
             onChange={handleChange}
           />
           <br />
-          <label htmlFor="itemModel">itemModel</label>
+          <label htmlFor="itemModel">Vehicle Model</label>
           <input
             className="bg-gray-350 rounded text-center p-1"
             required
