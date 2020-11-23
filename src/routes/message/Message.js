@@ -32,7 +32,9 @@ export default function Message({ recieverUserId, itemId }) {
   if (messagesFromApi) {
     messagesFromApi.map((message) => {
       return displayedPreviousMessages.push(
-        <h1 key={message.messageId}>{message.messageBody}</h1>
+        <h1 key={message.messageId}>
+          {message.messageBody} -{message.senderUsername}
+        </h1>
       );
     });
   } else {
