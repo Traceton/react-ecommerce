@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../UserContext";
-import { sendNewMessage, getMessages } from "../../MessageApi";
+import { sendNewMessage, getAllMessages } from "../../MessageApi";
 export default function Message({ recieverUserId, itemId }) {
   const { authorizedUser } = useContext(UserContext);
   const [messageBody, setmessageBody] = useState(null);
   const [messagesFromApi, setMessagesFromApi] = useState(null);
 
   let initMessages = async () => {
-    let messagesFromApi = await getMessages(
+    let messagesFromApi = await getAllMessages(
       authorizedUser.userId,
       recieverUserId,
       itemId
@@ -44,18 +44,14 @@ export default function Message({ recieverUserId, itemId }) {
 
   useEffect(() => {
     let initMessages = async () => {
-      let messagesFromApi = await getMessages(
-        authorizedUser.userId,
-        recieverUserId,
-        itemId
-      );
+      let messagesFromApi = await getAllMessages(itemId);
       setMessagesFromApi(messagesFromApi);
     };
     initMessages();
   }, [authorizedUser.userId, recieverUserId, itemId]);
 
   let displayedComponent;
-  if (authorizedUser && authorizedUser.userId !== recieverUserId) {
+  if (authorizedUser && authorizedUser.userId) {
     displayedComponent = (
       <div>
         <div>
@@ -86,14 +82,8 @@ export default function Message({ recieverUserId, itemId }) {
         </div>
       </div>
     );
-  } else if (authorizedUser && authorizedUser.userId === recieverUserId) {
-    displayedComponent = (
-      <div>
-        <h1>This is your listing, You can't message yourself :)</h1>
-      </div>
-    );
-  } else {
-    displayedComponent = <h1>Please login to send a message</h1>;
+  } else if (!authorizedUser) {
+    displayedComponent = <div>{displayedPreviousMessages}</div>;
   }
 
   return (

@@ -45,3 +45,18 @@ export const getMessages = async (senderUserId, recieverUserId, itemId) => {
     return console.log("Message api get messages error");
   }
 };
+
+export const getAllMessages = async (itemId) => {
+  let returnValue;
+  try {
+    await Axios.get(`${API}/messages/getAllMessagesWithItemId/${itemId}`).then(
+      async (response) => {
+        console.log(response);
+        returnValue = await response.data;
+      }
+    );
+    return returnValue;
+  } catch (error) {
+    return console.log("Message api get all messages error");
+  }
+};
