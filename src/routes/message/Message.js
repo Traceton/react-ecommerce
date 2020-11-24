@@ -32,9 +32,12 @@ export default function Message({ recieverUserId, itemId }) {
   if (messagesFromApi) {
     messagesFromApi.map((message) => {
       return displayedPreviousMessages.push(
-        <h1 key={message.messageId}>
-          {message.messageBody} -{message.senderUsername}
-        </h1>
+        <div key={message.messageId}>
+          <h1>
+            {message.messageBody} -{message.senderUsername}
+          </h1>
+          <hr />
+        </div>
       );
     });
   } else {
@@ -85,7 +88,6 @@ export default function Message({ recieverUserId, itemId }) {
     displayedComponent = (
       <div>
         {displayedPreviousMessages}
-        <hr />
         <h1 className="font-bold">Please login to leave a comment</h1>
       </div>
     );
