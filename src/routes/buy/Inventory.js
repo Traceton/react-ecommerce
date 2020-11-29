@@ -36,7 +36,11 @@ export default function Inventory({ category }) {
     inventoryItems.map((item) => {
       return items.push(
         //   adjusts width of each element here
-        <div className="flex " key={item._id}>
+        // should only be able to have a row of 2 items when md screen or larger
+        <div
+          className="flex md:w-1/2 md:h-48 justify-around md:justify-center md:self-start "
+          key={item._id}
+        >
           <InventoryItemPreview key={item._id} inventoryItem={item} />{" "}
         </div>
       );
@@ -68,7 +72,7 @@ export default function Inventory({ category }) {
   //   MAKE THIS UTILIZE GRID AND LOOK LIKE FACEBOOK MARKETPLACE.
   return (
     <div
-      className=" flex flex-col min-h-screen "
+      className=" flex flex-col md:flex-row min-h-screen "
       style={{
         backgroundImage: "url(" + americanFlagPic + ")",
         backgroundPosition: "center",
