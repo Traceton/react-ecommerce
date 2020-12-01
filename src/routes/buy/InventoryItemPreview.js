@@ -58,13 +58,13 @@ export default function InventoryItemPreview({ inventoryItem }) {
   } else {
     return (
       <div
-        className="flex flex-row justify-evenly w-screen md:w-3/4 bg-blue-500 rounded m-1 p-1 text-white text-xl h-40 md:h-3/4 md:self-center"
+        className="flex flex-row  md:flex-col justify-evenly w-screen md:w-auto bg-blue-500 rounded m-1 p-1 text-white text-xl h-40 md:h-auto md:self-start"
         onClick={() => {
           setisItemPreview(!isItemPreview);
         }}
       >
         <div
-          className="w-64  "
+          className="w-64 md:h-40 "
           style={{
             backgroundImage: "url(" + itemPic + ")",
             backgroundPosition: "center",

@@ -37,7 +37,7 @@ export default function Inventory({ category }) {
       return items.push(
         //   adjusts width of each element here
         <div
-          className="flex md:w-1/2 md:h-48 justify-around md:place-content-center md:place-self-center "
+          className="flex justify-around  md:place-self-stretch "
           key={item._id}
         >
           <InventoryItemPreview key={item._id} inventoryItem={item} />{" "}
@@ -72,7 +72,7 @@ export default function Inventory({ category }) {
   return (
     <div
       // should only be able to have a row of 2 items when md screen or larger
-      className=" flex flex-col  md:grid md:grid-cols-2  md:gap-4 min-h-screen "
+      className=" flex flex-col  md:grid md:grid-cols-3 min-h-screen "
       style={{
         backgroundImage: "url(" + americanFlagPic + ")",
         backgroundPosition: "center",
