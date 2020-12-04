@@ -71,8 +71,7 @@ export default function Inventory({ category }) {
   //   MAKE THIS UTILIZE GRID AND LOOK LIKE FACEBOOK MARKETPLACE.
   return (
     <div
-      // should only be able to have a row of 2 items when md screen or larger
-      className=" flex flex-col  md:grid md:grid-cols-3 min-h-screen "
+      className="min-h-screen"
       style={{
         backgroundImage: "url(" + americanFlagPic + ")",
         backgroundPosition: "center",
@@ -80,7 +79,11 @@ export default function Inventory({ category }) {
         backgroundRepeat: "repeat",
       }}
     >
-      {items}
+      <div // should only be able to have a row of 2 items when md screen or larger
+        className=" flex flex-col  md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-2 "
+      >
+        {items}
+      </div>
     </div>
   );
 }
