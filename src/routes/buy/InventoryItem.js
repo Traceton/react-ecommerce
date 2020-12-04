@@ -135,11 +135,10 @@ export default function InventoryItem({ inventoryItem, setisItemPreview }) {
 
   let itemPic = `${API}/inventoryItems/images/${item.itemId}`;
   return (
-    <div className="flex flex-col justify-start w-11/12 bg-blue-500 rounded m-1 p-1 text-white text-xl h-auto md:h-screen">
+    <div className="flex flex-col justify-start w-full  bg-blue-500 rounded m-1 p-1 text-white text-xl h-auto ">
       <div
-        className="rounded m-1 p-1 "
+        className="rounded h-64 md:w-full md:h-64 "
         style={{
-          height: "30vh",
           backgroundImage: "url(" + itemPic + ")",
           backgroundPosition: "center",
           backgroundSize: "cover",
