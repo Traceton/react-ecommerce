@@ -58,7 +58,7 @@ export default function InventoryItemPreview({ inventoryItem }) {
   } else {
     return (
       <div
-        className="flex flex-row  md:flex-col justify-evenly w-screen md:w-80 bg-blue-500 rounded m-1 p-1 text-white text-xl h-40 md:h-auto md:self-start"
+        className="flex flex-row  md:flex-col justify-evenly items-center  w-screen md:w-80 bg-blue-500 rounded m-1 p-1 text-white text-xl h-40 md:h-auto md:self-start"
         onClick={() => {
           setisItemPreview(!isItemPreview);
         }}
