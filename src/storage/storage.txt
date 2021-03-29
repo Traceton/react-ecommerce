@@ -1,0 +1,3 @@
+this storage folder should be used to keep things that relate to storage, 
+specifically local storage(the users device). Functions that store things 
+to local storage should all be called here. 

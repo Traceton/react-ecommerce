@@ -1,0 +1,5 @@
+This layout folder is similar to shared Ui. This layout folder holds reusable 
+components that represent a certain part of the page layout. Examples would be
+a navigation bar, a page sidebar, a header, footer etc.
+The components in this folder will use components
+from the shared Ui folder, but not the other way around. 

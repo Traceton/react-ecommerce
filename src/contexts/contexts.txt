@@ -1,0 +1,1 @@
+This context folder should contain any contexts for the application. 

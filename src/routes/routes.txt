@@ -1,0 +1,6 @@
+This routes folder should hold more folders which are labeled by specific routes/domains
+that the user might travel down. Each folder should contain things only related to that 
+domain address. 
+
+authentication(contains sign in, sign up, etc..) is seperate
+from the user folder since it works as a different route in a way. 

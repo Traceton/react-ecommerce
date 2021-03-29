@@ -1,0 +1,2 @@
+This services folder should be where things like the functions that connect to the
+GoGear Server are written. To be called from specific pages in a repeatable way. 
