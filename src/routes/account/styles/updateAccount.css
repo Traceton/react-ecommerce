@@ -1,0 +1,38 @@
+.updateAccount {
+  /* color: white;
+  /* background-image: url("https://images.unsplash.com/photo-1545156521-77bd85671d30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"); */
+  /* height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; */
+}
+
+/* .updateAccount a {
+  text-decoration: none;
+  color: white;
+} */
+
+@media only screen and (max-width: 600px) {
+  /* .updateAccount input {
+    border-style: none;
+    border-radius: 10%;
+    height: 0.1em;
+    background-color: #333;
+    margin: 0.5em;
+    padding: 1em;
+  } */
+}
+@media only screen and (min-width: 600px) {
+  /* .updateAccount input {
+    border-style: none;
+    border-radius: 10%;
+    height: 1em;
+    background-color: #333;
+    margin: 0.5em;
+    padding: 1em;
+  } */
+}

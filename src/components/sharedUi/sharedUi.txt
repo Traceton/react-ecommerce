@@ -1,2 +1,0 @@
-This shared Ui folder is meant to hold reusable ui components, like buttons, 
-custom input fields, modals, that will be shared. 
